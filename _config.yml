@@ -27,7 +27,7 @@ github_username:  mit-zardini-lab
 markdown: kramdown
 encoding: utf-8
 theme: minima
-gems:
+plugins:
   - jekyll-feed
 exclude:
   - Gemfile
