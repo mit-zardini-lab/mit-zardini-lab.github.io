@@ -1,0 +1,127 @@
+---
+title: Publications
+permalink: /publications/
+group: "navigation"
+order: 4
+---
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+  <body id="page-top" class="index">
+  	{% include navbar.html %}
+  	<header>
+      <div class="container">
+        <div class="row">
+          <p>
+            <br><br><br>
+            Please find below an exhaustive link of our lab's publications, including detailed information and supplementary material.
+
+          </p>
+        </div>
+      </div>
+      <div class="white-stripe" style="height: 80px; margin-bottom: 20px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="black-text"><b>Preprints</b></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          {% bibliography -q @unpublished %}
+          </div>
+        </div>
+      </div>
+
+      <div class="white-stripe" style="height: 80px; margin-bottom: 20px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="black-text"><b>Books</b></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          {% bibliography -q @book %}
+          </div>
+        </div>
+      </div>
+
+      <div class="white-stripe" style="height: 80px; margin-bottom: 20px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="black-text"><b>Publications</b></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+      	  <div class="col-md-12">
+          {% bibliography -q @article[keywords!=sub],@inproceedings[keywords!=sub],@incollection,@techreport %}
+      	  </div>
+    	  </div>
+      </div>
+
+      <div class="white-stripe" style="height: 80px; margin-bottom: 20px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="black-text"><b>Patents</b></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          {% bibliography -q @patent %}
+          </div>
+        </div>
+      </div>
+
+      <div class="white-stripe" style="height: 80px; margin-bottom: 20px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="black-text"><b>Lecture Notes and Reports</b></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          {% bibliography -q @report %}
+          </div>
+        </div>
+      </div>
+
+      <div class="white-stripe" style="height: 80px; margin-bottom: 20px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="black-text"><b>Theses</b></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          {% bibliography -q @phdthesis, @thesis %}
+          </div>
+        </div>
+      </div>
+    </header>
+    {% include javascript.html %}
+    {% include footer.html %}
+  </body>
+</html>

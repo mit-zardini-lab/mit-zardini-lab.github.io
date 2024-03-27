@@ -1,0 +1,42 @@
+---
+title: News
+permalink: /news/
+group: "navigation"
+order: 7
+---
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+<body id="page-top" class="index">
+  {% include navbar.html %}
+  <header>
+    <div class="white-stripe" style="margin-bottom: 20px;">
+      <div class="container">
+        <div class="row" style="padding-bottom: 10.4px;">
+          <div class="col-sm-12">
+            <h1 class="black-text"><b>News</b></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          {% for item in site.data.news %}
+            <h3 class="black-text">{{ item.year }}</h3>
+            {% for event in item.events %}
+              <b>{{ event.date }}</b> - {{ event.description }} <br>
+            {% endfor %}
+          {% endfor %}
+          <br>
+          For older news, please check <a href="https://gioele.science/blog" target="_blank"><b>here</b></a>!
+        </div>
+      </div>
+    </div>
+
+  {% include javascript.html %}
+  {% include footer.html %}
+</body>
+</html>

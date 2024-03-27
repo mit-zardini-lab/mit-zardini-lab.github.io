@@ -1,0 +1,53 @@
+<!-- Footer -->
+
+<style>
+  .footer-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px; /* Adjust the margin as needed */
+  }
+
+  .footer-logos img {
+    margin: 0 20px; /* Adjust the margin as needed for spacing between logos */
+    max-width: 100px; /* Set the maximum width for each logo */
+    height: auto; /* Maintain aspect ratio */
+  }
+</style>
+
+<script type="text/javascript">
+function footerAlign() {
+  $('footer').css('display', 'block');
+  $('footer').css('height', 'auto');
+  var footerHeight = $('footer').outerHeight();
+  $('body').css('padding-bottom', footerHeight);
+  $('footer').css('height', footerHeight);
+}
+
+
+$(document).ready(function(){
+  footerAlign();
+});
+
+$( window ).resize(function() {
+  footerAlign();
+});
+</script>
+
+<footer class="footer">
+<div id="social-icons">
+  <a href="https://twitter.com/GioeleZardini" target="_blank"><img src="{{site.baseurl}}/img/ASL_twitter.png" alt=""></a>
+</div>
+
+<div class="footer-logos">
+  <img src="/mit_logo.png" alt="MIT" style="max-width: 130px;">
+  <img src="/lids_logo.png" alt="LIDS">
+  <img src="/idss_logo.png" alt="IDSS">
+  <img src="/mit_cee.png" alt="CEE" style="max-width: 200px;">
+</div>
+
+<div class="copyright-text">
+  © Zardini Lab 2024. All rights reserved. Leveraging Jekyll-Scholar.
+</div>
+</footer>

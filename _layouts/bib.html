@@ -1,0 +1,63 @@
+---
+---
+
+<script>
+	function myFunction(name) {
+	  var x = document.getElementById(name);
+	  if (x.style.display === "none") {
+		x.style.display = "block";
+	  } else {
+		x.style.display = "none";
+	  }
+	}
+	function redirect_blank(url) {
+	  var a = document.createElement('a');
+	  a.target = "_blank";
+	  a.href = url;
+	  a.click();
+	}
+
+	.white_bg 
+{
+    background-color: #8b959e;
+    padding: 3px; /*add this if you want a bit of space around the text*/
+}
+
+	.gray_bg 
+{
+    background-color: #8b959e;
+    padding: 3px; /*add this if you want a bit of space around the text*/
+}
+
+	</script>
+{% assign anchor_title = '<a class="entry-title" href="'| append: entry.url | append: '">“' | append: entry.title | append: ',”</a>' %}
+{% capture entry_status %}{%if entry.keywords contains "sub"%} (Submitted){%endif%}{%if entry.keywords contains "press"%} (In Press){%endif%}{%if entry.keywords contains "prep"%} (In Preparation){%endif%}</span>{% endcapture %} 
+
+{% assign original_title = '“' | append: entry.title | append: ',”' %}
+{{ reference | replace: original_title, anchor_title | replace: '</span class="entry">', entry_status}} 
+<p class="infolinks"><a href="javascript:toggleInfo('{{key}}','bibtex')"><i class="fa fa-quote-right"></i> BibTeX&nbsp &nbsp</a>  
+	<a href="javascript:toggleInfo('{{key}}','abstract')"><i class="fa fa-align-left"></i> Abstract&nbsp</a>
+	{% if {{entry.video_show}} %}
+	<a href="{{entry.video}}" target="_blank"><i class="fa fa-youtube-play"></i> Talk&nbsp</a>
+	{% endif %}
+	{% if {{entry.slides_show}} %}
+	<a href="{{entry.slides}}" target="_blank"><i class="fa fa-picture-o"></i> Slides&nbsp</a>
+	{% endif %}
+	{% if {{entry.press_show}} %}
+	<a href="{{entry.press}}" target="_blank"><i class="fa fa-newspaper-o"></i> Press</a>
+	{% endif %}
+
+</span>
+</p>
+<span id="bib_{{key}}" class="bibtex noshow">
+	<pre>{{ entry.bibtex }}</pre>
+</span>
+<span id="abs_{{key}}" class="abstract noshow" class="gray_bg">
+	<p class="abstract"><b>Abstract:</b> {{entry.abstract}}</p>
+</span>
+
+
+<!-- <span id="key_{{key}}" >
+	<b>Keywords</b>:
+	{{ entry.keywords }}
+</span> -->
