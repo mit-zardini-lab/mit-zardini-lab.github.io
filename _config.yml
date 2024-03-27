@@ -29,6 +29,7 @@ encoding: utf-8
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-scholar
 exclude:
   - Gemfile
   - Gemfile.lock
