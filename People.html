@@ -54,7 +54,7 @@ order: 3
         </div>
         <div class="container">
         {% assign loopindex = 0 %}
-        {% for person in sortedPeople %}{% if person.position == "postdoc" or person.position == "phdcee" or person.position == "phdeecs" or person.position == "phdidss" %}   
+        {% for person in sortedPeople %}{% if person.position == "postdoc" or person.position == "phdcee" or person.position == "phdeecs" or person.position == "phdidss" or person.position == "phdtr"%}   
           {% assign loopindex = loopindex | plus: 1 %}
           {% assign rowfinder = loopindex | modulo: 4 %}
           {% if rowfinder == 1 %}
@@ -71,6 +71,8 @@ order: 3
               <p class="person-position">Graduate Student (CEE)</p>
               {% elsif person.position == "phdidss" %}
               <p class="person-position">Graduate Student (SES)</p>
+              {% elsif person.position == "phdtr" %}
+              <p class="person-position">Graduate Student (TR)</p>
               {% endif %}
               <hr class="person-sep">
               <p class="person-excerpt">{{ person.excerpt }}</p>
@@ -85,41 +87,7 @@ order: 3
         {% endif %}
         </div>
 
-        <div class="white-stripe" style="height: 80px; margin-bottom: 40px;">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12">
-                <h1 class="black-text"><b>External Research Affiliates</b></h1>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-        {% assign loopindex = 0 %}
-        {% for person in sortedPeople %}{% if person.position == "externalresearchaffiliate" %}   
-          {% assign loopindex = loopindex | plus: 1 %}
-          {% assign rowfinder = loopindex | modulo: 4 %}
-          {% if rowfinder == 1 %}
-          <div class="row person-row">
-          {% endif %}
-            <div class="col-3 col-sm-3 col-md-3">
-              <a href={{person.url}}><img class="img-responsive img-resize fixed-image" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}"></a>
-              <h6 class="person-name"><a href={{person.url}}>{{ person.title }}</a></h6>
-              <hr class="person-sep">
-              <p class="person-position">{{ person.current }}</p>
-              <!-- <p class="person-excerpt">{{ person.excerpt }}</p> -->
-            </div>
-          {% if rowfinder == 0 %}
-          </div>
-          {% endif %}
-        {% endif %}{% endfor %}
-        {% if rowfinder != 0 %}
-          <!-- In case the last row has < 4 people. -->
-          </div>
-        {% endif %}
-      </div>
-
-  
+        
 
       <div class="white-stripe" style="margin-bottom: 25px;">
         <div class="container">
@@ -154,6 +122,37 @@ order: 3
           </div>
         {% endif %}
       </div>
+
+      <div class="white-stripe" style="height: 80px; margin-bottom: 40px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="black-text"><b>Research Affiliates</b></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+      We often work with exceptional researchers beyond our core group, inside and outside MIT.
+      Here is a list of the current collaborators. <br>
+      {% assign loopindex = 0 %}
+      {% for person in sortedPeople %}{% if person.position == "externalresearchaffiliate" %}   
+        {% assign loopindex = loopindex | plus: 1 %}
+        {% assign rowfinder = loopindex | modulo: 4 %}
+        {% if rowfinder == 1 %}
+        {% endif %}
+        <h6 class="person-name"><a href={{person.url}}>{{ person.title }}</a> ({{ person.current }})</h6>
+            <!-- <p class="person-excerpt">{{ person.excerpt }}</p> -->
+        {% if rowfinder == 0 %}
+        {% endif %}
+      {% endif %}{% endfor %}
+      {% if rowfinder != 0 %}
+        <!-- In case the last row has < 4 people. -->
+        </div>
+      {% endif %}
+    </div>
+
+
 
 
       <div class="white-stripe" style="height: 80px; margin-bottom: 40px;">
