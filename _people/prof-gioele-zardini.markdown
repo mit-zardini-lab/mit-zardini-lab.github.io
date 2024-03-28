@@ -38,4 +38,4 @@ His interests include the co-design complex systems, all the way from future mob
 
 He is the recipient of an award (keynote talk) at the 2021 Applied Category Theory Conference, and of the Best Paper Award (1st Place) at the 2021 24th IEEE International Conference on Intelligent Transportation Systems (ITSC).
 		
-He created the <em>Autonomy Talks</em>. Check out the <a href="https://idsc.ethz.ch/research-frazzoli/autonomy-talks.html" target="_blank" style="color: blue;">webpage</a>, and have a look at the (over 150) <a href="https://www.youtube.com/playlist?list=PLOjPogOkotlO-nrJ1Pw2hWMpqh7E-_L97" target="_blank" style="color: blue;">recorded talks</a>.
+He created the <em>Autonomy Talks</em>. Check out the <a href="https://idsc.ethz.ch/research-frazzoli/autonomy-talks.html" target="_blank" style="color: blue;">webpage</a>, and have a look at the (over 180) <a href="https://www.youtube.com/playlist?list=PLOjPogOkotlO-nrJ1Pw2hWMpqh7E-_L97" target="_blank" style="color: blue;">recorded talks</a>.

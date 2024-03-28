@@ -17,9 +17,10 @@ title: {{site.title}}
           {% assign num_phdscee = site.people | where: "position","phdcee" | size %}
           {% assign num_phdseecs = site.people | where: "position","phdeecs" | size %}
           {% assign num_phdsidss = site.people | where: "position","phdidss" | size %}
+          {% assign num_phdstr = site.people | where: "position","phdtr" | size %}
           {% assign num_postdocs = site.people | where: "position","postdoc" | size %}
           {% assign num_visiting = site.people | where: "position","visiting" | size %}
-          {% assign num_researchers = 1 | plus: num_phdscee | plus: num_phdseecs | plus: num_phdsidss | plus: num_postdocs | plus: num_visiting %}
+          {% assign num_researchers = 1 | plus: num_phdscee | plus: num_phdseecs | plus: num_phdsidss | plus: num_phdstr | plus: num_postdocs | plus: num_visiting %}
           <p>Driven by societal challenges, the goal of the Zardini Lab at MIT is to <b>develop efficient computational tools and algorithmic approaches to formulate and solve complex, interconnected system design and autonomous decision-making problems.</b> 
             Applications feature society-critical problems in mobility, logistics, autonomy, automotive, aerospace, energy, and complex systems in general.
             The lab, comprised of {{ num_researchers }} researchers equipped with strong mathematical skills and diverse engineering backrounds, solves such problems by employing and enhancing techniques from optimization, control theory, game theory, domain theory, and applied category theory.</p>
