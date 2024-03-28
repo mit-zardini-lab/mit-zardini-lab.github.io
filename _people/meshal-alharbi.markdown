@@ -5,7 +5,7 @@ last:   "Alharbi"
 date:   2024-03-27 00:00:00 -0700
 position: phdeecs
 excerpt: ""
-img: MeshalAlharbi.jpeg
+img: MeshalAlharbi.png
 email: meshal@mit.edu
 linkedin: meshal-h
 gscholar: I-HlCTAAAAAJ
