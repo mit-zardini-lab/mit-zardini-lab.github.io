@@ -30,7 +30,11 @@
 }
 
 	</script>
-{% assign anchor_title = '<a class="entry-title" href="'| append: entry.url | append: '">“' | append: entry.title | append: ',”</a>' %}
+{% if entry.type == 'book' %}
+  {% assign anchor_title = '<a class="entry-title" href="'| append: entry.url | append: '">“' | append: entry.title | append: ',”</a>' %}
+{% else %}
+  {% assign anchor_title = '<a class="entry-title" href="'| append: entry.url | append: '">“' | append: entry.title | append: ',”</a>' %}
+{% endif %}
 {% capture entry_status %}{%if entry.keywords contains "sub"%} (Submitted){%endif%}{%if entry.keywords contains "press"%} (In Press){%endif%}{%if entry.keywords contains "prep"%} (In Preparation){%endif%}</span>{% endcapture %} 
 
 {% assign original_title = '“' | append: entry.title | append: ',”' %}
