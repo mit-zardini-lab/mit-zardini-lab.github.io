@@ -24,9 +24,10 @@ order: 7
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          {% for item in site.data.news %}
+          {% for item in site.data.news reversed %}
             <h3 class="black-text">{{ item.year }}</h3>
-            {% for event in item.events %}
+            {% for event in item.events reversed %}
+            <div style="margin-bottom: 10px;"></div>
               <b>{{ event.date }}</b> - {{ event.description }} <br>
             {% endfor %}
           {% endfor %}
@@ -35,7 +36,7 @@ order: 7
         </div>
       </div>
     </div>
-
+  </div>
   {% include javascript.html %}
   {% include footer.html %}
 </body>

@@ -45,6 +45,7 @@ title: {{site.title}}
           {% for item in site.data.news %}
             {% for event in item.events %}
               {% if event_count < 20 %}
+              <div style="margin-bottom: 10px;"></div>
                 <b>{{ event.date }}</b> - {{ event.description }} <br>
                 {% assign event_count = event_count | plus: 1 %}
               {% else %}
@@ -60,6 +61,7 @@ title: {{site.title}}
         </div>
       </div>
     </div>
+  </div>
       
     <br><br><br>
     </div>

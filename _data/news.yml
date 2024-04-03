@@ -1,9 +1,9 @@
 - year: 2024
   events:
+    - date: "4/1/2024"
+      description: "First day of the lab's website! We will officially hit the ground in the Fall."
     - date: "4/2/2024"
       description: "Our work <a href='https://www.research-collection.ethz.ch/handle/20.500.11850/655029'>'On the Co-Design of Components and Racing Strategies in Formula 1'</a> has been accepted in the 2024 IEEE Intelligent Vehicles Symposium. This is exciting work in collaboration with ETH and Ferrari!"
-    - date: "4/2/2024"
-      description: "First day of the lab's website! We will officially hit the ground in the Fall."
     - date: "4/3/2024"
       description: "Prof. Zardini gave a talk at the MIT Mobility Forum, kindly hosted by Prof. Jinhua Zhao. Have a look at the <a href='https://www.youtube.com/watch?v=x5pk0I5cHUk'> recording</a>!"
 
