@@ -54,7 +54,7 @@ order: 3
         </div>
         <div class="container">
         {% assign loopindex = 0 %}
-        {% for person in sortedPeople %}{% if person.position == "postdoc" or person.position == "phdcee" or person.position == "phdeecs" or person.position == "phdidss" or person.position == "phdtr"%}   
+        {% for person in sortedPeople %}{% if person.position == "postdoc" or person.position == "phdcee" or person.position == "phdeecs" or person.position == "phdidss" or person.position == "phdtr" or person.position == "urop"%}   
           {% assign loopindex = loopindex | plus: 1 %}
           {% assign rowfinder = loopindex | modulo: 4 %}
           {% if rowfinder == 1 %}
@@ -73,6 +73,8 @@ order: 3
               <p class="person-position">Graduate Student (SES)</p>
               {% elsif person.position == "phdtr" %}
               <p class="person-position">Graduate Student (TR)</p>
+              {% elsif person.position == "urop" %}
+              <p class="person-position">UROP</p>
               {% endif %}
               <hr class="person-sep">
               <p class="person-excerpt">{{ person.excerpt }}</p>
