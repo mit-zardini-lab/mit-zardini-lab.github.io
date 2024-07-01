@@ -26,11 +26,11 @@ Doctor of Science ETH Zurich, December 2023
 
 Email: <em>gzardini at mit dot edu</em>
 
-Gioele is the Rudge (1948) and Nancy Allen Career Development Assistant Professor at Massachusetts Institute of Technology. He is a PI in the Laboratory for Information and Decision Systems (LIDS), the Department of Civil and Environmental Engineering (CEE), and an affiliate faculty with the Institute for Data, Systems and Society (IDSS). From January to June 2024 he was a postdoctoral scholar at Stanford University, working with Marco Pavone, sponsored by NASA.
+Gioele is the Rudge (1948) and Nancy Allen Career Development Assistant Professor at Massachusetts Institute of Technology. He is a PI in the Laboratory for Information and Decision Systems (LIDS), the Department of Civil and Environmental Engineering (CEE), and an affiliate faculty with the Institute for Data, Systems and Society (IDSS). 
 
 He received his doctoral degree in 2024 from ETH Zurich, and holds both a BSc. and a MSc. in Mechanical Engineering and Robotics, Systems and control from ETH Zurich.
 
-Before joining MIT as a faculty, he is a Postdoctoral Scholar at Stanford University, and held various visiting positions at nuTonomy Singapore (then Aptiv, now Motional), Stanford, and MIT.
+Before joining MIT as a faculty, he was a Postdoctoral Scholar at Stanford University (January to June 2024), and held various visiting positions at nuTonomy Singapore (then Aptiv, now Motional), Stanford, and MIT.
 
 Driven by societal challenges, the goal of his research is to develop efficient computational tools and algorithmic approaches to formulate and solve complex, interconnected system design and autonomous decision making problems.
 
