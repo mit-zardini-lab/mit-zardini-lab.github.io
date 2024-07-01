@@ -12,7 +12,7 @@ linkedin: gioele-zardini-9459a1155
 gscholar: 0c3J5KUAAAAJ
 ---
 
-Assistant Professor
+Rudge (1948) and Nancy Allen Career Development Assistant Professor
 
 Department of Civil and Environmental Engineering
 
@@ -26,7 +26,7 @@ Doctor of Science ETH Zurich, December 2023
 
 Email: <em>gzardini at mit dot edu</em>
 
-Gioele will be an Assistant Professor at the Massachusetts Institute of Technology from fall 2024, where he is part of the Department of Civil and Environmental Engineering, a Principal Investigator in the Laboratory for Information and Decision Systems, and an Affiliated Faculty with the Institute for Data, Systems and Society.
+Gioele is the Rudge (1948) and Nancy Allen Career Development Assistant Professor at Massachusetts Institute of Technology. He is a PI in the Laboratory for Information and Decision Systems (LIDS), the Department of Civil and Environmental Engineering (CEE), and an affiliate faculty with the Institute for Data, Systems and Society (IDSS). From January to June 2024 he was a postdoctoral scholar at Stanford University, working with Marco Pavone, sponsored by NASA.
 
 He received his doctoral degree in 2024 from ETH Zurich, and holds both a BSc. and a MSc. in Mechanical Engineering and Robotics, Systems and control from ETH Zurich.
 

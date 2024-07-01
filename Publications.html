@@ -74,6 +74,23 @@ order: 4
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
+              <h1 class="black-text"><b>Refereed Workshop Papers</b></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+      	  <div class="col-md-12">
+          {% bibliography -q @misc[keywords!=sub]%}
+      	  </div>
+    	  </div>
+      </div>
+
+      <div class="white-stripe" style="height: 80px; margin-bottom: 20px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
               <h1 class="black-text"><b>Patents</b></h1>
             </div>
           </div>
