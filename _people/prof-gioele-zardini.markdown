@@ -12,7 +12,7 @@ linkedin: gioele-zardini-9459a1155
 gscholar: 0c3J5KUAAAAJ
 ---
 
-Rudge (1948) and Nancy Allen Career Development Assistant Professor
+Rudge (1948) and Nancy Allen Assistant Professor
 
 Department of Civil and Environmental Engineering
 
@@ -26,7 +26,7 @@ Doctor of Science ETH Zurich, December 2023
 
 Email: <em>gzardini at mit dot edu</em>
 
-Gioele is the Rudge (1948) and Nancy Allen Career Development Assistant Professor at Massachusetts Institute of Technology. He is a PI in the Laboratory for Information and Decision Systems (LIDS), the Department of Civil and Environmental Engineering (CEE), and an affiliate faculty with the Institute for Data, Systems and Society (IDSS). 
+Gioele is the Rudge (1948) and Nancy Allen Assistant Professor at Massachusetts Institute of Technology. He is a PI in the Laboratory for Information and Decision Systems (LIDS), the Department of Civil and Environmental Engineering (CEE), and an affiliate faculty with the Institute for Data, Systems and Society (IDSS). 
 
 He received his doctoral degree in 2024 from ETH Zurich, and holds both a BSc. and a MSc. in Mechanical Engineering and Robotics, Systems and control from ETH Zurich.
 
@@ -36,6 +36,6 @@ Driven by societal challenges, the goal of his research is to develop efficient 
 
 His interests include the co-design complex systems, all the way from future mobility systems to autonomous systems, compositionality in engineering, planning and control, and game theory.
 
-He is the recipient of an award (keynote talk) at the 2021 Applied Category Theory Conference, and of the Best Paper Award (1st Place) at the 2021 24th IEEE International Conference on Intelligent Transportation Systems (ITSC).
+He is the recipient of an award (keynote talk) at the 2021 Applied Category Theory Conference, the Best Paper Award (1st Place) at the 2021 24th IEEE International Conference on Intelligent Transportation Systems (ITSC), and Amazon and DoE awards.
 		
-He created the <em>Autonomy Talks</em>. Check out the <b><a class="black-link" href="https://zardini.mit.edu/autonomytalks" target="_blank">webpage</a></b>, and have a look at the (over 160) <b><a class="black-link" href="https://www.youtube.com/playlist?list=PLOjPogOkotlO-nrJ1Pw2hWMpqh7E-_L97" target="_blank">recorded talks</a></b>.
+He created the <em>Autonomy Talks</em>. Check out the <b><a class="black-link" href="https://zardini.mit.edu/autonomytalks" target="_blank">webpage</a></b>, and have a look at the (over 180) <b><a class="black-link" href="https://www.youtube.com/playlist?list=PLOjPogOkotlO-nrJ1Pw2hWMpqh7E-_L97" target="_blank">recorded talks</a></b>.
