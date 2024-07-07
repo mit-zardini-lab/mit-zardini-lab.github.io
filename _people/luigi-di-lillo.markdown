@@ -6,7 +6,7 @@ date:   2020-11-03 00:00:00 -0700
 position: externalresearchaffiliate
 excerpt: "TODO"
 img: LuigiDiLillo.jpg
-current: "Coming soon"
+current: "intersection of creativity and technology"
 ---
 
 Luigi Di Lillo is an applied physicist, renowned for his work in advanced mathematical modelling and logical formalism.
