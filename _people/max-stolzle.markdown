@@ -13,6 +13,7 @@ gscholar: yHmOzBsAAAAJ
 twitter: m_stoelzle
 linkedin: maximilian-stoelzle-501a0657
 github: mstoelzle
+orcid: 0000-0002-2608-9758
 ---
 
 Maximilian Stölzle is a Ph.D. candidate at Delft University of Technology, Netherlands working on modeling and control for continuum soft robots. 
@@ -21,9 +22,10 @@ He received a B.S. degree in Mechanical Engineering and an M.S. degree with dist
 Previously, he visited the Planetary Robotics Lab at the European Space Agency working on using self-supervised learning for removing occlusions in terrain maps. His research interests center around developing minimalistic models and control strategies (both model-based and data-driven) for soft robots.
 
 ### Awards:
-- Best Paper Award at 2024 IEEE 7th International Conference on Soft Robotics (RoboSoft).
+- Received the Best Paper Award at the 2024 IEEE 7th International Conference on Soft Robotics (RoboSoft).
+- Cultuurfonds Wetenschapsbeurzen 2024 for a six month research stay at the Massachusetts Institute of Technology.
+- Finalist for the Qualcomm Innovation Fellowship 2024 for Europe.
 - Graduated with distinction from the MSc in Mechanical Engineering at ETH Zurich.
 - Received MathWorks poster award at the RoboSoft 2023 workshop on Reduced-Order Modelling for Soft Robots.
 - Received the Swiss-European Mobility for Traineeship Scholarship for research stay at ESTEC, European Space Agency (ESA).
-- Received the UCL Mechanical Engineering Undergraduate Vacation Studentship for research
-project on Reinforcement Learning Control for Unmanned Surface Vehicles.
+- Received the UCL Mechanical Engineering Undergraduate Vacation Studentship for research project on Reinforcement Learning Control for Unmanned Surface Vehicles.
