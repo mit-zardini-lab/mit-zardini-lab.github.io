@@ -26,6 +26,8 @@ Doctor of Science ETH Zurich, December 2023
 
 Email: <em>gzardini at mit dot edu</em>
 
+Administrative Assistant: <a class="black-link" href="https://www.mit.edu/~oreilly1/lidsreporting_ko.html" target="_blank">Katie O'Reilly</a>
+
 Gioele is the Rudge (1948) and Nancy Allen Assistant Professor at Massachusetts Institute of Technology. He is a PI in the Laboratory for Information and Decision Systems (LIDS), the Department of Civil and Environmental Engineering (CEE), and an affiliate faculty with the Institute for Data, Systems and Society (IDSS). 
 
 He received his doctoral degree in 2024 from ETH Zurich, and holds both a BSc. and a MSc. in Mechanical Engineering and Robotics, Systems and control from ETH Zurich.
