@@ -3,13 +3,14 @@ layout: person
 title:  "Jiaying Yang"
 last:   "Yang"
 date:   2024-02-29 00:00:00 -0700
-position: visiting
+position: alumni
 excerpt: ""
 img: JiayingYang.jpg
 email: jiaying_yang@berkeley.edu
 website: https://tsrc.berkeley.edu/jiaying-yang
 wherefrom: "Visiting student from Tongji University and UC Berkeley"
 linkedin: jiaying-yang-87b6a928b
+current: "UC Berkeley"
 ---
 
 Jiaying is a master student in Transportation at UC Berkeley from Fall 2024. 

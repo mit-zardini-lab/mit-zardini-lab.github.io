@@ -156,6 +156,67 @@ order: 3
         </div>
       {% endif %}
     </div>
+
+    <div class="white-stripe" style="height: 80px; margin-bottom: 40px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1 class="black-text"><b>Alumni</b></h1>
+            {% assign loopindex = 0 %}
+    {% for person in sortedPeople %}{% if person.position == "alumni" %}   
+      {% assign loopindex = loopindex | plus: 1 %}
+      {% assign rowfinder = loopindex | modulo: 4 %}
+      {% if rowfinder == 1 %}
+      {% endif %}
+      <h6 class="person-name"><a href={{person.url}}>{{ person.title }}</a> ({{ person.current }})</h6>
+          <!-- <p class="person-excerpt">{{ person.excerpt }}</p> -->
+      {% if rowfinder == 0 %}
+      {% endif %}
+    {% endif %}{% endfor %}
+    {% if rowfinder != 0 %}
+    {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="white-stripe" style="height: 80px; margin-bottom: 40px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1 class="black-text"><b>Lab Socials</b></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <!-- First Image with Caption -->
+        <div class="col-sm-6">
+          <img src="{{ site.baseurl }}/assets/group_lunch_fall24.png" class="img-fluid" alt="First group meeting over lunch, Fall'24." style="margin-bottom: 10px;">
+          <p class="text-center"><strong>First group meeting over lunch, Fall'24.</strong></p>
+        </div>
+    
+        <!-- Second Image with Caption -->
+        <div class="col-sm-6">
+          <img src="{{ site.baseurl }}/assets/escape_room_fall24_1.png" class="img-fluid" alt="Lab event 2" style="margin-bottom: 10px;">
+          <p class="text-center"><strong>Escape room kick-off event, Fall'24</strong></p>
+        </div>
+      </div>
+    
+      <div class="row">
+        <!-- Third Image with Caption -->
+        <div class="col-sm-6">
+          <img src="{{ site.baseurl }}/assets/escape_room_fall24_2.png" class="img-fluid" alt="Lab event 3" style="margin-bottom: 10px;">
+          <p class="text-center"><strong>Escape room kick-off event, Fall'24.</strong></p>
+        </div>
+    
+        <!-- Fourth Image with Caption -->
+        <div class="col-sm-6">
+          <img src="{{ site.baseurl }}/assets/ice_cream_fall24.png" class="img-fluid" alt="Lab event 4" style="margin-bottom: 10px;">
+          <p class="text-center"><strong>Sugar boost, Fall'24.</strong></p>
+        </div>
+      </div>
+    </div>
     </header>
     {% include javascript.html %}
     {% include footer.html %} 
