@@ -32,5 +32,9 @@
       description: "We gave the first ACT4ED lecture. Check out the <b><a class='black-link' href='https://x.com/GioeleZardini/status/1831396314288157041'> post</a></b>!"
     - date: "9/7/2024"
       description: "Check out the <b><a class='black-link' href='https://cee.mit.edu/faculty-spotlight-gioele-zardini/'> faculty spotlight</a></b> on Gioele."
+    - date: "9/8/2024"
+      description: "We are delighted to kick-off a project with Amazon Robotics on multi-agent motion planning, in the context of an Amazon Research Award we won through the MIT Amazon Science Hub!"
+    - date: "9/13/2024"
+      description: "Gioele gave a talk at the IDS.900 Doctoral Seminar!"
       
 
