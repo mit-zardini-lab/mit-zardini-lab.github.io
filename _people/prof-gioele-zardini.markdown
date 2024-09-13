@@ -14,13 +14,17 @@ gscholar: 0c3J5KUAAAAJ
 
 Rudge (1948) and Nancy Allen Assistant Professor
 
+Massachusetts Institute of Technology
+
 Department of Civil and Environmental Engineering
 
 Laboratory for Information and Decision Systems (PI)
 
 Institute for Data, Systems and Society (Affiliate Faculty)
 
-Massachusetts Institute of Technology
+MIT Mobility Initiative (Affiliate Faculty)
+
+Norman B. Leventhal Center for Advanced Urbanism (Affiliate Faculty)
 
 Doctor of Science ETH Zurich, December 2023
 
