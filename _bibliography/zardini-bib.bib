@@ -631,8 +631,19 @@ abstract={Effective trajectory generation is essential for reliable on-board spa
 
 However, practical trajectory generation requires the scenario to be frequently reconfigured, making the single-scenario approach a potentially impractical solution. To address this challenge, we present a novel trajectory generation framework that generalizes across diverse problem configurations, by leveraging high-capacity transformer neural networks capable of learning from multimodal data sources. Specifically, our approach integrates transformer-based neural network models into the trajectory optimization process, encoding both scene-level information (e.g., obstacle locations, initial and goal states) and trajectory-level constraints (e.g., time bounds, fuel consumption targets) via multimodal representations.
 The transformer network then generates near-optimal initial guesses for non-convex optimization problems, significantly enhancing convergence speed and performance. The framework is validated through extensive simulations and real-world experiments on a free-flyer platform, achieving up to 30% cost improvement and 80% reduction in infeasible cases with respect to traditional approaches, and demonstrating robust generalization across diverse scenario variations.},
-year={2024}
+year={2024},
+url={https://acc25art.github.io}
 }
+
+@unpublished{kim25,
+title={Estimate then Predict: Convex Formulation for Travel Demand Forecasting},
+author={Kim, Youngseo and Zardini, Gioele and Samaranayake, Samitha and Shafiee, Soorosh},
+abstract={The travel demand forecasting model plays a crucial role in evaluating large-scale infrastructure projects, such as the construction of new roads or transit lines. While combined modeling approaches have been explored as a solution to overcome the problem of input/output discrepancies in a sequential four-step modeling process, previous attempts at combined models have encountered challenges in real-world applications, primarily due to their limited behavioral richness or computational tractability. In this study, we propose a novel convex programming approach and present a key theorem demonstrating that the produced optimal solution coincides with the one arising from the hierarchical extended logit model. This model is specifically designed to capture correlations existing in travelers' choices, including similarities among transport modes and route overlaps. The convex property of our model ensures the existence of solutions and naturally offers computational efficiency. The advantages of our proposed model are twofold. First, it provides a single unifying rationale (i.e., utility/entropy maximization) that is valid across all steps. Second, its combined nature allows one to systematically handle observed data, enabling a better representation of reality. Our convex programming approach shows promise in enhancing the accuracy and applicability of travel demand forecasting, thereby aiding in the decision-making processes for infrastructure projects.},
+year={2024},
+url={https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4977199}
+}
+
+
 
 @misc{tresca24,
 title={Benchmarking Reinforcement Learning for Network-level Coordination of Autonomous Mobility-on-Demand Systems Across Scales},
