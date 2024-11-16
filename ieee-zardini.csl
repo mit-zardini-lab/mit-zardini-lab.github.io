@@ -285,6 +285,7 @@
             <text variable="genre"/>
             <text macro="publisher"/>
             <text macro="issued"/>
+            <text macro="note" font-weight="bold"/>
           </group>
         </else-if>
         <else-if type="webpage post-weblog" match="any">
