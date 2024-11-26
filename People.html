@@ -54,7 +54,7 @@ order: 3
         </div>
         <div class="container">
         {% assign loopindex = 0 %}
-        {% for person in sortedPeople %}{% if person.position == "postdoc" or person.position == "phdcee" or person.position == "mtsdmeecs" or person.position == "phdeecs" or person.position == "phdidss" or person.position == "phdtr" or person.position == "urop" or person.position == "phdme"%}   
+        {% for person in sortedPeople %}{% if person.position == "postdoc" or person.position == "phdcee" or person.position == "mtsdmeecs" or person.position == "mst" or person.position == "phdeecs" or person.position == "phdidss" or person.position == "phdtr" or person.position == "urop" or person.position == "phdme"%}   
           {% assign loopindex = loopindex | plus: 1 %}
           {% assign rowfinder = loopindex | modulo: 4 %}
           {% if rowfinder == 1 %}
@@ -65,6 +65,8 @@ order: 3
               <h6 class="person-name"><a href={{person.url}}>{{ person.title }}</a></h6>
               {% if person.position == "postdoc" %}
               <p class="person-position">Postdoctoral Scholar</p>
+              {% elsif person.position == "mst" %}
+              <p class="person-position">MST</p>
               {% elsif person.position == "mtsdmeecs" %}
               <p class="person-position">MT Student (SDM + EECS)</p>
               {% elsif person.position == "phdeecs" %}
