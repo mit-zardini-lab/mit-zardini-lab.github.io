@@ -501,6 +501,37 @@ year={2023}
   url = {https://ieeexplore.ieee.org/document/10591066},
 }
 
+@unpublished{neumann24-tiv,
+  title={Strategic Co-Design in Formula 1: Balancing Physical Configuration and Race Tactics},
+  author={Neumann, Marc-Philippe and Fieni, Giona and Furia, Francesca and Cerofolini, Alberto and Ravaglioli, Vittorio and Onder, Christopher H. and Zardini, Gioele},
+  year={2024},
+  volume = {},
+  number = {},
+  abstract= {The development of high performance Formula 1 vehicles is a challenging undertaking. Due to the high complexity of the system, the possibilities to increase efficiency and thus enhance performance in many different subsystems are integral part of a successful vehicle. This research presents a novel multi-objective optimization approach based on applied category theory, which tackles the interdisciplinarity arising from multiple physical subsystems as well as strategic decisions. We first analyze lap-specific aspects and show optimal implementations for the choice of crucial components of a hybrid electric powertrain in racing application. Key objectives include minimizing lap time and short-term component wear, by selecting the optimal components and choosing maximum power deployment. Our op- timization results demonstrate significant differences in optimal configuration depending on track characteristics. Then, we raise the level of abstraction and extend the framework to a race scenario, where we include strategic aspects of the competition by means of data-based models and optimization results. The goals are minimizing race time and component wear, while considering energy allocation strategies, pit stops and uncertainties that might occur. By means of a case study we show the influence of a successful qualifying session on the race strategy and therefore component wear. This study provides a foundational framework for future advancements in racing strategy, advocating continued innovation and adoption within the racing industry.},
+  url = {https://www.research-collection.ethz.ch/handle/20.500.11850/708582},
+}
+
+@unpublished{abbott24-tmlr,
+  title={FlashAttention on a Napkin: A Diagrammatic Approach to Deep Learning IO-Awareness},
+  author={Abbott, Vincent and Zardini, Gioele},
+  year={2024},
+  volume = {},
+  number = {},
+  abstract= {Optimizing deep learning algorithms currently requires slow, manual derivation, potentially leaving much performance untapped.
+  Methods like FlashAttention have achieved a $\times 6$ performance improvement over native PyTorch by avoiding unnecessary data transfers, but required three iterations over three years.
+  Automated compiled methods have consistently lagged behind.
+  GPUs are limited by both transfers to processors and available compute, with transfer bandwidth having improved at a far slower pace.
+  Already, transfer bandwidth accounts for 46\% of GPU energy costs.
+  This indicates the future of energy and capital-efficient algorithms relies on improved consideration of transfer costs (IO-awareness) and a systematic method for deriving optimized algorithms.
+  In this paper, we present a diagrammatic approach to deep learning models which, with simple relabelings, derive optimal implementations and performance models that consider low-level memory.
+  Diagrams generalize down the GPU hierarchy, providing a universal performance model for comparing hardware and quantization choices.
+  Diagrams generate pseudocode, which reveals the application of hardware-specific features such as coalesced memory access, tensor core operations, and overlapped computation.
+  We present attention algorithms for Ampere, which fits 13 warps per SM (FlashAttention fits 8), and for Hopper, which has improved overlapping and may achieve 1.32 PFLOPs.},
+  url = {},
+}
+
+
+
 
 
 @inproceedings{neumann-24-iv,
