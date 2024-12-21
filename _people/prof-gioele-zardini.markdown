@@ -22,6 +22,8 @@ Laboratory for Information and Decision Systems (PI)
 
 Institute for Data, Systems and Society (Affiliate Faculty)
 
+MIT Maritime Consortium (Steering Committee, leading Optimization Vertical)
+
 MIT Mobility Initiative (Affiliate Faculty)
 
 Norman B. Leventhal Center for Advanced Urbanism (Affiliate Faculty)
