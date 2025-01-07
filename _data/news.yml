@@ -52,5 +52,9 @@
       description: "Gioele gave a talk at Politecnico di Milano."
     - date: "12/19/2024"
       description: "Our paper on <b><a class='black-link' href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4950974'>Strategic Pricing and Routing to Maximize Profit in Congested Roads Considering Interactions with Travelers</a></b> has been accepted for publication in the IEEE Transactions on Control of Network Systems. Check out the <b><a class='black-link' href='https://www.youtube.com/watch?v=b0xBSx9fSw4'>teaser</a></b>!"
-
-
+- year: 2025
+  events:
+    - date: "1/1/2025"
+      description: "If you are at TRB in DC, check out our work 'Estimate then Predict: Convex Formulation for Travel Demand Forecasting', led by Youngseo!"
+    - date: "1/7/2025"
+      description: "Congrats to Yujun for being awarded the OGE Ho-Ching and Han-Ching Fund Award!"

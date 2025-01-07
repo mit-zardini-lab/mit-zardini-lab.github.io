@@ -16,6 +16,7 @@ Currently, his focus is system co-Design, involving developing mathematical theo
 Yujun received his B.Eng. in Mechanical Engineering from Shanghai Jiao Tong University in 2021. He is expected to receive M.Sc. In Robotics, Systems and Control from ETH Zurich in 2024. During the masters, he was fortunate to work on Co-Design theory with Gioele Zardini in Prof. Emilio Frazzoli's group, and on data-driven control methods in Prof. Melanie Zeilinger's group.
 
 ### Awards:
+- OGE Ho-Ching and Han-Ching Fund Award, 2025
 - Thurber Fellowship from MIT CEE, 2024
 - Tsien Hsue-Shen Honor Degree, Shanghai Jiao Tong University, 2021
 - Jin-Long-Yu Scholarship in School of ME, Shanghai Jiao Tong University, 2018
