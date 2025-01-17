@@ -62,3 +62,5 @@
       description: "Check out the <b><a class='black-link' href='https://cee.mit.edu/mit-researchers-awarded-federal-grant-to-enhance-transit-accessibility-for-underserved-communities/'>CEE news</a></b> about our new M-CATS project with U.S. DoE!"
     - date: "1/14/2025"
       description: "Check out the <b><a class='black-link' href='https://cee.mit.edu/mit-students-apply-compositionality-to-real-world-engineering-design-problems/'>CEE news</a></b> about our ACT4ED class at MIT!"
+    - date: "1/17/2025"
+      description: "Two new papers accepted at the 2025 American Control Conference (ACC) in Denver, Colorado! Check them out <b><a class='black-link' href='http://arxiv.org/abs/2409.19409'>here (mobility)</a></b> and <b><a class='black-link' href='https://acc25art.github.io'>here (robotics)</a></b>!"
