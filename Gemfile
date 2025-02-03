@@ -1,34 +1,29 @@
 source "https://rubygems.org"
-ruby RUBY_VERSION
 
-# Hello! This is where you manage which Jekyll version is used to run.
-# When you want to use a different version, change it below, save the
-# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
-#
-#     bundle exec jekyll serve
-#
-# This will help ensure the proper Jekyll version is running.
-# Happy Jekylling!
+# Specify Ruby version explicitly for better compatibility
+ruby "3.1.4"
+
+# Core Jekyll version (latest stable)
 gem "jekyll", "4.3.2"
 
-# This is the default theme for new Jekyll sites. You may change this to anything you like.
+# Theme for Jekyll (Minima)
 gem "minima", "2.5.1"
 
-# for testing
-gem 'html-proofer'
+# Essential plugins
+gem "jekyll-feed"  # Atom feeds
+gem "jekyll-sitemap"  # Auto-generate sitemap.xml for SEO
+gem "jekyll-redirect-from"  # Redirect support
+gem "jekyll-seo-tag"  # SEO meta tags
+gem "jekyll-paginate"  # Pagination support
+gem "jekyll-scholar"  # Manage citations/bibliographies
 
-# redirect to course pages
-gem 'jekyll-redirect-from'
+# For GitHub Pages (Uncomment if deploying to GitHub Pages)
+gem "github-pages", group: :jekyll_plugins
 
-# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
-# uncomment the line below. To upgrade, run `bundle update github-pages`.
-# gem "github-pages", group: :jekyll_plugins
-
-# If you have any plugins, put them here!
-group :jekyll_plugins do
-   gem "jekyll-feed"
-   gem "jekyll-scholar"
-end
-
-# Needed with Ruby3. See https://github.com/jekyll/jekyll/issues/8523
+# Needed for Ruby 3.x (Webrick was removed from the standard library)
 gem "webrick"
+
+# Testing tools
+group :jekyll_plugins do
+  gem "html-proofer"  # Checks broken links and HTML validity
+end
