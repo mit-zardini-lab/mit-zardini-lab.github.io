@@ -45,7 +45,7 @@ jobs:
           path: _site/
 
       - name: Upload pages artifact
-        uses: actions/upload-pages-artifact@v2  # ✅ Keep v2 (v4 does NOT exist)
+        uses: actions/upload-pages-artifact@v4  # ✅ Keep v2 (v4 does NOT exist)
 
   deploy:
     environment:
@@ -57,4 +57,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
