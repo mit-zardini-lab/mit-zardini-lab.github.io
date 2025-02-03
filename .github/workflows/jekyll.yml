@@ -31,7 +31,7 @@ jobs:
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v3  # ✅ Keep v3 (latest supported)
 
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
@@ -39,13 +39,13 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4  # ✅ Updated to v4
+        uses: actions/upload-artifact@v4  # ✅ Correct version (v4 exists)
         with:
           name: site-artifact
           path: _site/
 
       - name: Upload pages artifact
-        uses: actions/upload-pages-artifact@v2  # ✅ Keep v2 (v4 does NOT exist)
+        uses: actions/upload-pages-artifact@v2  # ✅ Use `v2`, NOT `v4`
 
   deploy:
     environment:
@@ -57,4 +57,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v2  # ✅ Use `v2`, NOT `v4`
