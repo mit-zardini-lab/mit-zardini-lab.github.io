@@ -7,10 +7,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # ✅ Uses the latest GitHub runner (currently ubuntu-24.04)
+    runs-on: ubuntu-22.04  # ✅ Forces a GitHub-hosted runner
 
     steps:
-      - name: Debug Runner Information  # ✅ Debugging to check OS version
+      - name: Debug Runner Information  # ✅ Check the actual OS version
         run: |
           echo "Runner OS Information:"
           uname -a
@@ -21,7 +21,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Ruby Manually (Backup)
+      - name: Install Ruby Manually (Backup Plan)
         run: |
           sudo apt update
           sudo apt install -y ruby-full
@@ -30,13 +30,13 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1.4'  # ✅ Use an exact Ruby version
-          bundler-cache: true  # ✅ Enable caching to speed up builds
-          cache-version: 0  # Increment if cache needs resetting
+          ruby-version: '3.1.4'
+          bundler-cache: true
+          cache-version: 0
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v3  # ✅ `v4` does NOT exist yet!
+        uses: actions/configure-pages@v3
 
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
