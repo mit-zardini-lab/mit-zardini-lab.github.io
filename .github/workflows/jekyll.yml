@@ -59,7 +59,10 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2  # ✅ Downgraded to `v2` (v3 does not exist)
+        uses: actions/upload-artifact@v4  # ✅ Upgraded to `v4` (previously `v3`)
+
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v2  # ✅ Keep `v2` (this is still valid)
 
   deploy:
     environment:
