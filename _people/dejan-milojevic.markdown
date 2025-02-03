@@ -6,7 +6,7 @@ date:   2024-03-27 00:00:00 -0700
 position: externalresearchaffiliate
 excerpt: ""
 img: DejanMilojevic.png
-current: "EMPA"
+current: "EMPA and ETH Zurich"
 ---
 
 Dejan Milojevic is a Ph.D. candidate in Robotics, affiliated with both the Institute for Dynamic Systems and Control at ETH Zurich and the Chemical Energy Carriers and Vehicle Systems Laboratory at Empa. 
