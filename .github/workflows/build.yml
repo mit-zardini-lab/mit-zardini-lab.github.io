@@ -1,39 +1,44 @@
-BUILD
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Build webiste
+name: Build website
 
 on:
-  # Runs on pushes targeting the default branch
   pull_request:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  # Build job
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest  # ✅ Uses the latest GitHub runner (currently ubuntu-24.04)
+
     steps:
-      - name: Checkout
+      - name: Debug Runner Information  # ✅ Debugging to check OS version
+        run: |
+          echo "Runner OS Information:"
+          uname -a
+          echo "GitHub Runner Name: $RUNNER_NAME"
+          echo "GitHub Runner OS: $RUNNER_OS"
+          echo "GitHub Runner Arch: $RUNNER_ARCH"
+
+      - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Install Ruby Manually (Backup)
+        run: |
+          sudo apt update
+          sudo apt install -y ruby-full
+          ruby -v
+
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1 # v1.146.0
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1.4' # Not needed with a .ruby-version file
-          bundler-cache: false # runs 'bundle install' and caches installed gems automatically
-          cache-version: 0 # Increment this number if you need to re-download cached gems
+          ruby-version: '3.1.4'  # ✅ Use an exact Ruby version
+          bundler-cache: true  # ✅ Enable caching to speed up builds
+          cache-version: 0  # Increment if cache needs resetting
+
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v3  # ✅ `v4` does NOT exist yet!
+
       - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
