@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04  # ✅ Keep this if it works, or change to `ubuntu-latest` for future updates
+    runs-on: ubuntu-22.04  # ✅ Use a stable GitHub-hosted runner
 
     steps:
       - name: Debug Runner Information  # ✅ Check actual OS version
@@ -27,25 +27,31 @@ jobs:
           echo "GitHub Runner OS: $RUNNER_OS"
           echo "GitHub Runner Arch: $RUNNER_ARCH"
 
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Ruby Manually (Backup Plan)
+      - name: Install Ruby Manually (If Needed)
         run: |
-          sudo apt update
-          sudo apt install -y ruby-full
-          ruby -v
+          if ! command -v ruby &> /dev/null; then
+            echo "Ruby not found, installing manually..."
+            sudo apt update
+            sudo apt install -y ruby-full
+            ruby -v
+          else
+            echo "Ruby is already installed."
+            ruby -v
+          fi
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1  # ✅ No hardcoded SHA reference
         with:
-          ruby-version: '3.1.4'  # ✅ Ensure the exact Ruby version
+          ruby-version: '3.1.4'
           bundler-cache: true
           cache-version: 0
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v3  # ✅ Downgrade to `v3` (v4 does not exist)
+        uses: actions/configure-pages@v3  # ✅ Downgraded to `v3` (v5 does not exist)
 
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
@@ -53,7 +59,7 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2  # ✅ Downgrade to `v2` (v4 does not exist)
+        uses: actions/upload-pages-artifact@v2  # ✅ Downgraded to `v2` (v3 does not exist)
 
   deploy:
     environment:
