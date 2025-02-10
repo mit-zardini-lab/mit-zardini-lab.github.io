@@ -7,7 +7,7 @@ position: urop
 excerpt: ""
 img: NatashaParker.jpeg
 email: naparker@mit.edu
-linkedin: www.linkedin.com/in/natasha-parker-81b05934b/
+linkedin: natasha-parker-81b05934b
 ---
 
 Natasha is an undergraduate student double majoring in Mathematics and Business Analytics with a minor in Science and Technology Policy at MIT. Her current research interests include mobility systems and optimization. Her work in Zardini Lab will focus on optimizing a routing algorithm for a mobility-on-demand system.
