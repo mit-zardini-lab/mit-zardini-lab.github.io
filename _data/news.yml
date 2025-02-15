@@ -70,3 +70,5 @@
       description: "Mingjia is a finalist for the Best Student Paper Award at ACC'25 with our paper on Strategic Interactions in Network Design. Winners to be announced in July."
     - date: "2/7/2025"
       description: "Gioele gave the EEE Keynote Address at Columbia University, NYC, USA."
+    - date: "2/14/2025"
+      description: "Our <b><a class='black-link' href='https://arxiv.org/abs/2412.03317'>paper</a></b> on diagrammatic formalization of architectures has been accepted to Transactions on Machine Learning Research! Check it out!"
