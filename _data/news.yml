@@ -74,3 +74,5 @@
       description: "Our <b><a class='black-link' href='https://arxiv.org/abs/2412.03317'>paper</a></b> on diagrammatic formalization of architectures has been accepted to Transactions on Machine Learning Research! Check it out!"
     - date: "2/24/2025"
       description: "Gioele gave a short keynote at the CEE Research Day. More importantly, Rita won the second place at the annual Best Posters Competition. She did a great job with her UROP!"
+    - date: "2/28/2025"
+      description: "Check out this new article on MIT News (featured as spotlight today!!!) about our work on <b><a class='black-link' href='https://news.mit.edu/2025/sometimes-when-competitors-collaborate-everybody-wins-0227'>co-opetitive network design</a></b>!"
