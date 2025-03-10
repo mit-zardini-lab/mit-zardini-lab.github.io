@@ -78,3 +78,5 @@
       description: "Check out this new article on MIT News (featured as spotlight today!!!) about our work on <b><a class='black-link' href='https://news.mit.edu/2025/sometimes-when-competitors-collaborate-everybody-wins-0227'>co-opetitive network design</a></b>!"
     - date: "3/5/2025"
       description: "Gioele was in a panel on the future of systems engineering at CAS 2025 at MIT."
+    - date: "3/10/2025"
+      description: "Our paper on Task-Driven Co-Design of Perception and Decision Making for Mobile Robots Applied to Autonomous Vehicles has been accepted to the IEEE Transactions on Robotics. Check it out <b><a class='black-link' href='https://www.research-collection.ethz.ch/handle/20.500.11850/672201'>here</a></b>!"
