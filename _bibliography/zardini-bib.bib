@@ -510,14 +510,13 @@ year={2023}
   url = {https://www.research-collection.ethz.ch/handle/20.500.11850/708582},
 }
 
-@article{abbott24-tmlr,
-  title={FlashAttention on a Napkin: A Diagrammatic Approach to Deep Learning IO-Awareness},
-  author={Abbott, Vincent and Zardini, Gioele},
-  year={2025},
-  volume = {},
-  number = {},
-  journal= {Transactions on Machine Learning Research (In Press)},
-  abstract= {Optimizing deep learning algorithms currently requires slow, manual derivation, potentially leaving much performance untapped.
+@article{abbott2025flashattention,
+title={FlashAttention on a Napkin: A Diagrammatic Approach to Deep Learning {IO}-Awareness},
+author={Vincent Abbott and Gioele Zardini},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2025},
+abstract= {Optimizing deep learning algorithms currently requires slow, manual derivation, potentially leaving much performance untapped.
   Methods like FlashAttention have achieved a $\times 6$ performance improvement over native PyTorch by avoiding unnecessary data transfers, but required three iterations over three years.
   Automated compiled methods have consistently lagged behind.
   GPUs are limited by both transfers to processors and available compute, with transfer bandwidth having improved at a far slower pace.
@@ -527,8 +526,9 @@ year={2023}
   Diagrams generalize down the GPU hierarchy, providing a universal performance model for comparing hardware and quantization choices.
   Diagrams generate pseudocode, which reveals the application of hardware-specific features such as coalesced memory access, tensor core operations, and overlapped computation.
   We present attention algorithms for Ampere, which fits 13 warps per SM (FlashAttention fits 8), and for Hopper, which has improved overlapping and may achieve 1.32 PFLOPs.},
-  url = {https://zardini.mit.edu/diagrams/},
+url = {https://zardini.mit.edu/diagrams/},
 }
+
 
 
 
