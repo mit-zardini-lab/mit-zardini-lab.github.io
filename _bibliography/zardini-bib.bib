@@ -500,7 +500,100 @@ year={2023}
   url = {https://ieeexplore.ieee.org/document/10591066},
 }
 
-@unpublished{neumann24-tiv,
+@inproceedings{neumann-24-iv,
+title={On the Co-Design of Components and Racing Strategies in Formula 1},
+author={Neumann, Marc-Philippe and Zardini, Gioele and Cerofolini, Alberto and Onder, Christopher H.},
+booktitle={2024 IEEE Intelligent Vehicles Symposium (IV)},
+year={2024},
+volume={},
+number={},
+pages={2876-2881},
+doi={10.1109/IV55156.2024.10588533},
+abstract={We present a study focusing on the joint optimization of the sizing of hardware components as well as strategic decisions for a race car in a Formula 1 setting. Our research leverages a monotone theory of co-design, which allows for hardware and software considerations to achieve optimal, synergistic performance improvements. We aim to identify the Pareto optimal curves that illustrate the optimal balance between conflicting objectives, such as speed, energy allocation, and component choice, within the tight constraints imposed by the regulations. The results of the study demonstrate the versatility of our framework by showing optimal component sizing on two structurally different track layouts on a single lap. Moreover, by increasing the amount of laps under consideration, we show the ability of our tool to consider strategic energy allocation decisions.},
+url={https://ieeexplore.ieee.org/document/10588533},
+}
+
+@inproceedings{zardinimtns24,
+title={Compositional Design of Autonomous Systems: From Hardware Selection to Decision Making},
+author={Zardini, Gioele},
+booktitle ={26th International Symposium on Mathematical Theory of Networks and Systems},
+abstract={When designing autonomous systems, we need to consider multiple trade-offs at various abstraction levels, and choices of single (hardware and software) components need to be studied jointly. For instance, the design of future mobility solutions (e.g., autonomous vehicles) and the design of the mobility systems they enable are closely coupled. Indeed, knowledge about the intended service of novel mobility solutions would impact their design and deployment process, whilst insights about their technological development could significantly affect transportation policies.
+Co-designing autonomous systems is a complex task for at least two reasons. First, the co-design of interconnected systems (e.g., networks of cyber-physical systems) involves the simultaneous choice of components arising from heterogeneous fields, while satisfying systemic constraints and accounting for multiple objectives. Second, components are connected via interactions between different stakeholders. I will present a framework to co-design such systems, leveraging a monotone theory of co-design. The framework will be instantiated in applications in mobility and autonomy. Through various case studies, I will show how the proposed approaches allow one to efficiently answer heterogeneous questions, unifying different modeling techniques and promoting interdisciplinarity, modularity, and compositionality. I will then discuss open challenges for compositional systems design optimization.},
+year={2024},
+url={https://gioele.science/media/MTNS24-Zardini.pdf},
+}
+
+@unpublished{abbottzardinidiag,
+title={Functor String Diagrams: A Novel Approach to Flexible Diagrams for Applied Category Theory},
+author={Abbott, Vincent and Zardini, Gioele},
+abstract={The study of abstraction and composition - the focus of category theory - naturally leads to sophisticated diagrams which can encode complex algebraic semantics. 
+Consequently, these diagrams facilitate a clearer visual comprehension of diverse theoretical and applied systems.
+Complex algebraic structures---otherwise represented by a forest of symbols---can be encoded into diagrams with intuitive graphical rules. 
+The prevailing paradigm for diagrammatic category theory are monoidal string diagrams whose specification reflects the axioms of monoidal categories. 
+However, such diagrams struggle in accurately portraying crucial categorical constructs such as functors or natural transformations, obscuring central concepts such as the Yoneda lemma or the simultaneous consideration of hom-functors and products.
+In this work, we introduce \emph{functor string diagrams}, a systematic approach for the development of categorical diagrams which allows functors, natural transformations, and products to be clearly represented. 
+We validate their practicality in multiple dimensions. 
+We show their usefulness for theoretical manipulations by proving the Yoneda lemma, show that they encompass monoidal string diagrams and hence their helpful properties, and end by showing their exceptional applied utility by leveraging them to underpin neural circuit diagrams, a method which, at last, allows deep learning architectures to be comprehensively and rigorously expressed.},
+year={2024},
+url={https://arxiv.org/pdf/2404.00249.pdf}
+}
+
+@unpublished{abbottzardinineg,
+title={Diagrammatic Negative Information},
+author={Abbott, Vincent and Zardini, Gioele},
+abstract={The flow of information through a complex system can be readily understood with category theory. 
+However, negative information (e.g., what is \textit{not }possible) does not have an immediately evident categorical representation. 
+The formalization of nategories using unconventional composition addresses this issue, and lets imposed limitations on categories be considered. 
+However, traditional nategories abandon core categorical constructs and rely on extensive mathematical development. This creates a divide between the consideration of positive and negative information composition. 
+In this work, we show that negative information can be considered in a natural categorical manner. This is aided by functor string diagrams, a novel flexible diagrammatic approach that can intuitively show the operation of hom-functors and natural transformations in expressions. This insight reveals how to consider the composition of negative information with foundational categorical constructs without relying on enrichment.
+We present diagrammatic means to consider not only nategories, but preorders more broadly. 
+This paper introduces diagrammatic methods for the consideration of triangle inequalities and co-designs $\displaystyle \mathbf{DP/Feas_{Bool}}$, showing how important cases of negative information composition can be categorically and diagrammatically approached. 
+In particular, we develop systematic tools to rigorously consider imposed limitations on systems, advancing our mathematical understanding, and present intuitive diagrams which motivate widespread adoption and usage for various applications.},
+year={2024},
+url={https://arxiv.org/pdf/2404.03224.pdf}
+}
+
+@inproceedings{brar24,
+title={Integrated User Matching and Pricing in Round-Trip Car-Sharing},
+author={Singh Brar, Avalpreet and Su, Rong and Zardini, Gioele and Kaur, Jaskaranveer},
+abstract={Traditional round-trip car rental systems mandate users to return vehicles to their point of origin, limiting the system’s adaptability to meet diverse mobility demands. 
+This constraint often leads to fleet under-utilization and incurs high parking costs for idle vehicles. 
+To address this inefficiency, we propose a N-user matching algorithm which is designed to facilitate one-way trips within the round-trip rental framework. Our algorithm addresses the joint problem of optimal pricing and user matching through a Two-Stage Integer Linear Programming (ILP)-based formulation. 
+In the first stage, optimal rental prices are determined by setting a risk factor that governs the likelihood of matching a set of N-user. The second stage involves maximizing expected profit through a novel ILP-based user-matching formulation. Testing our algorithm on real-world scenarios demonstrates an approximate 35\% increase in demand fulfillment. Additionally, we assess the model’s robustness under uncertainty by varying factors such as the risk factor (probability of user’s ride acceptance at the offered price), cost factor (rental cost-to-fare ratio), and maximum chain length.},
+booktitle={2024 IEEE 27th International Conference on Intelligent Transportation Systems (ITSC)}, 
+volume={},
+number={},
+pages={3227-3232},
+year={2024},
+doi={10.1109/ITSC58415.2024.10919716},
+url={https://ieeexplore.ieee.org/document/10919716}
+}
+
+@misc{tresca24,
+title={Benchmarking Reinforcement Learning for Network-level Coordination of Autonomous Mobility-on-Demand Systems Across Scales},
+author={Tresca, Luigi and Gammelli, Daniele and Harrison, James and Zardini, Gioele and Pavone, Marco},
+year={2024},
+note={Selected for a Spotlight Talk},
+booktitle={RSS 2024 Workshop on Autonomous Vehicles Across Scales}
+}
+
+@misc{milojevicrss24,
+title={Task-Driven Co-Design for Resource-Efficient Autonomous Vehicles: Integrating Perception and Motion Planning},
+author={Milojevic, Dejan and Zardini, Gioele and Elser, Miriam and Censi, Andrea and Frazzoli, Emilio},
+year={2024},
+booktitle={RSS 2024 Workshop on Autonomous Vehicles Across Scales}
+}
+
+@misc{zardiniicra24,
+title={Co-Design of Complex Systems: From Autonomy to Future Mobility Systems},
+author={Zardini, Gioele},
+year={2024},
+booktitle={ICRA 2024 Workshop on Co-design in Robotics: Theory, Practice, and Challenges}
+}
+
+% 2025
+
+@unpublished{neumann25-tiv,
   title={Strategic Co-Design in Formula 1: Balancing Physical Configuration and Race Tactics},
   author={Neumann, Marc-Philippe and Fieni, Giona and Furia, Francesca and Cerofolini, Alberto and Ravaglioli, Vittorio and Onder, Christopher H. and Zardini, Gioele},
   year={2025},
@@ -564,25 +657,7 @@ abstract= {Optimizing deep learning algorithms currently requires slow, manual d
   Diagrams generalize down the GPU hierarchy, providing a universal performance model for comparing hardware and quantization choices.
   Diagrams generate pseudocode, which reveals the application of hardware-specific features such as coalesced memory access, tensor core operations, and overlapped computation.
   We present attention algorithms for Ampere, which fits 13 warps per SM (FlashAttention fits 8), and for Hopper, which has improved overlapping and may achieve 1.32 PFLOPs.},
-url = {https://arxiv.org/pdf/2412.03317},
-}
-
-
-
-
-
-
-@inproceedings{neumann-24-iv,
-title={On the Co-Design of Components and Racing Strategies in Formula 1},
-author={Neumann, Marc-Philippe and Zardini, Gioele and Cerofolini, Alberto and Onder, Christopher H.},
-booktitle={2024 IEEE Intelligent Vehicles Symposium (IV)},
-year={2024},
-volume={},
-number={},
-pages={2876-2881},
-doi={10.1109/IV55156.2024.10588533},
-abstract={We present a study focusing on the joint optimization of the sizing of hardware components as well as strategic decisions for a race car in a Formula 1 setting. Our research leverages a monotone theory of co-design, which allows for hardware and software considerations to achieve optimal, synergistic performance improvements. We aim to identify the Pareto optimal curves that illustrate the optimal balance between conflicting objectives, such as speed, energy allocation, and component choice, within the tight constraints imposed by the regulations. The results of the study demonstrate the versatility of our framework by showing optimal component sizing on two structurally different track layouts on a single lap. Moreover, by increasing the amount of laps under consideration, we show the ability of our tool to consider strategic energy allocation decisions.},
-url={https://ieeexplore.ieee.org/document/10588533},
+  url={https://openreview.net/forum?id=pF2ukh7HxA}
 }
 
 
@@ -603,17 +678,8 @@ url={https://ieeexplore.ieee.org/document/10588533},
   year={2025}
 }
 
-@inproceedings{zardinimtns24,
-title={Compositional Design of Autonomous Systems: From Hardware Selection to Decision Making},
-author={Zardini, Gioele},
-booktitle ={26th International Symposium on Mathematical Theory of Networks and Systems},
-abstract={When designing autonomous systems, we need to consider multiple trade-offs at various abstraction levels, and choices of single (hardware and software) components need to be studied jointly. For instance, the design of future mobility solutions (e.g., autonomous vehicles) and the design of the mobility systems they enable are closely coupled. Indeed, knowledge about the intended service of novel mobility solutions would impact their design and deployment process, whilst insights about their technological development could significantly affect transportation policies.
-Co-designing autonomous systems is a complex task for at least two reasons. First, the co-design of interconnected systems (e.g., networks of cyber-physical systems) involves the simultaneous choice of components arising from heterogeneous fields, while satisfying systemic constraints and accounting for multiple objectives. Second, components are connected via interactions between different stakeholders. I will present a framework to co-design such systems, leveraging a monotone theory of co-design. The framework will be instantiated in applications in mobility and autonomy. Through various case studies, I will show how the proposed approaches allow one to efficiently answer heterogeneous questions, unifying different modeling techniques and promoting interdisciplinarity, modularity, and compositionality. I will then discuss open challenges for compositional systems design optimization.},
-year={2024},
-url={https://gioele.science/media/MTNS24-Zardini.pdf},
-}
 
-@article{seo24tcns,
+@article{seo25tcns,
   title={Strategic Pricing and Routing to Maximize Profit in Congested Roads Considering Interactions with Travelers},
   author={Kim, Youngseo and Duan, Ning and Zardini, Gioele and Samaranayake, Samitha and Wischik, Damon},
   year={2025},
@@ -634,70 +700,8 @@ url={https://gioele.science/media/MTNS24-Zardini.pdf},
 }
 
 
-@unpublished{abbottzardinidiag,
-title={Functor String Diagrams: A Novel Approach to Flexible Diagrams for Applied Category Theory},
-author={Abbott, Vincent and Zardini, Gioele},
-abstract={The study of abstraction and composition - the focus of category theory - naturally leads to sophisticated diagrams which can encode complex algebraic semantics. 
-Consequently, these diagrams facilitate a clearer visual comprehension of diverse theoretical and applied systems.
-Complex algebraic structures---otherwise represented by a forest of symbols---can be encoded into diagrams with intuitive graphical rules. 
-The prevailing paradigm for diagrammatic category theory are monoidal string diagrams whose specification reflects the axioms of monoidal categories. 
-However, such diagrams struggle in accurately portraying crucial categorical constructs such as functors or natural transformations, obscuring central concepts such as the Yoneda lemma or the simultaneous consideration of hom-functors and products.
-In this work, we introduce \emph{functor string diagrams}, a systematic approach for the development of categorical diagrams which allows functors, natural transformations, and products to be clearly represented. 
-We validate their practicality in multiple dimensions. 
-We show their usefulness for theoretical manipulations by proving the Yoneda lemma, show that they encompass monoidal string diagrams and hence their helpful properties, and end by showing their exceptional applied utility by leveraging them to underpin neural circuit diagrams, a method which, at last, allows deep learning architectures to be comprehensively and rigorously expressed.},
-year={2024},
-url={https://arxiv.org/pdf/2404.00249.pdf}
-}
 
-@unpublished{abbottzardinineg,
-title={Diagrammatic Negative Information},
-author={Abbott, Vincent and Zardini, Gioele},
-abstract={The flow of information through a complex system can be readily understood with category theory. 
-However, negative information (e.g., what is \textit{not }possible) does not have an immediately evident categorical representation. 
-The formalization of nategories using unconventional composition addresses this issue, and lets imposed limitations on categories be considered. 
-However, traditional nategories abandon core categorical constructs and rely on extensive mathematical development. This creates a divide between the consideration of positive and negative information composition. 
-In this work, we show that negative information can be considered in a natural categorical manner. This is aided by functor string diagrams, a novel flexible diagrammatic approach that can intuitively show the operation of hom-functors and natural transformations in expressions. This insight reveals how to consider the composition of negative information with foundational categorical constructs without relying on enrichment.
-We present diagrammatic means to consider not only nategories, but preorders more broadly. 
-This paper introduces diagrammatic methods for the consideration of triangle inequalities and co-designs $\displaystyle \mathbf{DP/Feas_{Bool}}$, showing how important cases of negative information composition can be categorically and diagrammatically approached. 
-In particular, we develop systematic tools to rigorously consider imposed limitations on systems, advancing our mathematical understanding, and present intuitive diagrams which motivate widespread adoption and usage for various applications.},
-year={2024},
-url={https://arxiv.org/pdf/2404.03224.pdf}
-}
-
-
-
-
-@inproceedings{avalpreet,
-title={Integrated User Matching and Pricing in Round-Trip Car-Sharing},
-author={Singh Brar, Avalpreet and Su, Rong and Zardini, Gioele and Kaur, Jaskaranveer},
-abstract={Traditional round-trip car rental systems mandate users to return vehicles to their point of origin, limiting the system’s adaptability to meet diverse mobility demands. 
-This constraint often leads to fleet under-utilization and incurs high parking costs for idle vehicles. 
-To address this inefficiency, we propose a N-user matching algorithm which is designed to facilitate one-way trips within the round-trip rental framework. Our algorithm addresses the joint problem of optimal pricing and user matching through a Two-Stage Integer Linear Programming (ILP)-based formulation. 
-In the first stage, optimal rental prices are determined by setting a risk factor that governs the likelihood of matching a set of N-user. The second stage involves maximizing expected profit through a novel ILP-based user-matching formulation. Testing our algorithm on real-world scenarios demonstrates an approximate 35\% increase in demand fulfillment. Additionally, we assess the model’s robustness under uncertainty by varying factors such as the risk factor (probability of user’s ride acceptance at the offered price), cost factor (rental cost-to-fare ratio), and maximum chain length.},
-booktitle={2024 IEEE 27th International Conference on Intelligent Transportation Systems (ITSC)}, 
-volume={},
-number={},
-pages={3227-3232},
-year={2024},
-doi={10.1109/ITSC58415.2024.10919716},
-url={https://ieeexplore.ieee.org/document/10919716}
-}
-
-
-
-
-
-
-@article{milojeviczardini24,
-title={CODEI: Resource-Efficient Task-Driven Co-Design of Perception and Decision Making for Mobile Robots Applied to Autonomous Vehicles},
-author={Milojevic, Dejan and Zardini, Gioele and Elser, Mirian and Censi, Andrea and Frazzoli, Emilio},
-abstract={This paper discusses the integration challenges and strategies for designing mobile robots, by focusing on the task-driven, optimal selection of hardware and software to balance safety, efficiency, and minimal usage of resources such as costs, energy, computational requirements, and weight. We emphasize the interplay between perception and motion planning in decision-making, leveraging False Negative Rate (FNR) and False Positive Rate (FPR) to evaluate sensor and algorithm performance under various factors such as geometric relationships, object properties, sensor resolution, and environmental conditions. We introduce the concept of occupancy queries to quantify the perception requirements for sampling-based motion planners, and propose an Integer Linear Programming (ILP) approach for efficient sensor and algorithm selection and placement. This forms the basis for a co-design optimization that includes the robot body, motion planner, perception pipeline, and computing unit. A case study on developing an Autonomous Vehicle (AV) for urban scenarios provides actionable information for designers, and shows that complex tasks escalate resource demands, with task performance affecting choices of the autonomy stack. The study demonstrates that resource prioritization influences sensor choice: cameras are preferred for cost-effective and lightweight designs, while lidar sensors are chosen for better energy and computational efficiency.},
-year={2025},
-journal={IEEE Transactions on Robotics (In Press)},
-url={https://www.research-collection.ethz.ch/handle/20.500.11850/672201},
-}
-
-@unpublished{brarzardini24,
+@unpublished{brarzardini25,
 title={Vehicle Rebalancing Under Adherence Uncertainty},
 author={Brar, Avalpreet Singh and Su, Rong and Zardini, Gioele},
 abstract={Ride hailing systems suffer from spatial-temporal supply demand imbalance due to drivers operating in independent, and uncoordinated manner. 
@@ -748,28 +752,6 @@ url={https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4977199}
 }
 
 
-
-@misc{tresca24,
-title={Benchmarking Reinforcement Learning for Network-level Coordination of Autonomous Mobility-on-Demand Systems Across Scales},
-author={Tresca, Luigi and Gammelli, Daniele and Harrison, James and Zardini, Gioele and Pavone, Marco},
-year={2024},
-note={Selected for a Spotlight Talk},
-booktitle={RSS 2024 Workshop on Autonomous Vehicles Across Scales}
-}
-
-@misc{milojevicrss24,
-title={Task-Driven Co-Design for Resource-Efficient Autonomous Vehicles: Integrating Perception and Motion Planning},
-author={Milojevic, Dejan and Zardini, Gioele and Elser, Miriam and Censi, Andrea and Frazzoli, Emilio},
-year={2024},
-booktitle={RSS 2024 Workshop on Autonomous Vehicles Across Scales}
-}
-
-@misc{zardiniicra24,
-title={Co-Design of Complex Systems: From Autonomy to Future Mobility Systems},
-author={Zardini, Gioele},
-year={2024},
-booktitle={ICRA 2024 Workshop on Co-design in Robotics: Theory, Practice, and Challenges}
-}
 
 @inproceedings{Kim25TRB,
   author    = {Kim, Youngseo and Zardini, Gioele and Samaranayake, Samitha and Shafiee, Soroosh},
@@ -829,6 +811,19 @@ booktitle={ICRA 2024 Workshop on Co-design in Robotics: Theory, Practice, and Ch
   url={https://arxiv.org/abs/2503.17274}
 }
 
+@article{milojeviczardini25,
+title={CODEI: Resource-Efficient Task-Driven Co-Design of Perception and Decision Making for Mobile Robots Applied to Autonomous Vehicles},
+author={Milojevic, Dejan and Zardini, Gioele and Elser, Mirian and Censi, Andrea and Frazzoli, Emilio},
+abstract={This paper discusses the integration challenges and strategies for designing mobile robots, by focusing on the task-driven, optimal selection of hardware and software to balance safety, efficiency, and minimal usage of resources such as costs, energy, computational requirements, and weight. We emphasize the interplay between perception and motion planning in decision-making, leveraging False Negative Rate (FNR) and False Positive Rate (FPR) to evaluate sensor and algorithm performance under various factors such as geometric relationships, object properties, sensor resolution, and environmental conditions. We introduce the concept of occupancy queries to quantify the perception requirements for sampling-based motion planners, and propose an Integer Linear Programming (ILP) approach for efficient sensor and algorithm selection and placement. This forms the basis for a co-design optimization that includes the robot body, motion planner, perception pipeline, and computing unit. A case study on developing an Autonomous Vehicle (AV) for urban scenarios provides actionable information for designers, and shows that complex tasks escalate resource demands, with task performance affecting choices of the autonomy stack. The study demonstrates that resource prioritization influences sensor choice: cameras are preferred for cost-effective and lightweight designs, while lidar sensors are chosen for better energy and computational efficiency.},
+year={2025},
+journal={IEEE Transactions on Robotics},
+volume={41},
+number={},
+pages={2727-2748},
+url={https://ieeexplore.ieee.org/document/10930687},
+doi={10.1109/TRO.2025.3552347}
+}
+
 @unpublished{trescarl25,
   title={Robo-taxi Fleet Coordination at Scale via Reinforcement Learning},
   author={Tresca, Luigi and Schmidt, Carolin and Harrison, James and Rodrigues, Filipe and Zardini, Gioele and Gammelli, Daniele and Pavone, Marco},
@@ -837,4 +832,14 @@ booktitle={ICRA 2024 Workshop on Co-design in Robotics: Theory, Practice, and Ch
   number = {},
   abstract= {Fleets of robo-taxis offering on-demand transportation services, commonly known as Autonomous Mobility-on-Demand (AMoD) systems, hold significant promise for societal benefits, such as reducing pollution, energy consumption, and urban congestion. However, orchestrating these systems at scale remains a critical challenge, with existing coordination algorithms often failing to exploit the systems' full potential. This work introduces a novel decision-making framework that unites mathematical modeling with data-driven techniques. In particular, we present the AMoD coordination problem through the lens of reinforcement learning and propose a graph network-based framework that exploits the main strengths of graph representation learning, reinforcement learning, and classical operations research tools. Extensive evaluations across diverse simulation fidelities and scenarios demonstrate the flexibility of our approach, achieving superior system performance, computational efficiency, and generalizability compared to prior methods. Finally, motivated by the need to democratize research efforts in this area, we release publicly available benchmarks, datasets, and simulators for network-level coordination alongside an open-source codebase designed to provide accessible simulation platforms and establish a standardized validation process for comparing methodologies. Code available at: https://github.com/StanfordASL/RL4AMOD.},
   url={https://arxiv.org/pdf/2504.06125}
+  }
+
+  @unpublished{stolzle25,
+  title={Soft yet Effective Robots via Holistic Co-Design},
+  author={Stölzle, Maximilian and Pagliarani, Niccolò and Stella, Francesco and Hughes, Josie and Laschi, Cecilia and Rus, Daniela and Cianchetti, Matteo and Della Santina, Cosimo and Zardini, Gioele},
+  year={2025},
+  abstract= {Soft robots promise inherent safety via their material compliance for seamless interactions with humans or delicate environments. Yet, their development is challenging because it requires integrating materials, geometry, actuation, and autonomy into complex mechatronic systems. Despite progress, the field struggles to balance task-specific performance with broader factors like durability and manufacturability—a difficulty that we find is compounded by traditional sequential design processes with their lack of feedback loops. 
+  In this perspective, we review emerging co-design approaches that simultaneously optimize the body and brain, enabling the discovery of unconventional designs highly tailored to the given tasks. We then identify three key shortcomings that limit the broader adoption of such co-design methods within the soft robotics domain.
+  First, many rely on simulation-based evaluations focusing on a single metric, while real-world designs must satisfy diverse criteria. Second, current methods emphasize computational modeling without ensuring feasible realization, risking sim-to-real performance gaps. Third, high computational demands limit the exploration of the complete design space. Finally, we propose a holistic co-design framework that addresses these challenges by incorporating a broader range of design values, integrating real-world prototyping to refine evaluations, and boosting efficiency through surrogate metrics and model-based control strategies. This holistic framework, by simultaneously optimizing functionality, durability, and manufacturability, has the potential to enhance reliability and foster broader acceptance of soft robotics, transforming human-robot interactions.},
+  url={}
   }
