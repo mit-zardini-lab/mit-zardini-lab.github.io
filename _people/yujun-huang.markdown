@@ -11,9 +11,8 @@ email: yujun233@mit.edu
 linkedin: yujun-huang-junkytalent
 ---
 
-Yujun Huang is pursuing a Ph.D. in Systems Engineering and Civil and Environmental Engineering (CEE) at MIT. He has a broad range of research interest, raging from control and planning of autonomous agents to design of complex systems. 
-Currently, his focus is system co-Design, involving developing mathematical theories, and algorithms for the optimal design of complex systems.
-Yujun received his B.Eng. in Mechanical Engineering from Shanghai Jiao Tong University in 2021. He is expected to receive M.Sc. In Robotics, Systems and Control from ETH Zurich in 2024. During the masters, he was fortunate to work on Co-Design theory with Gioele Zardini in Prof. Emilio Frazzoli's group, and on data-driven control methods in Prof. Melanie Zeilinger's group.
+Yujun Huang is pursuing a Ph.D. in Systems Engineering and Civil and Environmental Engineering (CEE) at MIT. His research interest ranges from compositional design of complex systems, applied category theory, to control and planning of autonomous agents.
+Yujun received M.Sc. In Robotics, Systems and Control from ETH Zurich in 2024, and B.Eng. in Mechanical Engineering from Shanghai Jiao Tong University in 2021. During the masters, he was fortunate to work on a common generalization of Co-design and Linear Logic with Gioele Zardini in Prof. Emilio Frazzoli's group, and on data-driven predictive control methods in Prof. Melanie Zeilinger's group.
 
 ### Awards:
 - OGE Ho-Ching and Han-Ching Fund Award, 2025
