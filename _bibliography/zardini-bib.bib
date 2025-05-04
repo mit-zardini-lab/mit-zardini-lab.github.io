@@ -844,5 +844,40 @@ doi={10.1109/TRO.2025.3552347}
   abstract= {Soft robots promise inherent safety via their material compliance for seamless interactions with humans or delicate environments. Yet, their development is challenging because it requires integrating materials, geometry, actuation, and autonomy into complex mechatronic systems. Despite progress, the field struggles to balance task-specific performance with broader factors like durability and manufacturability—a difficulty that we find is compounded by traditional sequential design processes with their lack of feedback loops. 
   In this perspective, we review emerging co-design approaches that simultaneously optimize the body and brain, enabling the discovery of unconventional designs highly tailored to the given tasks. We then identify three key shortcomings that limit the broader adoption of such co-design methods within the soft robotics domain.
   First, many rely on simulation-based evaluations focusing on a single metric, while real-world designs must satisfy diverse criteria. Second, current methods emphasize computational modeling without ensuring feasible realization, risking sim-to-real performance gaps. Third, high computational demands limit the exploration of the complete design space. Finally, we propose a holistic co-design framework that addresses these challenges by incorporating a broader range of design values, integrating real-world prototyping to refine evaluations, and boosting efficiency through surrogate metrics and model-based control strategies. This holistic framework, by simultaneously optimizing functionality, durability, and manufacturability, has the potential to enhance reliability and foster broader acceptance of soft robotics, transforming human-robot interactions.},
-  url={}
+  url={https://research.tudelft.nl/en/publications/soft-yet-effective-robots-via-holistic-co-design}
   }
+
+  @unpublished{brar25its1,
+  title={Maximal Compatibility Matching for Preference-Aware Ride-Hailing Systems},
+  author={Brar, Avalpreet and Su, Rong and Kaur, Jaskaranveer and Li, Xinling and Zardini, Gioele},
+  year={2025},
+  abstract= {
+    This paper presents the Maximal Compatibility Matching (MCM) framework, a novel assignment strategy for ride-hailing systems that explicitly incorporates passenger comfort into the matching process. 
+Traditional assignment methods prioritize spatial efficiency, but often overlook behavioral alignment between passengers and drivers, which can significantly impact user satisfaction. 
+MCM addresses this gap by learning personalized passenger comfort zones using gradient-boosted decision tree classifiers trained on labeled ride data, and by modeling driver behavior through empirical operating profiles constructed from time-series driving features. 
+Compatibility between a passenger and a driver is computed as the closed-form volume of intersection between their respective feature-space regions. 
+These compatibility scores are integrated into a utility-based matching algorithm that balances comfort and proximity through a tunable trade-off parameter. 
+We validate the framework using a Unity-based driving simulator with real-time passenger feedback, demonstrating that MCM enables more personalized and socially acceptable matchings while maintaining high levels of operational performance.
+  }
+  }
+
+  @unpublished{brar25its2,
+  title={ Wise Goose Chase: A Predictive Path Planning Algorithm for Dynamic Rebalancing in Ride-Hailing Systems},
+  author={Brar, Avalpreet and Su, Rong and Cassandras, Christos G. and Zardini, Gioele},
+  year={2025},
+  abstract= {
+    Traditional rebalancing methods in ride-hailing systems direct idle drivers to fixed destinations, overlooking the fact that ride allocations frequently occur while cruising.
+This destination-centric view fails to exploit the path-dependent nature of modern platforms, where real-time matching depends on the entire trajectory rather than a static endpoint.
+We propose the Wise Goose Chase (WGC) algorithm, an event-triggered, driver-specific path planning framework that anticipates future matching opportunities by forecasting spatio-temporal supply and demand dynamics.
+WGC uses a system of Retarded Functional Differential Equations (RFDEs) to model the evolution of idle driver density and passenger queues at the road-segment level, incorporating both en-route matching and competition among drivers.
+Upon request, WGC computes personalized cruising paths that minimize each driver's expected time to allocation.
+Monte Carlo simulations on synthetic urban networks show that WGC consistently outperforms baseline strategies, highlighting the advantage of predictive, context-aware rebalancing in dynamic mobility systems.
+  }
+  }
+
+
+}
+\author{Avalpreet Singh Brar$^{1}$, Rong Su$^{1}$, Christos G. Cassandras$^{2}$, Gioele Zardini$^{3}$  % <-this % stops a space
+
+
+  
