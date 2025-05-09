@@ -14,7 +14,7 @@ twitter: m_stoelzle
 linkedin: maximilian-stoelzle-501a0657
 github: mstoelzle
 orcid: 0000-0002-2608-9758
-current: "TU Delft"
+current: "Postdoc at TU Delft"
 ---
 
 Maximilian Stölzle is a Ph.D. candidate at Delft University of Technology, Netherlands working on modeling and control for continuum soft robots. 
