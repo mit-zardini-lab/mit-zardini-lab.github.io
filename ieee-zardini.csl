@@ -140,7 +140,7 @@
   </macro>
   <macro name="event">
     <choose>
-      <if type="paper-conference speech" match="any">
+      <if type="paper-conference speech misc" match="any">
         <choose>
           <!-- Published Conference Paper -->
           <if variable="container-title">
@@ -255,6 +255,7 @@
             <text macro="locators"/>
             <text macro="page"/>
             <text macro="issued"/>
+            <text macro="event"/>
             <text macro="note" font-weight="bold"/>
           </group>
         </if>
