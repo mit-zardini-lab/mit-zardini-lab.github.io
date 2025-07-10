@@ -67,7 +67,7 @@
     - date: "1/24/2025"
       description: "Gioele gave the ITS Seminar at University of California, Berkeley, USA."
     - date: "1/27/2025"
-      description: "Mingjia is a finalist for the Best Student Paper Award at ACC'25 with our paper on Strategic Interactions in Network Design. Winners to be announced in July."
+      description: "Mingjia is a finalist for the Best Student Paper Award at ACC'25 with our paper on Strategic Interactions in Network Design."
     - date: "2/7/2025"
       description: "Gioele gave the EEE Keynote Address at Columbia University, NYC, USA."
     - date: "2/14/2025"
@@ -104,6 +104,8 @@
       description: "Gioele gave a talk at the RSS 2025 Workshop on Multi-Objective Optimization and Planning in Robotics, LA, CA, USA"
     - date: "7/1/2025"
       description: "Two papers accepted at IEEE ITSC 2025!"
+    - date: "7/8/2025"
+      description: "The workshop on ACT for Compositional Decision-Making was a blast, stay tuned for more!"
 
 
 
