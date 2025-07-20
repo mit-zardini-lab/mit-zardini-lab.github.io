@@ -251,7 +251,8 @@
         <else-if type="misc">
           <group delimiter=", ">
             <text macro="title"/>
-            <text variable="container-title" font-style="italic" form="short"/>
+<!-- REMOVE or comment out the next line -->
+    <!-- <text variable="container-title" font-style="italic" form="short"/> -->
             <text macro="locators"/>
             <text macro="page"/>
             <text macro="issued"/>
