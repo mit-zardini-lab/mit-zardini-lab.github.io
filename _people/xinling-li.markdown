@@ -7,6 +7,8 @@ position: phdtr
 excerpt: ""
 img: XinlingLi.jpg
 email: xinli831@mit.edu
+gscholar: 3B-rdfsAAAAJ
+website: https://elxl.github.io/
 linkedin: xinling-li-934ba9157
 ---
 
