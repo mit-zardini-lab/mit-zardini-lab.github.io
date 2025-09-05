@@ -4,7 +4,7 @@ title:  "Marius Furter"
 last:   "Furter"
 date:   2024-02-29 00:00:00 -0700
 position: alumni
-current: "University of Zurich"
+current: "Ph.D. at University of Zurich"
 excerpt: ""
 img: MariusFurter.jpg
 email: marius.furter@math.uzh.ch

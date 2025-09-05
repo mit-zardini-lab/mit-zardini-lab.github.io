@@ -4,7 +4,7 @@ title:  "Youngseo Kim"
 last:   "Kim"
 date:   2024-03-27 00:00:00 -0700
 position: alumni
-current: "Incoming Assistant Professor at UCLA"
+current: "Assistant Professor at UCLA"
 excerpt: ""
 img: YoungseoKim.jpeg
 email: yk796@cornell.edu
