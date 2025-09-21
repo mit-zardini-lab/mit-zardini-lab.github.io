@@ -4,110 +4,380 @@ title: {{site.title}}
 <!DOCTYPE html>
 <html>
   {% include head.html %}
-{% include relBase.html %}
-<body id="page-top" class="index">
-  {% include navbar.html %}
-  {% assign sorted_slides = site.slides | sort:"date" | reverse %}
-  <header>
-               
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12" style="margin-top: 30px;">
-          <h2 class="black-text">About Us</h2>
-          {% assign num_phdscee = site.people | where: "position","phdcee" | size %}
-          {% assign num_phdsme = site.people | where: "position","phdme" | size %}
-          {% assign num_phdseecs = site.people | where: "position","phdeecs" | size %}
-          {% assign num_phdsidss = site.people | where: "position","phdidss" | size %}
-          {% assign num_phdstr = site.people | where: "position","phdtr" | size %}
-          {% assign num_postdocs = site.people | where: "position","postdoc" | size %}
-          {% assign num_visiting = site.people | where: "position","visiting" | size %}
-          {% assign num_researchers = 1 | plus: num_phdscee | plus: num_phdseecs | plus: num_phdsidss | plus: num_phdstr | plus: num_postdocs | plus: num_phdme | plus: num_visiting %}
-          <p>Driven by societal challenges, the goal of the Zardini Lab at MIT is to <b>develop efficient computational tools and algorithmic approaches to formulate and solve complex, interconnected system design and autonomous decision-making problems.</b> 
-            Applications feature society-critical problems in mobility, logistics, autonomy, automotive, aerospace, energy, and complex systems in general.
-            The lab, comprised of researchers equipped with strong mathematical skills and diverse engineering backrounds, solves such problems by employing and enhancing techniques from optimization, control theory, game theory, domain theory, and applied category theory.</p>
-        </div>
-      </div>
-    </div>
-    <br>
-    
-    <div class="container">
-        <div class="col-sm-8">
-          <img src="{{ site.baseurl }}/assets/xmas-24-4.jpg" class="img-responsive" style="display: block; margin-left: auto; margin-right: auto;" alt="Zardini Lab Ice Cream." style="border-radius: 20%;">
-        </div>
-    </div>
-    
-    
-    
-    
+  {% include relBase.html %}
 
+  <style>
+    /* Auto gallery styles (shared with People page) */
+    .auto-gallery {
+      position: relative; /* stacking context */
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+      background: #fff;
+      /* Aspect ratio control — change to 4/3, 16/9, 1/1, etc. */
+      aspect-ratio: var(--ar, 3/2);
+    }
+    .auto-gallery-track {
+      display: flex;
+      transition: transform .6s ease-in-out;
+      will-change: transform;
+      touch-action: pan-y;  /* allow vertical scroll */
+      height: 100%;
+    }
+    .auto-gallery-slide {
+      min-width: 100%;
+      position: relative;
+      height: 100%;
+      user-select: none;
+    }
+    .auto-gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* consistent crop to chosen aspect ratio */
+      display: block;
+    }
+    .auto-gallery-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
+      color: #fff;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(0,0,0,.6);
+      z-index: 2;
+    }
+    .auto-gallery-controls {
+      position: absolute;
+      top: 50%;
+      left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      transform: translateY(-50%);
+      z-index: 5;
+    }
+    .auto-gallery-btn {
+      border: none;
+      background: rgba(0,0,0,.45);
+      color: #fff;
+      width: 42px; height: 42px; border-radius: 999px;
+      display: grid; place-items: center;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .auto-gallery-btn:hover { background: rgba(0,0,0,.65); }
+    .auto-gallery-dots {
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      bottom: 10px;
+      display: flex; gap: 8px;
+      z-index: 5;
+    }
+    .auto-gallery-dot {
+      width: 9px; height: 9px; border-radius: 999px;
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.9);
+      cursor: pointer;
+    }
+    .auto-gallery-dot[aria-current="true"] { background: #fff; }
+    @media (max-width: 768px) {
+      .auto-gallery { aspect-ratio: var(--ar-sm, 3/2); }
+    }
+  </style>
 
-    <br>
-    <div class="container">
-      <div class="row" style="margin-top: 40px; margin-bottom: 40px;">
-        <div class="col-md-12">
-          <p class="black-text">Check out our latest publications <a class="black-link" href="/publications">here</a>!</p> <br>
-
-          <b>Upcoming talks by Prof. Zardini:</b>
-          <ul>
-            <li>9/24/25: Amazon Science Hub's Robotics Seminar</li>
-            <li>9/26/25: IDSS IDS.900 Graduate Seminar</li>
-            <li>10/3/25: Seminar at NYU Tandon School of Engineering.</li>
+  <body id="page-top" class="index">
+    {% include navbar.html %}
+    {% assign sorted_slides = site.slides | sort:"date" | reverse %}
+    <header>
+      <!-- About -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12" style="margin-top: 30px;">
+            <h2 class="black-text">About Us</h2>
+            {% assign num_phdscee = site.people | where: "position","phdcee" | size %}
+            {% assign num_phdsme = site.people | where: "position","phdme" | size %}
+            {% assign num_phdseecs = site.people | where: "position","phdeecs" | size %}
+            {% assign num_phdsidss = site.people | where: "position","phdidss" | size %}
+            {% assign num_phdstr = site.people | where: "position","phdtr" | size %}
+            {% assign num_postdocs = site.people | where: "position","postdoc" | size %}
+            {% assign num_visiting = site.people | where: "position","visiting" | size %}
+            {% assign num_researchers = 1 | plus: num_phdscee | plus: num_phdseecs | plus: num_phdsidss | plus: num_phdstr | plus: num_postdocs | plus: num_phdme | plus: num_visiting %}
+            <p>
+              Driven by societal challenges, the goal of the Zardini Lab at MIT is to
+              <b>develop efficient computational tools and algorithmic approaches to formulate and solve complex, interconnected system design and autonomous decision-making problems.</b>
+              Applications feature society-critical problems in mobility, logistics, autonomy, automotive, aerospace, energy, and complex systems in general.
+              The lab, comprised of researchers equipped with strong mathematical skills and diverse engineering backrounds, solves such problems by employing and enhancing techniques from optimization, control theory, game theory, domain theory, and applied category theory.
+            </p>
           </div>
+        </div>
       </div>
-    </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="black-text">News</h2>
-          {% assign event_count = 0 %}
-          {% for item in site.data.news reversed %}
-            {% for event in item.events reversed %}
-              {% if event_count < 20 %}
-              <div style="margin-bottom: 10px;"></div>
-                <b>{{ event.date }}</b> - {{ event.description }} <br>
-                {% assign event_count = event_count | plus: 1 %}
-              {% else %}
+      <br>
+
+      <!-- Homepage Gallery (same set/order as People page) -->
+      <div class="container">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="auto-gallery" id="homepage-gallery" style="--ar: 3/2;"
+               data-autoplay="true" data-interval="3500" data-pause-on-hover="true">
+            <div class="auto-gallery-track">
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25Serious.jpg" alt="Lab Retreat, Fall 2025">
+                <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25Hike.jpg" alt="Lab Retreat, Fall 2025">
+                <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-away.jpg" alt="Lab Retreat, Fall 2025">
+                <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+              </figure>
+              
+              <figure class="auto-gallery-slide">
+                  <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-van.jpg" alt="Lab Retreat, Fall 2025">
+                  <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25Lunch.jpg" alt="Lab Retreat, Fall 2025">
+                <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-icecream.jpg" alt="Lab Retreat, Fall 2025">
+                <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-rp1.jpg" alt="Lab Retreat, Fall 2025">
+                <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-rp2.jpg" alt="Lab Retreat, Fall 2025">
+                <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-rp3.png" alt="Lab Retreat, Fall 2025">
+                <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-view.jpg" alt="Lab Retreat, Fall 2025">
+                <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+              </figure>
+
+              
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/APE25_2.jpg" alt="Sailing Aperitivo, Spring 2025">
+                <figcaption class="auto-gallery-caption">Sailing Aperitivo, Spring 2025.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/APE25_1.jpg" alt="Sailing Aperitivo, Spring 2025">
+                <figcaption class="auto-gallery-caption">Sailing Aperitivo, Spring 2025.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-breakfast.jpg" alt="Last group breakfast of the year 2024">
+                <figcaption class="auto-gallery-caption">Last group breakfast of the year 2024.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-24-4.jpg" alt="XMAS social, 2024">
+                <figcaption class="auto-gallery-caption">XMAS social, 2024.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-24-1.jpg" alt="XMAS social, 2024">
+                <figcaption class="auto-gallery-caption">XMAS social, 2024.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-24-2.jpg" alt="XMAS social, 2024">
+                <figcaption class="auto-gallery-caption">XMAS social, 2024.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-24-3.jpg" alt="XMAS social, 2024">
+                <figcaption class="auto-gallery-caption">XMAS social, 2024.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-24-5.jpg" alt="XMAS social, 2024">
+                <figcaption class="auto-gallery-caption">XMAS social, 2024.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/group_lunch_fall24.png" alt="First group meeting over lunch, Fall ’24">
+                <figcaption class="auto-gallery-caption">First group meeting over lunch, Fall ’24.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/escape_room_fall24_1.png" alt="Escape room kick-off event, Fall ’24">
+                <figcaption class="auto-gallery-caption">Escape room kick-off event, Fall ’24.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/escape_room_fall24_2.png" alt="Escape room kick-off event, Fall ’24">
+                <figcaption class="auto-gallery-caption">Escape room kick-off event, Fall ’24.</figcaption>
+              </figure>
+
+              <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/ice_cream_fall24.png" alt="Sugar boost, Fall ’24">
+                <figcaption class="auto-gallery-caption">Sugar boost, Fall ’24.</figcaption>
+              </figure>
+
+            </div>
+
+            <div class="auto-gallery-controls" aria-hidden="false">
+              <button type="button" class="auto-gallery-btn" data-dir="prev" aria-label="Previous slide">‹</button>
+              <button type="button" class="auto-gallery-btn" data-dir="next" aria-label="Next slide">›</button>
+            </div>
+            <div class="auto-gallery-dots" aria-label="Slide pagination"></div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <!-- Publications + Upcoming talks -->
+      <div class="container">
+        <div class="row" style="margin-top: 40px; margin-bottom: 40px;">
+          <div class="col-md-12">
+            <p class="black-text">Check out our latest publications <a class="black-link" href="/publications">here</a>!</p>
+            <br>
+            <b>Upcoming talks by Prof. Zardini:</b>
+            <ul>
+              <li>9/24/25: Amazon Science Hub's Robotics Seminar</li>
+              <li>10/3/25: Seminar at NYU Tandon School of Engineering.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- News -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="black-text">News</h2>
+            {% assign event_count = 0 %}
+            {% for item in site.data.news reversed %}
+              {% for event in item.events reversed %}
+                {% if event_count < 20 %}
+                  <div style="margin-bottom: 10px;"></div>
+                  <b>{{ event.date }}</b> - {{ event.description }} <br>
+                  {% assign event_count = event_count | plus: 1 %}
+                {% else %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              {% if event_count >= 20 %}
                 {% break %}
               {% endif %}
             {% endfor %}
-            {% if event_count >= 20 %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-          <br>
-          <p class="black-text">For the entire list of news, please refer to <b><a class="black-link" href="/news">news</a></b>!</p>
+            <br>
+            <p class="black-text">For the entire list of news, please refer to <b><a class="black-link" href="/news">news</a></b>!</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-      
-    <br><br><br>
-    </div>
-    <div class="mit-stripe">
-    <div class="container">
-      <div class="container">
-        <div class="row" style="margin-top: 24px; margin-bottom: 24px;">
-          <div class="col-md-6 white-text" style="margin-top: 35px;">
-            <h2 class="white-text">Contact Us</h2>
-            <p>Zardini Lab<br>
-            Massachusetts Institute of Technology<br>
-            Laboratory for Information and Decision Systems<br>
-            Ray and Maria Stata Center<br>
-            32-D716 Vassar St, Cambridge, MA 02139<br>
-          </p>
-          </div>
-          <div class="col-md-6 hide-on-med-width">
-            <div class="map-responsive">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.10462641561!2d-71.09321042414989!3d42.361609471192786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e370a95d3025a9%3A0xb1de557289ff6bbe!2sRay%20and%20Maria%20Stata%20Center%2C%2032%20Vassar%20St%2C%20Cambridge%2C%20MA%2002139%2C%20Stati%20Uniti!5e0!3m2!1sit!2sch!4v1704182107853!5m2!1sit!2sch" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      <br><br><br>
+
+      <!-- Contact + Map -->
+      <div class="mit-stripe">
+        <div class="container">
+          <div class="container">
+            <div class="row" style="margin-top: 24px; margin-bottom: 24px;">
+              <div class="col-md-6 white-text" style="margin-top: 35px;">
+                <h2 class="white-text">Contact Us</h2>
+                <p>
+                  Zardini Lab<br>
+                  Massachusetts Institute of Technology<br>
+                  Laboratory for Information and Decision Systems<br>
+                  Ray and Maria Stata Center<br>
+                  32-D716 Vassar St, Cambridge, MA 02139<br>
+                </p>
+              </div>
+              <div class="col-md-6 hide-on-med-width">
+                <div class="map-responsive">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.10462641561!2d-71.09321042414989!3d42.361609471192786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e370a95d3025a9%3A0xb1de557289ff6bbe!2sRay%20and%20Maria%20Stata%20Center%2C%2032%20Vassar%20St%2C%20Cambridge%2C%20MA%2002139%2C%20Stati%20Uniti!5e0!3m2!1sit!2sch!4v1704182107853!5m2!1sit!2sch"
+                          width="600" height="450" style="border:0;" allowfullscreen=""
+                          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  </header>
-  {% include javascript.html %}
-  {% include footer.html %}
-</body>
+
+    </header>
+
+    {% include javascript.html %}
+
+    <!-- Auto gallery script (same behavior as People page) -->
+    <script>
+      (function() {
+        function initGallery(el) {
+          const track = el.querySelector('.auto-gallery-track');
+          const slides = Array.from(el.querySelectorAll('.auto-gallery-slide'));
+          const dotsWrap = el.querySelector('.auto-gallery-dots');
+          const prevBtn = el.querySelector('[data-dir="prev"]');
+          const nextBtn = el.querySelector('[data-dir="next"]');
+          const autoplay = el.dataset.autoplay === 'true';
+          const interval = Number(el.dataset.interval || 4000);
+          const pauseOnHover = el.dataset.pauseOnHover === 'true';
+
+          let index = 0, timer = null;
+
+          // Dots
+          slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'auto-gallery-dot';
+            dot.type = 'button';
+            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            dot.addEventListener('click', () => goTo(i));
+            dotsWrap.appendChild(dot);
+          });
+
+          function update() {
+            track.style.transform = 'translateX(' + (-index * 100) + '%)';
+            dotsWrap.querySelectorAll('.auto-gallery-dot').forEach((d, i) => {
+              d.setAttribute('aria-current', i === index ? 'true' : 'false');
+            });
+          }
+          function goTo(i) { index = (i + slides.length) % slides.length; update(); }
+          function next() { goTo(index + 1); }
+          function prev() { goTo(index - 1); }
+
+          if (prevBtn) prevBtn.addEventListener('click', prev);
+          if (nextBtn) nextBtn.addEventListener('click', next);
+
+          function start() { if (autoplay && !timer) timer = setInterval(next, interval); }
+          function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+
+          if (pauseOnHover) {
+            el.addEventListener('mouseenter', stop);
+            el.addEventListener('mouseleave', start);
+          }
+
+          update();
+          start();
+        }
+
+        function initAll() {
+          document.querySelectorAll('.auto-gallery').forEach(initGallery);
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initAll);
+        } else {
+          initAll();
+        }
+      })();
+    </script>
+
+    {% include footer.html %}
+  </body>
 </html>

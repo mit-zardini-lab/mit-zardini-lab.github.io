@@ -8,31 +8,118 @@ order: 3
 <html>
   {% include head.html %}
   {% include relBase.html %}
+
   <style>
+    /* People card images */
     .fixed-image {
-      width: 220px; /* Adjust the width as needed */
-      height: 220px; /* Adjust the height as needed */
-      object-fit: cover; /* This ensures the image fills the specified dimensions without distortion */
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* Auto gallery styles (aspect-ratio driven) */
+    .auto-gallery {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+      background: #fff;
+
+      /* Aspect ratio control:
+         Change --ar to 16/9, 4/3, 1/1, etc. Default here is 3/2. */
+      aspect-ratio: var(--ar, 3/2);
+    }
+    .auto-gallery-track {
+      display: flex;
+      transition: transform .6s ease-in-out;
+      will-change: transform;
+      touch-action: pan-y;
+      height: 100%; /* fill the aspect-ratio box */
+    }
+    .auto-gallery-slide {
+      min-width: 100%;
+      user-select: none;
+      position: relative;
+      height: 100%; /* each slide fills the box height */
+    }
+    .auto-gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* uniform crop to the chosen aspect */
+      display: block;
+    }
+    .auto-gallery-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
+      color: #fff;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(0,0,0,.6);
+      z-index: 2;
+    }
+    .auto-gallery-controls {
+      position: absolute;
+      top: 50%;
+      left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      transform: translateY(-50%);
+      z-index: 5;
+    }
+    .auto-gallery-btn {
+      border: none;
+      background: rgba(0,0,0,.45);
+      color: #fff;
+      width: 42px; height: 42px; border-radius: 999px;
+      display: grid; place-items: center;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .auto-gallery-btn:hover { background: rgba(0,0,0,.65); }
+    .auto-gallery-dots {
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      bottom: 10px;
+      display: flex; gap: 8px;
+      z-index: 5;
+    }
+    .auto-gallery-dot {
+      width: 9px; height: 9px; border-radius: 999px;
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.9);
+      cursor: pointer;
+    }
+    .auto-gallery-dot[aria-current="true"] { background: #fff; }
+
+    /* Optional: if you want a shorter slider on small screens, override the ratio */
+    @media (max-width: 768px) {
+      .auto-gallery { aspect-ratio: var(--ar-sm, 3/2); }
     }
   </style>
+
   <body id="page-top" class="index">
     {% include navbar.html %}
-      <header>
+    <header>
+
+      <!-- Director -->
       <div class="white-stripe" style="height: 80px; margin-bottom: 40px;">
         <div class="container">
           <div class="row">
-      	    <div class="col-sm-12">
+            <div class="col-sm-12">
               <h1 class="black-text"><b>Director</b></h1>
             </div>
           </div>
         </div>
       </div>
+
       <div class="container">
-          <div class="row person-row">
+        <div class="row person-row">
           {% assign sortedPeople = site.people | sort: 'last' %}
           {% for person in sortedPeople %}{% if person.position == "faculty" %}
             <div class="col-sm-4">
-              <a href={{person.url}}><img class="img-responsive" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}" ></a>
+              <a href={{person.url}}>
+                <img class="img-responsive" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}">
+              </a>
             </div>
             <div class="col-sm-8">
               <h3 style="margin-top: 0px;"><a href={{person.url}}>{{ person.title }}</a></h3>
@@ -43,64 +130,65 @@ order: 3
         </div>
       </div>
 
-        <div class="white-stripe" style="height: 80px; margin-top: 20px; margin-bottom: 40px;">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12">
-                <h1 class="black-text"><b>Research Team</b></h1>
-              </div>
+      <!-- Research Team -->
+      <div class="white-stripe" style="height: 80px; margin-top: 20px; margin-bottom: 40px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="black-text"><b>Research Team</b></h1>
             </div>
           </div>
         </div>
-        <div class="container">
+      </div>
+
+      <div class="container">
         {% assign loopindex = 0 %}
-        {% for person in sortedPeople %}{% if person.position == "postdoc" or person.position == "phdcee" or person.position == "mtsdmeecs" or person.position == "mteecs" or person.position == "mst" or person.position == "superurop" or person.position == "phdeecs" or person.position == "phdidss" or person.position == "phdtr" or person.position == "urop" or person.position == "phdme"%}   
+        {% for person in sortedPeople %}
+        {% if person.position == "postdoc" or person.position == "phdcee" or person.position == "mtsdmeecs" or person.position == "mteecs" or person.position == "mst" or person.position == "superurop" or person.position == "phdeecs" or person.position == "phdidss" or person.position == "phdtr" or person.position == "urop" or person.position == "phdme" %}
           {% assign loopindex = loopindex | plus: 1 %}
           {% assign rowfinder = loopindex | modulo: 4 %}
-          {% if rowfinder == 1 %}
-          <div class="row person-row">
-          {% endif %}
+          {% if rowfinder == 1 %}<div class="row person-row">{% endif %}
             <div class="col-3 col-sm-3 col-md-3">
-              <a href={{person.url}}><img class="img-responsive img-resize fixed-image" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}"></a>
+              <a href={{person.url}}>
+                <img class="img-responsive img-resize fixed-image" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}">
+              </a>
               <h6 class="person-name"><a href={{person.url}}>{{ person.title }}</a></h6>
               {% if person.position == "postdoc" %}
-              <p class="person-position">Postdoctoral Scholar</p>
+                <p class="person-position">Postdoctoral Scholar</p>
               {% elsif person.position == "mst" %}
-              <p class="person-position">MST</p>
+                <p class="person-position">MST</p>
               {% elsif person.position == "mtsdmeecs" %}
-              <p class="person-position">MEng Student (SDM + EECS)</p>
+                <p class="person-position">MEng Student (SDM + EECS)</p>
               {% elsif person.position == "mteecs" %}
-              <p class="person-position">MEng Student (EECS)</p>
+                <p class="person-position">MEng Student (EECS)</p>
               {% elsif person.position == "phdeecs" %}
-              <p class="person-position">Graduate Student (EECS)</p>
+                <p class="person-position">Graduate Student (EECS)</p>
               {% elsif person.position == "superurop" %}
-              <p class="person-position">SuperUROP</p>
+                <p class="person-position">SuperUROP</p>
               {% elsif person.position == "phdme" %}
-              <p class="person-position">Graduate Student (ME)</p>
+                <p class="person-position">Graduate Student (ME)</p>
               {% elsif person.position == "phdcee" %}
-              <p class="person-position">Graduate Student (CEE)</p>
+                <p class="person-position">Graduate Student (CEE)</p>
               {% elsif person.position == "phdidss" %}
-              <p class="person-position">Graduate Student (SES)</p>
+                <p class="person-position">Graduate Student (SES)</p>
               {% elsif person.position == "phdtr" %}
-              <p class="person-position">Graduate Student (TR)</p>
+                <p class="person-position">Graduate Student (TR)</p>
               {% elsif person.position == "urop" %}
-              <p class="person-position">UROP</p>
+                <p class="person-position">UROP</p>
               {% endif %}
               <hr class="person-sep">
               <p class="person-excerpt">{{ person.excerpt }}</p>
             </div>
-          {% if rowfinder == 0 %}
-          </div>
-          {% endif %}
-        {% endif %}{% endfor %}
+          {% if rowfinder == 0 %}</div>{% endif %}
+        {% endif %}
+        {% endfor %}
         {% if rowfinder != 0 %}
           <!-- In case the last row has < 4 people. -->
           </div>
         {% endif %}
-        </div>
+      </div>
 
-        
-
+      <!-- Visiting Students -->
       <div class="white-stripe" style="margin-bottom: 25px;">
         <div class="container">
           <div class="row" style="padding-bottom: 10.4px;">
@@ -110,24 +198,22 @@ order: 3
           </div>
         </div>
       </div>
+
       <div class="container">
         {% assign loopindex = 0 %}
-        {% for person in sortedPeople %}{% if person.position == "visiting" %}   
+        {% for person in sortedPeople %}{% if person.position == "visiting" %}
           {% assign loopindex = loopindex | plus: 1 %}
           {% assign rowfinder = loopindex | modulo: 4 %}
-          {% if rowfinder == 1 %}
-          <div class="row person-row">
-          {% endif %}
+          {% if rowfinder == 1 %}<div class="row person-row">{% endif %}
             <div class="col-3 col-sm-3 col-md-3">
-              <a href={{person.url}}><img class="img-responsive img-resize fixed-image" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}"></a>
+              <a href={{person.url}}>
+                <img class="img-responsive img-resize fixed-image" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}">
+              </a>
               <h6 class="person-name"><a href={{person.url}}>{{ person.title }}</a></h6>
               <hr class="person-sep">
               <p class="person-position">{{ person.wherefrom }}</p>
-              <!-- <p class="person-excerpt">{{ person.excerpt }}</p> -->
             </div>
-          {% if rowfinder == 0 %}
-          </div>
-          {% endif %}
+          {% if rowfinder == 0 %}</div>{% endif %}
         {% endif %}{% endfor %}
         {% if rowfinder != 0 %}
           <!-- In case the last row has < 4 people. -->
@@ -135,7 +221,7 @@ order: 3
         {% endif %}
       </div>
 
-
+      <!-- Research Affiliates -->
       <div class="white-stripe" style="margin-bottom: 25px;">
         <div class="container">
           <div class="row" style="padding-bottom: 10.4px;">
@@ -145,24 +231,22 @@ order: 3
           </div>
         </div>
       </div>
+
       <div class="container">
         {% assign loopindex = 0 %}
-        {% for person in sortedPeople %}{% if person.position == "externalresearchaffiliate" %}   
+        {% for person in sortedPeople %}{% if person.position == "externalresearchaffiliate" %}
           {% assign loopindex = loopindex | plus: 1 %}
           {% assign rowfinder = loopindex | modulo: 4 %}
-          {% if rowfinder == 1 %}
-          <div class="row person-row">
-          {% endif %}
+          {% if rowfinder == 1 %}<div class="row person-row">{% endif %}
             <div class="col-3 col-sm-3 col-md-3">
-              <a href={{person.url}}><img class="img-responsive img-resize fixed-image" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}"></a>
+              <a href={{person.url}}>
+                <img class="img-responsive img-resize fixed-image" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}">
+              </a>
               <h6 class="person-name"><a href={{person.url}}>{{ person.title }}</a></h6>
               <hr class="person-sep">
               <p class="person-position">{{ person.current }}</p>
-              <!-- <p class="person-excerpt">{{ person.excerpt }}</p> -->
             </div>
-          {% if rowfinder == 0 %}
-          </div>
-          {% endif %}
+          {% if rowfinder == 0 %}</div>{% endif %}
         {% endif %}{% endfor %}
         {% if rowfinder != 0 %}
           <!-- In case the last row has < 4 people. -->
@@ -170,8 +254,7 @@ order: 3
         {% endif %}
       </div>
 
-      
-
+      <!-- Alumni -->
       <div class="white-stripe" style="margin-bottom: 25px;">
         <div class="container">
           <div class="row" style="padding-bottom: 10.4px;">
@@ -181,25 +264,23 @@ order: 3
           </div>
         </div>
       </div>
+
       <div class="container">
         {% assign loopindex = 0 %}
-        {% for person in sortedPeople %}{% if person.position == "alumni" %}   
+        {% for person in sortedPeople %}{% if person.position == "alumni" %}
           {% assign loopindex = loopindex | plus: 1 %}
           {% assign rowfinder = loopindex | modulo: 4 %}
-          {% if rowfinder == 1 %}
-          <div class="row person-row">
-          {% endif %}
+          {% if rowfinder == 1 %}<div class="row person-row">{% endif %}
             <div class="col-3 col-sm-3 col-md-3">
-              <a href={{person.url}}><img class="img-responsive img-resize fixed-image" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}"></a>
+              <a href={{person.url}}>
+                <img class="img-responsive img-resize fixed-image" style="border-radius: 20%;" src="{{ relBase }}{{person.imgurl}}{{ person.img}}" alt="{{ person.title }}">
+              </a>
               <h6 class="person-name"><a href={{person.url}}>{{ person.title }}</a></h6>
               <hr class="person-sep">
               <p class="person-position">{{ person.wherefrom }}</p>
               <p class="person-position"><b>Currently:</b> {{ person.current }}</p>
-              <!-- <p class="person-excerpt">{{ person.excerpt }}</p> -->
             </div>
-          {% if rowfinder == 0 %}
-          </div>
-          {% endif %}
+          {% if rowfinder == 0 %}</div>{% endif %}
         {% endif %}{% endfor %}
         {% if rowfinder != 0 %}
           <!-- In case the last row has < 4 people. -->
@@ -207,113 +288,254 @@ order: 3
         {% endif %}
       </div>
 
-    
-   <br>
-   <br>
-    <div class="white-stripe" style="height: 80px; margin-bottom: 40px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
+      <!-- Lab Socials (auto gallery with 3:2 aspect) -->
+      <br><br>
+      <div class="white-stripe" style="height: 80px; margin-bottom: 20px;">
+        <div class="container">
+          <div class="row"><div class="col-sm-12">
             <h1 class="black-text"><b>Lab Socials</b></h1>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Set --ar here if you want a different ratio, e.g., style="--ar: 4/3;" -->
+        <div class="auto-gallery" id="lab-socials" style="--ar: 3/2;"
+             data-autoplay="true" data-interval="3500" data-pause-on-hover="true">
+          <div class="auto-gallery-track">
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25Serious.jpg" alt="Lab Retreat, Fall 2025">
+              <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25Hike.jpg" alt="Lab Retreat, Fall 2025">
+              <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-away.jpg" alt="Lab Retreat, Fall 2025">
+              <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+            </figure>
+            
+            <figure class="auto-gallery-slide">
+                <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-van.jpg" alt="Lab Retreat, Fall 2025">
+                <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25Lunch.jpg" alt="Lab Retreat, Fall 2025">
+              <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-icecream.jpg" alt="Lab Retreat, Fall 2025">
+              <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-rp1.jpg" alt="Lab Retreat, Fall 2025">
+              <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-rp2.jpg" alt="Lab Retreat, Fall 2025">
+              <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-rp3.png" alt="Lab Retreat, Fall 2025">
+              <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/Fall25-view.jpg" alt="Lab Retreat, Fall 2025">
+              <figcaption class="auto-gallery-caption">Lab Retreat, Fall 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/APE25_2.jpg" alt="Sailing Aperitivo, Spring 2025">
+              <figcaption class="auto-gallery-caption">Sailing Aperitivo, Spring 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/APE25_1.jpg" alt="Sailing Aperitivo, Spring 2025">
+              <figcaption class="auto-gallery-caption">Sailing Aperitivo, Spring 2025.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-breakfast.jpg" alt="Last group breakfast of the year 2024">
+              <figcaption class="auto-gallery-caption">Last group breakfast of the year 2024.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-24-4.jpg" alt="XMAS social, 2024">
+              <figcaption class="auto-gallery-caption">XMAS social, 2024.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-24-1.jpg" alt="XMAS social, 2024">
+              <figcaption class="auto-gallery-caption">XMAS social, 2024.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-24-2.jpg" alt="XMAS social, 2024">
+              <figcaption class="auto-gallery-caption">XMAS social, 2024.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-24-3.jpg" alt="XMAS social, 2024">
+              <figcaption class="auto-gallery-caption">XMAS social, 2024.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/xmas-24-5.jpg" alt="XMAS social, 2024">
+              <figcaption class="auto-gallery-caption">XMAS social, 2024.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/group_lunch_fall24.png" alt="First group meeting over lunch, Fall '24">
+              <figcaption class="auto-gallery-caption">First group meeting over lunch, Fall ’24.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/escape_room_fall24_1.png" alt="Escape room kick-off event, Fall '24">
+              <figcaption class="auto-gallery-caption">Escape room kick-off event, Fall ’24.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/escape_room_fall24_2.png" alt="Escape room kick-off event, Fall '24">
+              <figcaption class="auto-gallery-caption">Escape room kick-off event, Fall ’24.</figcaption>
+            </figure>
+
+            <figure class="auto-gallery-slide">
+              <img loading="lazy" src="{{ site.baseurl }}/assets/ice_cream_fall24.png" alt="Sugar boost, Fall '24">
+              <figcaption class="auto-gallery-caption">Sugar boost, Fall ’24.</figcaption>
+            </figure>
+
           </div>
+
+          <div class="auto-gallery-controls" aria-hidden="false">
+            <button type="button" class="auto-gallery-btn" data-dir="prev" aria-label="Previous slide">‹</button>
+            <button type="button" class="auto-gallery-btn" data-dir="next" aria-label="Next slide">›</button>
+          </div>
+          <div class="auto-gallery-dots" aria-label="Slide pagination"></div>
         </div>
       </div>
-    </div>
-    <div class="container">
+      <br><br>
 
-      
-      <div class="row">
-
-
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/APE25_2.jpg" class="img-fluid" alt="XMAS social, 2024." style="margin-bottom: 10px;">
-          <p class="text-center"><strong>Sailing Aperitivo, Spring 2025.</strong></p>
-        </div>
-    
-        <!-- Second Image with Caption -->
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/APE25_1.jpg" class="img-fluid" alt="XMAS social, 2024." style="margin-bottom: 10px;">
-          <p class="text-center"><strong>Sailing Aperitivo, Spring 2025.</strong></p>
-        </div>
-      </div>
-
-      <div class="row">
-
-
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/xmas-breakfast.jpg" class="img-fluid" alt="XMAS social, 2024." style="margin-bottom: 10px;">
-          <p class="text-center"><strong>Last group breakfast of the year 2024.</strong></p>
-        </div>
-    
-        <!-- Second Image with Caption -->
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/xmas-24-4.jpg" class="img-fluid" alt="XMAS social, 2024." style="margin-bottom: 10px;">
-          <p class="text-center"><strong>XMAS social, 2024.</strong></p>
-        </div>
-      </div>
-
-      <div class="row">
-
-        <!-- First Image with Caption -->
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/xmas-24-1.jpg" class="img-fluid" alt="XMAS social, 2024." style="margin-bottom: 10px;">
-          <p class="text-center"><strong>XMAS social, 2024.</strong></p>
-        </div>
-    
-        <!-- Second Image with Caption -->
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/xmas-24-2.jpg" class="img-fluid" alt="XMAS social, 2024." style="margin-bottom: 10px;">
-          <p class="text-center"><strong>XMAS social, 2024.</strong></p>
-        </div>
-      </div>
-
-      <div class="row">
-        <!-- First Image with Caption -->
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/xmas-24-3.jpg" class="img-fluid" alt="XMAS social, 2024." style="margin-bottom: 10px;">
-          <p class="text-center"><strong>XMAS social, 2024.</strong></p>
-        </div>
-    
-        <!-- Second Image with Caption -->
-
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/xmas-24-5.jpg" class="img-fluid" alt="XMAS social, 2024." style="margin-bottom: 10px;">
-          <p class="text-center"><strong>XMAS social, 2024.</strong></p>
-        </div>
-
-        
-      </div>
-    
-      <div class="row">
-        <!-- First Image with Caption -->
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/group_lunch_fall24.png" class="img-fluid" alt="First group meeting over lunch, Fall'24." style="margin-bottom: 10px;">
-          <p class="text-center"><strong>First group meeting over lunch, Fall'24.</strong></p>
-        </div>
-    
-        <!-- Second Image with Caption -->
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/escape_room_fall24_1.png" class="img-fluid" alt="Lab event 2" style="margin-bottom: 10px;">
-          <p class="text-center"><strong>Escape room kick-off event, Fall'24</strong></p>
-        </div>
-      </div>
-    
-      <div class="row">
-        <!-- Third Image with Caption -->
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/escape_room_fall24_2.png" class="img-fluid" alt="Lab event 3" style="margin-bottom: 10px;">
-          <p class="text-center"><strong>Escape room kick-off event, Fall'24.</strong></p>
-        </div>
-    
-        <!-- Fourth Image with Caption -->
-        <div class="col-sm-6">
-          <img src="{{ site.baseurl }}/assets/ice_cream_fall24.png" class="img-fluid" alt="Lab event 4" style="margin-bottom: 10px;">
-          <p class="text-center"><strong>Sugar boost, Fall'24.</strong></p>
-        </div>
-      </div>
-    </div>
     </header>
+
     {% include javascript.html %}
+
+    <!-- Auto gallery script -->
+    <script>
+    (function() {
+      function initGallery(el) {
+        const track = el.querySelector('.auto-gallery-track');
+        const slides = Array.from(el.querySelectorAll('.auto-gallery-slide'));
+        const dotsWrap = el.querySelector('.auto-gallery-dots');
+        const prevBtn = el.querySelector('[data-dir="prev"]');
+        const nextBtn = el.querySelector('[data-dir="next"]');
+        const autoplay = el.dataset.autoplay === 'true';
+        const interval = Number(el.dataset.interval || 4000);
+        const pauseOnHover = el.dataset.pauseOnHover === 'true';
+
+        let index = 0, timer = null, startX = 0, currentX = 0, isDragging = false;
+
+        // Build dots
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'auto-gallery-dot';
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Go to slide ' + (i+1));
+          dot.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(dot);
+        });
+
+        function update() {
+          track.style.transform = 'translateX(' + (-index * 100) + '%)';
+          dotsWrap.querySelectorAll('.auto-gallery-dot').forEach((d, i) => {
+            d.setAttribute('aria-current', i === index ? 'true' : 'false');
+          });
+        }
+
+        function goTo(i) {
+          index = (i + slides.length) % slides.length;
+          update();
+        }
+        function next() { goTo(index + 1); }
+        function prev() { goTo(index - 1); }
+
+        // Buttons
+        if (prevBtn) prevBtn.addEventListener('click', prev);
+        if (nextBtn) nextBtn.addEventListener('click', next);
+
+        // Autoplay
+        function start() { if (autoplay && !timer) timer = setInterval(next, interval); }
+        function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+
+        if (pauseOnHover) {
+          el.addEventListener('mouseenter', stop);
+          el.addEventListener('mouseleave', start);
+        }
+
+        // Keyboard
+        el.setAttribute('tabindex', '0');
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowRight') next();
+          if (e.key === 'ArrowLeft')  prev();
+        });
+
+        // Touch swipe
+        track.addEventListener('touchstart', (e) => {
+          stop();
+          isDragging = true;
+          startX = e.touches[0].clientX;
+        }, {passive: true});
+        track.addEventListener('touchmove', (e) => {
+          if (!isDragging) return;
+          currentX = e.touches[0].clientX;
+        }, {passive: true});
+        track.addEventListener('touchend', () => {
+          if (!isDragging) return;
+          const dx = currentX - startX;
+          if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
+          isDragging = false;
+          start();
+        });
+
+        // Lazy-load boost (optional)
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach(ent => {
+              if (ent.isIntersecting) {
+                const imgs = ent.target.querySelectorAll('img[loading="lazy"]');
+                imgs.forEach(img => { img.decoding = 'async'; });
+              }
+            });
+          }, { root: el, threshold: 0.1 });
+          slides.forEach(s => io.observe(s));
+        }
+
+        // Init
+        update();
+        start();
+      }
+
+      function initAll() {
+        document.querySelectorAll('.auto-gallery').forEach(initGallery);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAll);
+      } else {
+        initAll();
+      }
+    })();
+    </script>
+
     {% include footer.html %} 
   </body>
 </html>
