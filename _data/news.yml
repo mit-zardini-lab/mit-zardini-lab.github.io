@@ -121,6 +121,8 @@
     - date: "9/5/2025"
       description: "Gioele gave a virtual AVIATE seminar at UIUC. Check it out <b><a class='black-link' href='https://youtu.be/BmAz6fEPa2o'>here</a></b>!"
     - date: "09/24/25"
+      description: "Gioele gave a talk at the MIT–Amazon Science Hub Robotics Research Day 2025!"
+    - date: "09/25/25"
       description: "Our work on contact-aware safety for soft robotics has been accepted to the IEEE Robotics and Automation Letters!"
 
 
