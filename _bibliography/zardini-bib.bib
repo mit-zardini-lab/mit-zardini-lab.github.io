@@ -129,9 +129,6 @@
   doi = {10.4204/EPTCS.333.10}
 }
 
-%url={https://arxiv.org/pdf/2005.04715.pdf},
-  eprint={https://www.youtube.com/watch?v=bIFGXS-Gr1c},
-  addendum={http://gioele.science/media/act20_zardini.pdf}
 
 @inproceedings{ZardiniLanzettiEtAl2020,
   author    = {Zardini, Gioele and Lanzetti, Nicolas and Salazar, Mauro and Censi, Andrea and Frazzoli, Emilio and Pavone, Marco},
@@ -156,9 +153,6 @@
   url={https://arxiv.org/abs/1910.07714},
   year = {2020}
 }
-
-%url = {https://arxiv.org/pdf/1910.07714.pdf},
-  addendum = {https://gioele.science/poster.pdf}
 
 @inproceedings{Zardini2020,
   title={On the Co-Design of AV-Enabled Mobility Systems},
@@ -272,9 +266,6 @@ pages     = {164-177},
 doi       = {10.4204/EPTCS.372.12}
 }
 
-%eprint={https://www.youtube.com/watch?v=diASxDvWfdk},
-addendum={https://www.cl.cam.ac.uk/events/act2021/slides/ACT_2021_slides_30.pdf},
-
 @inproceedings{zardini2021ecc,
   title={Co-design of autonomous systems: From hardware selection to control synthesis},
   author={Zardini, Gioele and Censi, Andrea and Frazzoli, Emilio},
@@ -296,10 +287,6 @@ addendum={https://www.cl.cam.ac.uk/events/act2021/slides/ACT_2021_slides_30.pdf}
   behaviors, we can compute Pareto efficient design solutions.},
   %organization = {IEEE}
 }
-
-%  url ={https://arxiv.org/pdf/2011.10758.pdf},
-  eprint={https://www.youtube.com/watch?v=tsPiTmdiNoQ}, 
-  addendum={https://gioele.science/media/ecc21.pdf}
   
 %% 2022 
 
@@ -815,6 +802,8 @@ url={https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4977199}
   By choosing different monads, we capture various types of uncertainty. 
   The category underlying $\C$ embeds into $N_*\C$ via a strict monoidal 2-functor, allowing (co)monoidal and compact closed structures to be transferred. 
   Applied to $\DP$, this construction leads to categories of practical relevance, such as parametrized design problems for optimization, and parametrized distributions of design problems, which enable decision theory and Bayesian learning.},
+  slides_show={true},
+  slides={https://mariusfurter.com/assets/pdf/act25-composable-uncertainty.pdf},
   url={https://arxiv.org/abs/2503.17274}
 }
 
@@ -897,10 +886,14 @@ Experimental results on benchmark maps demonstrate that our method achieves up t
   abstract= {
     How do we enable artificial intelligence models to improve themselves? This is central to exponentially improving generalized artificial intelligence models, which can improve their own architecture to handle new problem domains in an efficient manner that leverages the latest hardware. However, current automated compilation methods are poor, and efficient algorithms require years of human development. In this paper, we use neural circuit diagrams, based in category theory, to prove a general theorem related to deep learning algorithms, guide the development of a novel attention algorithm catered to the domain of gene regulatory networks, and produce a corresponding efficient kernel. The algorithm we propose, spherical attention, shows that neural circuit diagrams enable a principled and systematic method for reasoning about deep learning architectures and providing high-performance code. By replacing SoftMax with an $L^2$ norm as suggested by diagrams, it overcomes the special function unit bottleneck of standard attention while retaining the streaming property essential to high-performance. Our diagrammatically derived \textit{FlashSign} kernel achieves comparable performance to the state-of-the-art, fine-tuned FlashAttention algorithm on an A100, and $3.6\times$ the performance of PyTorch. Overall, this investigation shows neural circuit diagrams' suitability as a high-level framework for the automated development of efficient, novel artificial intelligence architectures.
   },
-  booktitle={Artificial General Intelligence (In Press)},
+  booktitle={Artificial General Intelligence},
   publisher={Springer Nature Switzerland},
+  pages={1--11},
+  isbn={978-3-032-00686-8},
   url={https://arxiv.org/pdf/2505.09326}
   }
+
+
 
   @inproceedings{brar25its1,
   title={Maximal Compatibility Matching for Preference-Aware Ride-Hailing Systems},
@@ -1020,7 +1013,7 @@ The proposed framework provides a foundation for improving interdependent networ
   The efficiency of these systems hinges on real-time fleet coordination algorithms. 
   This work accelerates the state-of-the-art high-capacity ridepooling framework by identifying its computational bottlenecks and introducing two complementary strategies: 
   (i) a data-driven feasibility predictor that filters low-potential trips, and (ii) a graph-partitioning scheme that enables parallelizable trip generation. 
-  Using real-world Manhattan demand data, we show that the acceleration algorithms reduce the optimality gap by up to 27% under real-time constraints and cut empty travel time by up to 5%. 
+  Using real-world Manhattan demand data, we show that the acceleration algorithms reduce the optimality gap by up to 27\% under real-time constraints and cut empty travel time by up to 5\%. 
   These improvements translate into tangible economic and environmental benefits, advancing the scalability of high-capacity robo-taxi operations in dense urban settings.
   },
   url={https://zardini.mit.edu/assets/Li25-Speedup.pdf}
@@ -1040,16 +1033,14 @@ The proposed framework provides a foundation for improving interdependent networ
   Empirical results on cooperative benchmarks demonstrate that risk-seeking optimism consistently improves coordination over both risk-neutral baselines and heuristic optimistic methods.
   Our framework thus unifies risk-sensitive learning and optimism, offering a theoretically grounded and practically effective approach to cooperation in MARL.
   },
-  url={}
+  url={https://arxiv.org/pdf/2509.24047}
   }
 
-
-
-
-
-
-
-
-
-
-  
+  @unpublished{zhang25fl,
+  author={Zhang, Runyu and Zardini, Gioele and Ozdaglar, Asuman and Shamma, Jeff and Li, Na},
+  title={Zeroth-Order Constrained Optimization from a Control Perspective via Feedback Linearization},
+  year={2025},
+  abstract= {Designing safe derivative-free optimization algorithms under unknown constraints is a fundamental challenge in modern learning and control. Most existing zeroth-order (ZO) approaches typically assume white-box constraints or focus on convex settings, leaving the general case of nonconvex optimization with black-box constraints largely open. We propose a control-theoretic framework for ZO constrained optimization that enforces feasibility without relying on solving costly convex subproblems. Leveraging feedback linearization, we introduce a family of ZO feedback linearization (ZOFL) algorithms applicable to both equality and inequality constraints. Our method requires only noisy, sample-based gradient estimates yet provably guarantees constraint satisfaction under mild regularity conditions. We establish finite-time bounds on constraint violation and further present a midpoint discretization variant that further improves feasibility without sacrificing optimality. Empirical results demonstrate that ZOFL consistently outperforms standard ZO baselines, achieving competitive objective values while maintaining feasibility.
+  },
+  url={https://arxiv.org/pdf/2509.24056}
+  }
