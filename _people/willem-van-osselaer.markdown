@@ -7,7 +7,7 @@ position: mst
 excerpt: ""
 img: ZardiniLab_WillemPicture.jpg
 email: willemvo@mit.edu
-linkedin: https://www.linkedin.com/in/willem-van-osselaer-813472181/
+linkedin: willem-van-osselaer-813472181
 ---
 
 Willem is a Master of Science in Transportation student at MIT, advised by Professor Zardini. His research interests lie in the use of optimization and operations research to solve complex logistical challenges. Willem earned a B.S. in Operations Research & Engineering and a B.S. in Urban & Regional Studies from Cornell University. 

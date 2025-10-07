@@ -9,7 +9,7 @@ wherefrom: "Mini-UROP"
 excerpt: ""
 img: ceciliamccarthy.jpeg
 email: cecim06@mit.edu
-linkedin: www.linkedin.com/in/cecilia-mccarthy-ba149023a
+linkedin: cecilia-mccarthy-ba149023a
 ---
 
 Cecilia is an undergraduate student at the Massachussets Institute of Technology (MIT). 
