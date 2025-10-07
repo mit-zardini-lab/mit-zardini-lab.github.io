@@ -7,7 +7,7 @@ position: superurop
 excerpt: ""
 img: DiegoTemkin.jpg
 email: dtemkin@mit.edu
-linkedin: https://www.linkedin.com/in/diego-temkin/
+linkedin: diego-temkin
 website: https://web.mit.edu/dtemkin/www/
 ---
 
