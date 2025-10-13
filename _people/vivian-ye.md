@@ -7,7 +7,7 @@ position: urop
 excerpt: ""
 img: VivianYe.jpg
 email: yevivian@mit.edu
-linkedin: https://linkedin.com/in/yevivian
+linkedin: yevivian
 ---
 
 Vivian Ye is an undergraduate student studying Computer Science and Engineering at MIT. 
