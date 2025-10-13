@@ -128,4 +128,8 @@
       description: "We are the MIT News Homepage Spotlight today, with the article  <b><a class='black-link' href='https://news.mit.edu/2025/accounting-uncertainty-help-engineers-design-complex-systems-1002'>Accounting for uncertainty to help engineers design complex systems</a></b>"
     - date: "10/2/2025"
       description: "Gioele gave a talk at the NYU Tandon School of Engineering in NYC!"
+    - date: "10/10/2025"
+      description: "Gioele gave an IDS.900 Doctoral Seminar."
+    - date: "10/12/2025"
+      description: "Jiarui and Maximilian have presented their work, and Runyu gave a Rising Star spotlight talk at NERC'25!"
 
