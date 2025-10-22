@@ -651,6 +651,7 @@ abstract= {Optimizing deep learning algorithms currently requires slow, manual d
   Diagrams generate pseudocode, which reveals the application of hardware-specific features such as coalesced memory access, tensor core operations, and overlapped computation.
   We present attention algorithms for Ampere, which fits 13 warps per SM (FlashAttention fits 8), and for Hopper, which has improved overlapping and may achieve 1.32 PFLOPs.},
 url={https://openreview.net/forum?id=pF2ukh7HxA},
+note={Awarded a J2C Certification}
 press={https://news.mit.edu/2025/designing-new-way-optimize-complex-coordinated-systems-0424},
 press_show={},
 }
@@ -899,11 +900,12 @@ url={https://zardini.mit.edu/assets/NERC25_Co_design_multi_agent_heterogenous_ro
   abstract= {
     How do we enable artificial intelligence models to improve themselves? This is central to exponentially improving generalized artificial intelligence models, which can improve their own architecture to handle new problem domains in an efficient manner that leverages the latest hardware. However, current automated compilation methods are poor, and efficient algorithms require years of human development. In this paper, we use neural circuit diagrams, based in category theory, to prove a general theorem related to deep learning algorithms, guide the development of a novel attention algorithm catered to the domain of gene regulatory networks, and produce a corresponding efficient kernel. The algorithm we propose, spherical attention, shows that neural circuit diagrams enable a principled and systematic method for reasoning about deep learning architectures and providing high-performance code. By replacing SoftMax with an $L^2$ norm as suggested by diagrams, it overcomes the special function unit bottleneck of standard attention while retaining the streaming property essential to high-performance. Our diagrammatically derived \textit{FlashSign} kernel achieves comparable performance to the state-of-the-art, fine-tuned FlashAttention algorithm on an A100, and $3.6\times$ the performance of PyTorch. Overall, this investigation shows neural circuit diagrams' suitability as a high-level framework for the automated development of efficient, novel artificial intelligence architectures.
   },
-  booktitle={Artificial General Intelligence},
-  publisher={Springer Nature Switzerland},
+  booktitle = {Artificial General Intelligence: 18th International Conference, AGI 2025, Reykjavic, Iceland, August 10–13, 2025, Proceedings, Part I},
+  publisher = {Springer-Verlag},
   pages={1--11},
   isbn={978-3-032-00686-8},
-  url={https://arxiv.org/pdf/2505.09326}
+  url={https://arxiv.org/pdf/2505.09326},
+  doi = {10.1007/978-3-032-00686-8_1}
   }
 
 

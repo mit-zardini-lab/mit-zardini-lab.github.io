@@ -132,4 +132,5 @@
       description: "Gioele gave an IDS.900 Doctoral Seminar."
     - date: "10/12/2025"
       description: "Jiarui and Maximilian have presented their work, and Runyu gave a Rising Star spotlight talk at NERC'25!"
-
+    - date: "10/22/2025"
+      description: "Our work on Compositionality for DL Architectures, led by Vincent and published in TMLR, has been awarded a J2C Certification. Also, Vincent gave an invited seminar on the subject at GPU Mode. Find it <b><a class='black-link' href='https://www.youtube.com/watch?v=pB8jRHHGJcE'>here</a></b>!"
