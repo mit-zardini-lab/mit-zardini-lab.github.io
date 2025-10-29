@@ -136,3 +136,5 @@
       description: "Our work on Compositionality for DL Architectures, led by Vincent and published in TMLR, has been awarded a J2C Certification (top 10%). Also, Vincent gave an invited seminar on the subject at GPU Mode. Find it <b><a class='black-link' href='https://www.youtube.com/watch?v=pB8jRHHGJcE'>here</a></b>!"
     - date: "10/24/25"
       description: "Gioele gave a talk at Northeastern University."
+    - date: "10/29/25"
+      description: "Vincent's TMLR paper has been accepted for presentation at ICLR 2026! Rio here we come 2.0!"
