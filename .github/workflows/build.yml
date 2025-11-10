@@ -16,9 +16,10 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1  # ✅ Fixed SHA reference
         with:
-          ruby-version: '3.3'
+          ruby-version: '3.3'   # move off 3.1
+          rubygems: latest      # key: avoids the JSON loader issue
           bundler-cache: true
-          cache-version: 1
+          cache-version: 2      # bump to invalidate old bundle cache
 
       - name: Setup Pages
         id: pages
