@@ -142,3 +142,5 @@
       description: "Marc Neumann, co-advised by Gioele, has successfully defended his Ph.D. Thesis on Strategic Formula 1 Optimization at ETH Zurich!"
     - date: "11/10/25"
       description: "Our IEEE T-RO paper on Co-Design of Embodied Intelligence has been accepted for presentation at AAAI-26 in Singapore!"
+    - date: "11/30/25"
+      description: "Our paper on Optimism as Risk-Seeking in MARL has been accepted for publication in the IEEE Control Systems Letters!"
