@@ -949,6 +949,7 @@ Monte Carlo simulations on synthetic urban networks show that WGC consistently o
   year={2025},
   volume = {},
   number = {},
+  note={Additionally selected for spotlight presentation at Robotics: Science and Systems (RSS) Autonomous Vehicles Across Scales Workshop (AVAS)},
   abstract= {Fleets of robo-taxis offering on-demand transportation services, commonly known as Autonomous Mobility-on-Demand (AMoD) systems, hold significant promise for societal benefits, such as reducing pollution, energy consumption, and urban congestion. However, orchestrating these systems at scale remains a critical challenge, with existing coordination algorithms often failing to exploit the systems' full potential. This work introduces a novel decision-making framework that unites mathematical modeling with data-driven techniques. In particular, we present the AMoD coordination problem through the lens of reinforcement learning and propose a graph network-based framework that exploits the main strengths of graph representation learning, reinforcement learning, and classical operations research tools. Extensive evaluations across diverse simulation fidelities and scenarios demonstrate the flexibility of our approach, achieving superior system performance, computational efficiency, and generalizability compared to prior methods. Finally, motivated by the need to democratize research efforts in this area, we release publicly available benchmarks, datasets, and simulators for network-level coordination alongside an open-source codebase designed to provide accessible simulation platforms and establish a standardized validation process for comparing methodologies. Code available at: https://github.com/StanfordASL/RL4AMOD.},
   url={https://arxiv.org/pdf/2504.06125}
   }
@@ -1093,6 +1094,20 @@ The proposed framework provides a foundation for improving interdependent networ
   year={2025},
   abstract= {Multi-Agent Path Finding (MAPF) is a fundamental problem in robotics and AI, yet most existing formulations treat planning and execution separately and address variants of the problem in an ad hoc manner. This paper presents a system-level framework for MAPF that integrates planning and execution, generalizes across variants, and explicitly models uncertainties. At its core is the MAPF system, a formal model that casts MAPF as a control design problem encompassing classical and uncertainty-aware formulations. To solve it, we introduce Finite-Horizon Closed-Loop Factorization (FICO), a factorizationbased algorithm inspired by receding-horizon control that exploits compositional structure for efficient closed-loop operation. FICOenables real-time responses—commencing execution within milliseconds—while scaling to thousands of agents and adapting seamlessly to execution-time uncertainties. Extensive case studies demonstrate that it reduces computation time by up to two orders of magnitude compared with open-loop baselines, while delivering significantly higher throughput under stochastic delays and agent arrivals. These results establish a principled foundation for analyzing and advancing MAPF through system-level modeling, factorization, and closed-loop design.},
   url={https://arxiv.org/abs/2511.13961}
+  }
+
+  @unpublished{gaberalharbiGRAND26,
+  author={Gaber, Johannes and Alharbi, Meshal and Gammelli, Daniele and Zardini, Gioele},
+  title={GRAND: Guidance, Rebalancing, and Assignment for Networked Dispatch in Multi-Agent Path Finding},
+  year={2025},
+  abstract= {Large robot fleets are now common in warehouses and other logistics settings, where small control gains translate into large operational impacts.
+  In this article, we address task scheduling for lifelong Multi-Agent Pickup-and-Delivery (MAPD) and propose a hybrid method that couples learning-based global guidance with lightweight optimization.
+  A graph neural network policy trained via reinforcement learning outputs a desired distribution of free agents over an aggregated warehouse graph.
+  This signal is converted into region-to-region rebalancing through a minimum-cost flow, and finalized by small, local assignment problems, preserving accuracy while keeping per-step latency within a 1s compute budget.
+  On congested warehouse benchmarks from the League of Robot Runners (LRR) with up to 500 agents, our approach improves throughput by up to 10% over the 2024 winning scheduler while maintaining real-time execution.
+  The results indicate that coupling graph-structured learned guidance with tractable solvers reduces congestion and yields a practical, scalable blueprint for high-throughput scheduling in large fleets.
+  },
+  url={}
   }
 
 
