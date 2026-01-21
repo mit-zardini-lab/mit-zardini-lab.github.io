@@ -153,12 +153,14 @@
   events:
     - date: "01/02/2026"
       description: "Our paper on Accelerating High-Capacity Ridepooling in Robo-Taxi Systems has been accepted for publication in the IEEE Robotics and Automation Letters!"
-    - date: "05/01/2026"
+    - date: "01/05/2026"
       description: "Two workshops accepted at ACC 2026!"
-    - date: "07/01/2026"
+    - date: "01/07/2026"
       description: "Gioele gave a seminar at Osaka Metropolitan University!"
-    - date: "16/01/2026"
+    - date: "01/16/2026"
       description: "Gioele gave a seminar at Keio University!"
+    - date: "01/19/2026"
+      description: "Gioele gave a seminar at Institute of Science, Tokyo!"
 
 
       
