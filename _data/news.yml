@@ -161,6 +161,8 @@
       description: "Gioele gave a seminar at Keio University!"
     - date: "01/19/2026"
       description: "Gioele gave a seminar at Institute of Science, Tokyo!"
+    - date: "01/22/2026"
+      description: "Our IEEE L-CSS paper on Optimism as Risk-Seeking in MARL has been accepted for presentation at ACC 2026!"
 
 
       
