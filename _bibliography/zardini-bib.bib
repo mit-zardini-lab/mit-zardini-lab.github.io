@@ -651,7 +651,7 @@ abstract= {Optimizing deep learning algorithms currently requires slow, manual d
   Diagrams generate pseudocode, which reveals the application of hardware-specific features such as coalesced memory access, tensor core operations, and overlapped computation.
   We present attention algorithms for Ampere, which fits 13 warps per SM (FlashAttention fits 8), and for Hopper, which has improved overlapping and may achieve 1.32 PFLOPs.},
 url={https://openreview.net/forum?id=pF2ukh7HxA},
-note={Awarded a J2C Certification (top 10%), additionally selected to be presented at ICLR 2026!},
+note={Awarded a J2C Certification (top 10\%), additionally selected to be presented at ICLR 2026!},
 press={https://news.mit.edu/2025/designing-new-way-optimize-complex-coordinated-systems-0424},
 press_show={},
 video={https://www.youtube.com/watch?v=pB8jRHHGJcE},
@@ -1075,8 +1075,8 @@ The proposed framework provides a foundation for improving interdependent networ
   @unpublished{zhang25fl,
   author={Zhang, Runyu and Zardini, Gioele and Ozdaglar, Asuman and Shamma, Jeff and Li, Na},
   title={Zeroth-Order Constrained Optimization from a Control Perspective via Feedback Linearization},
-  year={2025},
-  abstract= {Designing safe derivative-free optimization algorithms under unknown constraints is a fundamental challenge in modern learning and control. Most existing zeroth-order (ZO) approaches typically assume white-box constraints or focus on convex settings, leaving the general case of nonconvex optimization with black-box constraints largely open. We propose a control-theoretic framework for ZO constrained optimization that enforces feasibility without relying on solving costly convex subproblems. Leveraging feedback linearization, we introduce a family of ZO feedback linearization (ZOFL) algorithms applicable to both equality and inequality constraints. Our method requires only noisy, sample-based gradient estimates yet provably guarantees constraint satisfaction under mild regularity conditions. We establish finite-time bounds on constraint violation and further present a midpoint discretization variant that further improves feasibility without sacrificing optimality. Empirical results demonstrate that ZOFL consistently outperforms standard ZO baselines, achieving competitive objective values while maintaining feasibility.
+  year={2026},
+  abstract= {Safe derivative-free optimization under unknown constraints is a fundamental challenge in modern learning and control. Existing zeroth-order (ZO) methods typically still assume access to a first-order oracle of the constraint functions or restrict attention to convex settings, leaving nonconvex optimization with black-box constraints largely unexplored. We propose the zeroth-order feedback-linearization (ZOFL) algorithm for ZO constrained optimization that enforces feasibility without access to the first-order oracle of the constraint functions and applies to both equality and inequality constraints. The proposed approach relies only on noisy, sample-based gradient estimates obtained via two-point estimators, yet provably guarantees constraint satisfaction under mild regularity conditions. It adopts a control-theoretic perspective on ZO constrained optimization and leverages feedback linearization, a nonlinear control technique, to enforce feasibility. Finite-time bounds on constraint violation and asymptotic global convergence guarantees are established for the ZOFL algorithm. A midpoint discretization variant is further developed to improve feasibility without sacrificing optimality. Empirical results demonstrate that ZOFL consistently outperforms standard ZO baselines, achieving competitive objective values while maintaining feasibility.
   },
   url={https://arxiv.org/pdf/2509.24056}
   }
@@ -1120,7 +1120,7 @@ The proposed framework provides a foundation for improving interdependent networ
   In this article, we address task scheduling for lifelong Multi-Agent Pickup-and-Delivery (MAPD) and propose a hybrid method that couples learning-based global guidance with lightweight optimization.
   A graph neural network policy trained via reinforcement learning outputs a desired distribution of free agents over an aggregated warehouse graph.
   This signal is converted into region-to-region rebalancing through a minimum-cost flow, and finalized by small, local assignment problems, preserving accuracy while keeping per-step latency within a 1s compute budget.
-  On congested warehouse benchmarks from the League of Robot Runners (LRR) with up to 500 agents, our approach improves throughput by up to 10% over the 2024 winning scheduler while maintaining real-time execution.
+  On congested warehouse benchmarks from the League of Robot Runners (LRR) with up to 500 agents, our approach improves throughput by up to 10\% over the 2024 winning scheduler while maintaining real-time execution.
   The results indicate that coupling graph-structured learned guidance with tractable solvers reduces congestion and yields a practical, scalable blueprint for high-throughput scheduling in large fleets.
   },
   url={https://arxiv.org/abs/2512.03194}
@@ -1143,4 +1143,30 @@ We observe that while such transformations preserve equilibrium and optimal outc
   abstract= {Imitation learning (IL) enables autonomous behavior by learning from expert demonstrations. While more sample-efficient than comparative alternatives like reinforcement learning, IL is sensitive to compounding errors induced by distribution shifts. There are two significant sources of distribution shifts when using IL-based feedback laws on systems: distribution shifts caused by policy error and distribution shifts due to exogenous disturbances and endogenous model errors due to lack of learning. Our previously developed approaches, Taylor Series Imitation Learning (TaSIL) and 1 -Distributionally Robust Adaptive Control (\ellonedrac), address the challenge of distribution shifts in complementary ways. While TaSIL offers robustness against policy error-induced distribution shifts, \ellonedrac offers robustness against distribution shifts due to aleatoric and epistemic uncertainties. To enable certifiable IL for learned and/or uncertain dynamical systems, we formulate \textit{Distributionally Robust Imitation Policy (DRIP)} architecture, a Layered Control Architecture (LCA) that integrates TaSIL and~\ellonedrac. By judiciously designing individual layer-centric input and output requirements, we show how we can guarantee certificates for the entire control pipeline. Our solution paves the path for designing fully certifiable autonomy pipelines, by integrating learning-based components, such as perception, with certifiable model-based decision-making through the proposed LCA approach.},
   url={https://arxiv.org/pdf/2512.17899}
   }
+
+  @unpublished{zhang26eqsel,
+  author={Zhang, Runyu and Zardini, Gioele and Ozdaglar, Asuman and Shamma, Jeff and Li, Na},
+  title={Equilibrium Selection for Multi-agent Reinforcement Learning: A Unified Framework},
+  year={2026},
+  abstract= {While multi-agent reinforcement learning (MARL) has produced numerous algorithms that converge to Nash or related equilibria, such equilibria are often non-unique and can exhibit widely varying efficiency.
+  This raises a fundamental question: how can one design learning dynamics that not only converge to equilibrium but also select equilibria with desirable performance, such as high social welfare?
+  In contrast to the MARL literature, equilibrium selection has been extensively studied in normal-form games, where decentralized dynamics are known to converge to potential-maximizing or Pareto-optimal Nash equilibria (NEs).
+  Motivated by these results, we study equilibrium selection in finite-horizon stochastic games. 
+  We propose a unified actor-critic framework in which a critic learns state-action value functions, and an actor applies a classical equilibrium-selection rule state-wise, treating learned values as stage-game payoffs.
+  We show that, under standard stochastic stability assumptions, the stochastically stable policies of the resulting dynamics inherit the equilibrium selection properties of the underlying normal-form learning rule.
+  As consequences, we obtain potential-maximizing policies in Markov potential games and Pareto-optimal (Markov perfect) equilibria in general-sum stochastic games, together with sample-based implementation of the framework.
+  },
+  url={}
+  }
+
+  @unpublished{nagy26ctbuild,
+  author={Nagy, Zoltan and Wisnesky, Ryan and Carlson, Kevin and Subrahmanian, Eswaran and Zardini, Gioele},
+  title={A Categorical Approach to Semantic Interoperability Across Building Lifecycle},
+  year={2026},
+  abstract= {Buildings generate heterogeneous data across their lifecycle, yet integrating these data remains a critical unsolved challenge. Despite three decades of standardization efforts, over 40 metadata schemas now span the building lifecycle, with fragmentation accelerating rather than resolving. Current approaches rely on point-to-point mappings that scale quadratically with the number of schemas, or universal ontologies that become unwieldy monoliths. The fundamental gap is the absence of mathematical foundations for structure-preserving transformations across heterogeneous building data. Here we show that category theory provides these foundations, enabling systematic data integration with $O(n)$ specification complexity for $n$ ontologies. We formalize building ontologies as first-order theories and demonstrate two proof-of-concept implementations in Categorical Query Language (CQL): 1) generating BRICK models from IFC design data at commissioning, and 2) three-way integration of IFC, BRICK, and RealEstateCore where only two explicit mappings yield the third automatically through categorical composition. Our correct-by-construction approach treats property sets as first-class schema entities and provides automated bidirectional migrations, and enables cross-ontology queries. These results establish feasibility of categorical methods for building data integration and suggest a path toward an \emph{app ecosystem} for buildings, where mathematical foundations enable reliable component integration analogous to smartphone platforms.
+  },
+  url={https://arxiv.org/pdf/2601.16663}
+  }
+
+
 
