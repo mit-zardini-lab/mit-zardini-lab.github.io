@@ -162,7 +162,9 @@
     - date: "01/19/2026"
       description: "Gioele gave a seminar at Institute of Science, Tokyo!"
     - date: "01/22/2026"
-      description: "Our IEEE L-CSS paper on Optimism as Risk-Seeking in MARL has been accepted for presentation at ACC 2026!"
+      description: "Our IEEE L-CSS paper on Optimism as Risk-Seeking in MARL has been accepted for presentation at ACC 2026 in New Orleans!"
     - date: "01/27/2026"
       description: "Gioele gave a seminar at NTU Singapore!"
+    - date: "01/31/2026"
+      description: "Two IEEE RA-L papers (on soft robots control and AMoD ride-sharing) selected for presentation at ICRA 2026 in Vienna!"
       
