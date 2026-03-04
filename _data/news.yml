@@ -171,4 +171,6 @@
       description: "Our paper on reproducibility in AMoD control has been accepted in the IEEE Transactions on Robotics!"
     - date: "02/19/2026"
       description: "Gioele gave a DDLC seminar at Cornell University!"
+    - date: "03/04/2026"
+      description: "Our work on guidance, rebalancing, and assignment for multi-agent path finding has been accepted in the IEEE Robotics and Automation Letters!"
 
