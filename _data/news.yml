@@ -173,4 +173,5 @@
       description: "Gioele gave a DDLC seminar at Cornell University!"
     - date: "03/04/2026"
       description: "Our work on guidance, rebalancing, and assignment for multi-agent path finding has been accepted in the IEEE Robotics and Automation Letters!"
-
+    - date: "03/05/2026"
+      description: "Our paper on Hierarchical Strategic Decision-Making in Layered Mobility Systems has been accepted to the 2026 European Control Conference!"
