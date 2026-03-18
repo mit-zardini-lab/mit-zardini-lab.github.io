@@ -175,3 +175,5 @@
       description: "Our work on guidance, rebalancing, and assignment for multi-agent path finding has been accepted in the IEEE Robotics and Automation Letters!"
     - date: "03/05/2026"
       description: "Our paper on Hierarchical Strategic Decision-Making in Layered Mobility Systems has been accepted to the 2026 European Control Conference!"
+    - date: "03/17/2026"
+      description: "Check out this CEE News <b><a class='black-link' href='https://cee.mit.edu/before-autonomous-vehicles-scale-up-researchers-call-for-stronger-scientific-standards/'>article</a></b> about our AMoD work!"
