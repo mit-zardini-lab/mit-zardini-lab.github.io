@@ -1270,4 +1270,47 @@ booktitle={RSS 2024 Workshop on Autonomous Vehicles Across Scales}
   url={https://arxiv.org/pdf/2603.14047}
   }
 
+  @unpublished{yubo26,
+  author={Cai, Yubo and Huang, Yujun and Alharbi, Meshal and Zardini, Gioele},
+  title={Scalable Co-Design via Linear Design Problems: Compositional Theory and Algorithms},
+  year={2026},
+  abstract= {Designing complex engineered systems requires managing tightly coupled trade-offs between subsystem capabilities and resource requirements. Monotone co-design provides a compositional language for such problems, but its generality does not by itself reveal which problem classes admit exact and scalable computation. This paper isolates such a class by introducing linear design problems (LDPs): design problems whose feasible functionality–resource relations are polyhedra over Euclidean posets. We show that queries on LDPs reduce exactly to Multi-Objective Linear Programs (MOLPs), thereby connecting monotone co-design semantics with polyhedral multiobjective optimization. We further prove that LDPs are closed under the fundamental co-design interconnections, implying that any interconnection of linear components induces a systemlevel LDP. To compute the resulting feasible sets, we develop two complementary constructions: a monolithic lifted formulation that preserves block-angular sparsity, and a compositional formulation that incrementally eliminates internal variables through polyhedral projection. Beyond the exact linear setting, we show that convex co-design resource queries admit arbitrarily accurate polyhedral outer approximations, with recessioncone error identically zero for standard nonnegative resource cones. Numerical studies on synthetic series-chain benchmarks, a gripper, and a rover co-design validate the theory.},
+  url={https://arxiv.org/pdf/2603.29083v1}
+  }
+
+  @unpublished{hans26,
+  author={Riess, Hans and Huang, Yujun and Klawonn, Matthew and Zardini, Gioele and Hale, Matthew},
+  title={Quantale-Enriched Co-Design: Toward a Framework for Quantitative Heterogeneous System Design},
+  year={2026},
+  abstract= {Monotone co-design enables compositional engineering design by modeling components through feasibility relations between required resources and provided functionalities. However, its standard boolean formulation cannot natively represent quantitative criteria such as cost, confidence, or implementation choice. In practice, these quantities are often introduced through ad hoc scalarization or by augmenting the resource space, which obscures system structure and increases computational burden. We address this limitation by developing a quantale-enriched theory of co-design. We model resources and functionalities as quantale-enriched categories and design problems as quantale-enriched profunctors, thereby lifting codesign from boolean feasibility to general quantitative evaluation. We show that the fundamental operations of series, parallel, and feedback composition remain valid over arbitrary commutative quantales. We further introduce heterogeneous composition through change-of-base maps between quantales, enabling different subsystems to be evaluated in different local semantics and then composed in a common framework. The resulting theory unifies feasibility-, cost-, confidence-, and implementation-aware co-design within one compositional formalism. Numerical examples on a target-tracking system and a UAV delivery problem demonstrate the framework and highlight how native quantitative enrichment can avoid the architectural and computational drawbacks of boolean-only formulations.},
+  url={https://arxiv.org/pdf/2603.29921}
+  }
+
+  @unpublished{avalmeanfield26,
+  author={Brar, Avalpreet Singh and Su, Rong and Kaur, Jaskaranveer and Zardini, Gioele},
+  title={Mean-Field Control of Adherence in Participation-Coupled Vehicle Rebalancing Systems},
+  year={2026},
+  abstract= {Human driver participation is a critical source of uncertainty in Mobility-on-Demand (MoD) rebalancing. Drivers follow platform recommendations probabilistically, and their willingness to comply evolves with experienced outcomes. This creates a closed-loop feedback in which stronger recommendations increase participation, participation increases congestion, congestion lowers allocation success, and realized allocations update adherence beliefs. We propose a microscopic stochastic model that couples (i) belief-driven participation, (ii) Poisson demand, (iii) uniform matching, and (iv) Beta–Bernoulli belief updates. Under a large-population closure, we derive a deterministic mean-field recursion for the population adherence state under platform actuation. For i.i.d. Poisson demand and constant recommendation intensity, we prove global well-posedness and invariance of the recursion, establish equilibrium existence, provide uniqueness conditions, and show global convergence in the regime where platform recommendations are no weaker than baseline participation. We then define steady-state adherence and throughput, characterize the induced performance frontier, and show that adherence and throughput cannot, in general, be simultaneously maximized under uniform time-invariant actuation. This yields a throughput-maximization problem with an adherence floor. Exploiting the monotone frontier structure, we show the optimal uniform time-invariant policy is the maximal feasible recommendation intensity and provide an efficient bisection-based algorithm.},
+  url={https://arxiv.org/pdf/2604.00950}
+  }
+
+  @unpublished{runyu026,
+  author={Zhang, Runyu and Zardini, Gioele},
+  title={Random-Subspace Sequential Quadratic Programming for Constrained Zeroth-Order Optimization},
+  year={2026},
+  abstract= {We study nonlinear constrained optimization problems in which only function evaluations of the objective and constraints are available. Existing zeroth-order methods rely on noisy gradient and Jacobian surrogates in high dimensions, making it difficult to simultaneously achieve computational efficiency and accurate constraint satisfaction. We propose a zeroth-order random-subspace sequential quadratic programming method (ZO-RS-SQP) that combines two-point directional estimation with low-dimensional SQP updates. At each iteration, the method samples a random low-dimensional subspace, estimates the projected objective gradient and constraint Jacobians using two-point evaluations, and solves a reduced quadratic program to compute the step. As a result, the per-iteration evaluation cost scales with the subspace dimension rather than the ambient dimension, while retaining the structured linearized-constraint treatment of SQP. We also consider an Armijo line-search variant that improves robustness in practice. Under standard smoothness and regularity assumptions, we establish convergence to first-order KKT points with high probability. Numerical experiments illustrate the effectiveness of the proposed approach on nonlinear constrained problems},
+  url={}
+  }
+
+  @unpublished{jiaruicert26,
+  author={Li, Jiarui and Zhang, Runyu and Zardini, Gioele},
+  title={Certificate-Driven Closed-Loop Multi-Agent Path Finding with Inheritable Factorization},
+  year={2026},
+  abstract= {Multi-agent coordination in automated warehouses and logistics is commonly modeled as the Multi-Agent Path Finding (MAPF) problem. Closed-loop MAPF algorithms improve scalability by planning only the next movement and replanning online, but this finite-horizon viewpoint can be shortsighted and makes it difficult to preserve global guarantees and exploit compositional structure. This issue is especially visible in Anytime Closed-Loop Conflict-Based Search (ACCBS), which applies Conflict-Based Search (CBS) over dynamically extended finite horizons but, under finite computational budgets, may terminate with short active prefixes in dense instances. We introduce certificate trajectories and their associated fleet budget as a general mechanism for filtering closed-loop updates. A certificate provides a conflict-free fallback plan and a monotone upper bound on the remaining cost; accepting only certificate-improving updates yields completeness. The same budget information induces a budget-limited factorization that enables global, inheritable decomposition across timesteps. Instantiating the framework on ACCBS yields Certificate-Driven Conflict-Based Search (CDCBS). Experiments on benchmark maps show that CDCBS achieves more consistent solution quality than ACCBS, particularly in dense settings, while the proposed factorization reduces effective group size.},
+  url={}
+  }
+
+
+
+
 
