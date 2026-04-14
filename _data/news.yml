@@ -183,3 +183,7 @@
       description: "Gioele gave a Robotics Seminar at the University of Cambridge, UK!"
     - date: "04/09/2026"
       description: "Gioele gave the CS Colloquium at Harvard University!"
+    - date: "04/10/2026"
+      description: "Our paper on learning-based optimization for AMoD control has been accepted in the IEEE Transactions on Control of Network Systems!"
+    - date: "04/13/2026"
+      description: "Our paper on welfarist traffic control has been accepted to the 2026 IFAC World Congress!"
