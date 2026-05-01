@@ -1105,16 +1105,15 @@ Monte Carlo simulations on synthetic urban networks show that WGC consistently o
   }
 
 
-
-
-  @unpublished{xinlingdeep25,
+  @inproceedings{xinlingdeep25,
   title={Robust Vehicle Rebalancing with Deep Uncertainty in Autonomous Mobility-on-Demand Systems},
   author={Li, Xinling and Guo, Xiaotong and Wang, Qingyi and Zardini, Gioele and Zhao, Jinhua},
-  year={2025},
+  year={2026},
   abstract= {
     Autonomous Mobility-on-Demand (AMoD) services offer an opportunity for improving passenger service while reducing pollution and energy consumption through effective vehicle coordination. A primary challenge in the autonomous fleets coordination is to tackle the inherent issue of supply-demand imbalance. A key strategy in resolving this is vehicle rebalancing, strategically directing idle vehicles to areas with anticipated future demand. Traditional research focuses on deterministic optimization using specific demand forecasts, but the unpredictable nature of demand calls for methods that can manage this uncertainty. This paper introduces the Deep Uncertainty Robust Optimization (DURO), a framework specifically designed for vehicle rebalancing in AMoD systems amidst uncertain demand based on neural networks for robust optimization. DURO forecasts demand uncertainty intervals using a deep neural network, which are then integrated into a robust optimization model. We assess DURO against various established models, including deterministic optimization with refined demand forecasts and Distributionally Robust Optimization (DRO). Based on real-world data from New York City (NYC), our findings show that DURO surpasses traditional deterministic models in accuracy and is on par with DRO, but with superior computational efficiency. The DURO framework is a promising approach for vehicle rebalancing in AMoD systems that is proven to be effective in managing demand uncertainty, competitive in performance, and more computationally efficient than other optimization models.
   },
-  url={https://arxiv.org/abs/2507.04520}
+  url={https://arxiv.org/abs/2507.04520},
+  booktitle={29th IEEE International Conference on Intelligent Transportation Systems (ITSC, In Press)},
   }
 
   @unpublished{he2025network,
@@ -1149,11 +1148,12 @@ The proposed framework provides a foundation for improving interdependent networ
   }
 
 
-  @unpublished{neumanniv25,
+  @inproceedings{neumanniv25,
   author={Neumann, Marc-Philippe and Habermacher, Raphael and Fieni, Giona and Cerofolini, Alberto and Zardini, Gioele and Onder, Christopher H.},
   title={Hierarchical Co-Design for Multi-Race Strategy Optimization in Formula 1},
-  year={2025},
+  year={2026},
   abstract= {This work presents a hierarchical optimization framework for season-level decision-making in Formula 1, combining monotone co-design with sequential optimization. By integrating component design, energy deployment, and longterm degradation within a unified structure, the approach captures both local (lap and race) trade-offs and global (seasonal) constraints. The co-design layer generates trackdependent Pareto-optimal mappings between performance and wear, which are then composed into a finite-horizon optimization problem governing component usage and replacement decisions. Applied to a hybrid-electric Formula 1 power unit, the framework determines optimal battery sizing, deployment, and replacement timing across an entire season. Results show that exploiting regulatory constraints strategically, accepting local penalties to enable global gains, can increase cumulative championship points. Furthermore, while race order does not alter the attainable total reward, it modifies the optimal control policy, illustrating the temporal coupling inherent to multi-stage decision problems. Beyond motorsport, the proposed formulation provides a general template for long-horizon resource management and co-design of complex engineering systems.},
+  booktitle={29th IEEE International Conference on Intelligent Transportation Systems (ITSC, In Press)},
   url={https://www.research-collection.ethz.ch/server/api/core/bitstreams/7e6b5a19-6bec-4544-b403-04262777d6cc/content}
   }
 
@@ -1339,6 +1339,14 @@ booktitle={RSS 2024 Workshop on Autonomous Vehicles Across Scales}
   year={2026},
   abstract= {Many engineered systems must balance competing objectives, such as performance and safety, cost and reliability, or efficiency and sustainability, and are naturally modeled as compositions of interacting subsystems. We study online multi-objective decision-making in monotone co-design, where functionalities and resources are partially ordered, and the goal is to identify the target-feasible antichain of non-dominated trade-offs using few expensive evaluations. We introduce optimistic evaluators: history-dependent bounds on functionality and resource mappings that enable safe elimination of implementations before full evaluation. Based on these evaluators, we develop an elimination-based rejection-sampling algorithm, prove its soundness, and show that the admissible region shrinks monotonically as information accumulates. We instantiate the framework under monotonicity, Lipschitz continuity, and linear-parametric structure. For compositional co-design problems modeled by multigraphs, we show how local optimistic certificates propagate through the tractable remainder of the graph to yield system-level optimistic feasibility and resource bounds. Experiments on multi-robot fleet design, intermodal mobility systems, and synthetic monotone and Lipschitz benchmarks show substantial sample-efficiency gains over uniform sampling, Bayesian optimization, and multi-objective evolutionary algorithms.},
   url={https://arxiv.org/pdf/2604.22624}
+  }
+
+  @unpublished{lee26,
+  author={Marom, Lee and Tibbits, Skylar and Zardini, Gioele and Bühler, Markus J.},
+  title={A Category-Theoretic Framework from Biological Mechanics to Engineered Stimulus-Response Systems},
+  year={2026},
+  abstract= {Natural materials achieve adaptive behavior through hierarchical organization and coupled mechanisms across scales. Their translation into engineering, however, remains largely heuristic. What is missing is a formal translation framework that carries biological design logic into engineered realization while preserving physical consistency across levels of abstraction. Here we present a category theoretic compositional framework for verified nature-derived design. The framework defines a category of stimulus response dynamical systems with natural and artificial subcategories. It introduces a structure preserving implementation functor from biological mechanics to engineered systems. It also formalizes a machine agnostic specification layer that links behavioral intent to executable fabrication programs. We instantiate the framework on the hygromorphic pinecone hierarchy as a representative biological case. We implement the full pipeline in Grasshopper, where formal specifications are translated into modular parametric scripts that preserve the compositional structure of the model. The resulting designs are fabricated by fused filament fabrication, evaluated experimentally, and tested against model predictions derived from the pipeline. The current implementation generates four actuator classes spanning two stimulus types and two kinematic responses. One actuator arises purely through composition from previously validated components, without additional manual derivation. The results show that compositionality can function not just as a descriptive language, but as a generative and system level verifiable method for mechanical material design. More broadly, the work provides a concrete route for embedding formal multiscale reasoning within increasingly computational, generative, and physics-driven design workflows.},
+  url={https://arxiv.org/pdf/2604.26367}
   }
 
 
