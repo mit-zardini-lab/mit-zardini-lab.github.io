@@ -15,6 +15,7 @@ Yujun Huang is pursuing a Ph.D. in Systems Engineering and Civil and Environment
 Yujun received M.Sc. In Robotics, Systems and Control from ETH Zurich in 2024, and B.Eng. in Mechanical Engineering from Shanghai Jiao Tong University in 2021. During the masters, he was fortunate to work on a common generalization of Co-design and Linear Logic with Gioele Zardini in Prof. Emilio Frazzoli's group, and on data-driven predictive control methods in Prof. Melanie Zeilinger's group.
 
 ### Awards:
+- 2026 Maseeh Annual Award of Excellence as a Teaching Assistant in CEE
 - OGE Ho-Ching and Han-Ching Fund Award, 2025
 - Thurber Fellowship from MIT CEE, 2024
 - Tsien Hsue-Shen Honor Degree, Shanghai Jiao Tong University, 2021
