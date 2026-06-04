@@ -24,6 +24,8 @@ Institute for Data, Systems and Society (Affiliate Faculty)
 
 MIT Maritime Consortium (Steering Committee, leading Optimization Vertical)
 
+World Infrastructure Forum (Knowledge Manager)
+
 MIT Mobility Initiative (Affiliate Faculty)
 
 Norman B. Leventhal Center for Advanced Urbanism (Affiliate Faculty)
