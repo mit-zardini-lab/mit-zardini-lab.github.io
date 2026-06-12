@@ -14,4 +14,5 @@ Riccardo is a second-year Master of Science in Transportation and incoming Ph.D.
 In the Zardini Lab, Riccardo aims to advance equity-driven co-design of urban mobility systems by integrating stakeholder perspectives into algorithmic frameworks.
 
 ### Awards:
-- Hugh Hampton Young Fellowship, 2025
+- MathWorks Fellowship, 2026-2027
+- Hugh Hampton Young Fellowship, 2025-2026
