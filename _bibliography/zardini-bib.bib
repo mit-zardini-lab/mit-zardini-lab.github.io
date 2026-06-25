@@ -1117,36 +1117,6 @@ Monte Carlo simulations on synthetic urban networks show that WGC consistently o
   booktitle={29th IEEE International Conference on Intelligent Transportation Systems (ITSC, In Press)},
   }
 
-  @unpublished{he2025network,
-  title={Co-Investment with Payoff-Sharing Mechanism for Cooperative Decision-Making in Network Design Games},
-  author={He, Mingjia and Censi, Andrea and Frazzoli, Emilio and Zardini, Gioele},
-  year={2025},
-  abstract= {
-    Network-based systems are inherently interconnected, with the design and performance of subnetworks being interdependent. However, the decisions of self-interested operators may lead to suboptimal outcomes for users and the system as a whole.  
-This paper explores cooperative mechanisms that can simultaneously benefit both operators and users. 
-We address this challenge using a game-theoretical framework that integrates both non-cooperative and cooperative game theory. 
-In the non-cooperative stage, we propose a network design game in which subnetwork decision-makers strategically design their local infrastructures. 
-In the cooperative stage, co-investment with payoff-sharing mechanism is developed to enlarge collective benefits and fairly distribute them, supporting cooperative decision-making within a competitive environment.
-To demonstrate the effectiveness of our framework, we conduct case studies on the Sioux Falls network and real-world public transportation networks in Zurich and Winterthur, Switzerland. 
-Our evaluation considers impacts on environmental sustainability, social welfare, and economic efficiency. 
-The results indicate that small upfront co-investment can lead to substantial long-term system improvements. 
-Furthermore, operators’ diversity provides significant potential for performance improvement under the proposed mechanism. 
-In the Zurich–Winterthur case, we examine the influence of bargaining power and strategic exploitation, showing that these factors strongly impact both individual benefits and the willingness to cooperate. 
-The proposed framework provides a foundation for improving interdependent networked systems by enabling strategic cooperation among self-interested operators.
-  },
-  url={https://arxiv.org/pdf/2508.12059}
-  }
-
-
-
-  @unpublished{zhang25fl,
-  author={Zhang, Runyu and Zardini, Gioele and Ozdaglar, Asuman and Shamma, Jeff and Li, Na},
-  title={Zeroth-Order Constrained Optimization from a Control Perspective via Feedback Linearization},
-  year={2026},
-  abstract= {Safe derivative-free optimization under unknown constraints is a fundamental challenge in modern learning and control. Existing zeroth-order (ZO) methods typically still assume access to a first-order oracle of the constraint functions or restrict attention to convex settings, leaving nonconvex optimization with black-box constraints largely unexplored. We propose the zeroth-order feedback-linearization (ZOFL) algorithm for ZO constrained optimization that enforces feasibility without access to the first-order oracle of the constraint functions and applies to both equality and inequality constraints. The proposed approach relies only on noisy, sample-based gradient estimates obtained via two-point estimators, yet provably guarantees constraint satisfaction under mild regularity conditions. It adopts a control-theoretic perspective on ZO constrained optimization and leverages feedback linearization, a nonlinear control technique, to enforce feasibility. Finite-time bounds on constraint violation and asymptotic global convergence guarantees are established for the ZOFL algorithm. A midpoint discretization variant is further developed to improve feasibility without sacrificing optimality. Empirical results demonstrate that ZOFL consistently outperforms standard ZO baselines, achieving competitive objective values while maintaining feasibility.
-  },
-  url={https://arxiv.org/pdf/2509.24056}
-  }
 
 
   @inproceedings{neumanniv25,
@@ -1159,13 +1129,6 @@ The proposed framework provides a foundation for improving interdependent networ
   }
 
 
-  @unpublished{liFICO26,
-  author={Li, Jiarui and Zanardi, Alessandro and Pecora, Federico and Zhang, Runyu and Zardini, Gioele},
-  title={FICO: Finite-Horizon Closed-Loop Factorization for Unified Multi-Agent Path Finding},
-  year={2025},
-  abstract= {Multi-Agent Path Finding (MAPF) is a fundamental problem in robotics and AI, yet most existing formulations treat planning and execution separately and address variants of the problem in an ad hoc manner. This paper presents a system-level framework for MAPF that integrates planning and execution, generalizes across variants, and explicitly models uncertainties. At its core is the MAPF system, a formal model that casts MAPF as a control design problem encompassing classical and uncertainty-aware formulations. To solve it, we introduce Finite-Horizon Closed-Loop Factorization (FICO), a factorizationbased algorithm inspired by receding-horizon control that exploits compositional structure for efficient closed-loop operation. FICOenables real-time responses—commencing execution within milliseconds—while scaling to thousands of agents and adapting seamlessly to execution-time uncertainties. Extensive case studies demonstrate that it reduces computation time by up to two orders of magnitude compared with open-loop baselines, while delivering significantly higher throughput under stochastic delays and agent arrivals. These results establish a principled foundation for analyzing and advancing MAPF through system-level modeling, factorization, and closed-loop design.},
-  url={https://arxiv.org/abs/2511.13961}
-  }
 
   
   @inproceedings{shilov26,
@@ -1186,6 +1149,15 @@ We observe that while such transformations preserve equilibrium and optimal outc
   pages={2169},
   abstract= {Imitation learning (IL) enables autonomous behavior by learning from expert demonstrations. While more sample-efficient than comparative alternatives like reinforcement learning, IL is sensitive to compounding errors induced by distribution shifts. There are two significant sources of distribution shifts when using IL-based feedback laws on systems: distribution shifts caused by policy error and distribution shifts due to exogenous disturbances and endogenous model errors due to lack of learning. Our previously developed approaches, Taylor Series Imitation Learning (TaSIL) and 1 -Distributionally Robust Adaptive Control (\ellonedrac), address the challenge of distribution shifts in complementary ways. While TaSIL offers robustness against policy error-induced distribution shifts, \ellonedrac offers robustness against distribution shifts due to aleatoric and epistemic uncertainties. To enable certifiable IL for learned and/or uncertain dynamical systems, we formulate \textit{Distributionally Robust Imitation Policy (DRIP)} architecture, a Layered Control Architecture (LCA) that integrates TaSIL and~\ellonedrac. By judiciously designing individual layer-centric input and output requirements, we show how we can guarantee certificates for the entire control pipeline. Our solution paves the path for designing fully certifiable autonomy pipelines, by integrating learning-based components, such as perception, with certifiable model-based decision-making through the proposed LCA approach.},
   url={https://arxiv.org/pdf/2512.17899}
+  }
+
+  @article{liACCBS26,
+  author={Li, Jiarui and Pecora, Federico and Zhang, Runyu and Zardini, Gioele},
+  title={Adaptive-Horizon Conflict-Based Search for Closed-Loop Multi-Agent Path Finding},
+  year={2026},
+  journal={IEEE Robotics and Automation Letters (In Press)}, 
+  abstract= {MAPF is a core coordination problem for large robot fleets in automated warehouses and logistics. Existing approaches are typically either open-loop planners, which generate fixed trajectories and struggle to handle disturbances, or closed-loop heuristics without reliable performance guarantees, limiting their use in safety-critical deployments. This paper presents ACCBS, a closed-loop algorithm built on a finite-horizon variant of CBS with a horizon-changing mechanism inspired by iterative deepening in MPC. ACCBS dynamically adjusts the planning horizon based on the available computational budget, and reuses a single constraint tree to enable seamless transitions between horizons. As a result, it produces high-quality feasible solutions quickly while being asymptotically optimal as the budget increases, exhibiting anytime behavior. Extensive case studies demonstrate that ACCBS combines flexibility to disturbances with strong performance guarantees, effectively bridging the gap between theoretical optimality and practical robustness for large-scale robot deployment.},
+  url={https://arxiv.org/pdf/2602.12024}
   }
 
   @unpublished{zhang26eqsel,
@@ -1247,13 +1219,12 @@ booktitle={RSS 2024 Workshop on Autonomous Vehicles Across Scales}
   url          = {https://www.transitdata2026.ca/}
 }
 
-@article{liACCBS26,
-  author={Li, Jiarui and Pecora, Federico and Zhang, Runyu and Zardini, Gioele},
-  title={Adaptive-Horizon Conflict-Based Search for Closed-Loop Multi-Agent Path Finding},
-  year={2026},
-  journal={IEEE Robotics and Automation Letters (In Press)}, 
-  abstract= {MAPF is a core coordination problem for large robot fleets in automated warehouses and logistics. Existing approaches are typically either open-loop planners, which generate fixed trajectories and struggle to handle disturbances, or closed-loop heuristics without reliable performance guarantees, limiting their use in safety-critical deployments. This paper presents ACCBS, a closed-loop algorithm built on a finite-horizon variant of CBS with a horizon-changing mechanism inspired by iterative deepening in MPC. ACCBS dynamically adjusts the planning horizon based on the available computational budget, and reuses a single constraint tree to enable seamless transitions between horizons. As a result, it produces high-quality feasible solutions quickly while being asymptotically optimal as the budget increases, exhibiting anytime behavior. Extensive case studies demonstrate that ACCBS combines flexibility to disturbances with strong performance guarantees, effectively bridging the gap between theoretical optimality and practical robustness for large-scale robot deployment.},
-  url={https://arxiv.org/pdf/2602.12024}
+@unpublished{liFICO26,
+  author={Li, Jiarui and Zanardi, Alessandro and Pecora, Federico and Zhang, Runyu and Zardini, Gioele},
+  title={FICO: Finite-Horizon Closed-Loop Factorization for Unified Multi-Agent Path Finding},
+  year={2025},
+  abstract= {Multi-Agent Path Finding (MAPF) is a fundamental problem in robotics and AI, yet most existing formulations treat planning and execution separately and address variants of the problem in an ad hoc manner. This paper presents a system-level framework for MAPF that integrates planning and execution, generalizes across variants, and explicitly models uncertainties. At its core is the MAPF system, a formal model that casts MAPF as a control design problem encompassing classical and uncertainty-aware formulations. To solve it, we introduce Finite-Horizon Closed-Loop Factorization (FICO), a factorizationbased algorithm inspired by receding-horizon control that exploits compositional structure for efficient closed-loop operation. FICOenables real-time responses—commencing execution within milliseconds—while scaling to thousands of agents and adapting seamlessly to execution-time uncertainties. Extensive case studies demonstrate that it reduces computation time by up to two orders of magnitude compared with open-loop baselines, while delivering significantly higher throughput under stochastic delays and agent arrivals. These results establish a principled foundation for analyzing and advancing MAPF through system-level modeling, factorization, and closed-loop design.},
+  url={https://arxiv.org/abs/2511.13961}
   }
 
   @unpublished{xinlingnetwork26,
@@ -1262,6 +1233,37 @@ booktitle={RSS 2024 Workshop on Autonomous Vehicles Across Scales}
   year={2026},
   abstract= {The emergence of Autonomous Mobility-on-Demand (AMoD) services creates new opportunities to improve the ef- ficiency and reliability of on-demand mobility systems. Unlike human-driven Mobility-on-Demand (MoD), AMoD enables fully centralized fleet control, but it also requires appropriate infras- tructure, so that vehicles can operate safely only on a suitably instrumented subnetwork of the roads. Most existing AMoD research focuses on fleet control (matching, rebalancing, ride- pooling) on a fixed road network and does not address the joint design of the service network and fleet capacity. In this paper, we formalize this strategic design problem as the Autonomous Mobility-on-Demand Network Design Problem (AMoD-NDP), in which an operator selects an operation subnetwork and routes all passengers, subject to infrastructure and fleet constraints and route-level quality-of-service requirements. We propose a path- based mixed-integer formulation of the AMoD-NDP and develop a column-generation-based algorithm that scales to city-sized networks. The master problem optimizes over a restricted set of paths, while the pricing problem reduces to an elementary shortest path with resource constraints, solved exactly by a tailored label-correcting algorithm. The method provides an explicit certificate of the optimality gap and extends naturally to a robust counterpart under box uncertainty in travel times and demand. Using real-world data from Manhattan, New York City, we show that the framework produces stable and interpretable operation subnetworks, quantifies trade-offs between infrastruc- ture investment and fleet time, and accommodates additional path-level constraints, such as limits on left turns as a proxy for operational risk. These results illustrate how the proposed approach can support strategic planning and policy analysis for future AMoD deployments.},
   url={https://arxiv.org/pdf/2602.19341}
+  }
+
+  @unpublished{he2025network,
+  title={Co-Investment with Payoff-Sharing Mechanism for Cooperative Decision-Making in Network Design Games},
+  author={He, Mingjia and Censi, Andrea and Frazzoli, Emilio and Zardini, Gioele},
+  year={2025},
+  abstract= {
+    Network-based systems are inherently interconnected, with the design and performance of subnetworks being interdependent. However, the decisions of self-interested operators may lead to suboptimal outcomes for users and the system as a whole.  
+This paper explores cooperative mechanisms that can simultaneously benefit both operators and users. 
+We address this challenge using a game-theoretical framework that integrates both non-cooperative and cooperative game theory. 
+In the non-cooperative stage, we propose a network design game in which subnetwork decision-makers strategically design their local infrastructures. 
+In the cooperative stage, co-investment with payoff-sharing mechanism is developed to enlarge collective benefits and fairly distribute them, supporting cooperative decision-making within a competitive environment.
+To demonstrate the effectiveness of our framework, we conduct case studies on the Sioux Falls network and real-world public transportation networks in Zurich and Winterthur, Switzerland. 
+Our evaluation considers impacts on environmental sustainability, social welfare, and economic efficiency. 
+The results indicate that small upfront co-investment can lead to substantial long-term system improvements. 
+Furthermore, operators’ diversity provides significant potential for performance improvement under the proposed mechanism. 
+In the Zurich–Winterthur case, we examine the influence of bargaining power and strategic exploitation, showing that these factors strongly impact both individual benefits and the willingness to cooperate. 
+The proposed framework provides a foundation for improving interdependent networked systems by enabling strategic cooperation among self-interested operators.
+  },
+  url={https://arxiv.org/pdf/2508.12059}
+  }
+
+
+
+  @unpublished{zhang25fl,
+  author={Zhang, Runyu and Zardini, Gioele and Ozdaglar, Asuman and Shamma, Jeff and Li, Na},
+  title={Zeroth-Order Constrained Optimization from a Control Perspective via Feedback Linearization},
+  year={2026},
+  abstract= {Safe derivative-free optimization under unknown constraints is a fundamental challenge in modern learning and control. Existing zeroth-order (ZO) methods typically still assume access to a first-order oracle of the constraint functions or restrict attention to convex settings, leaving nonconvex optimization with black-box constraints largely unexplored. We propose the zeroth-order feedback-linearization (ZOFL) algorithm for ZO constrained optimization that enforces feasibility without access to the first-order oracle of the constraint functions and applies to both equality and inequality constraints. The proposed approach relies only on noisy, sample-based gradient estimates obtained via two-point estimators, yet provably guarantees constraint satisfaction under mild regularity conditions. It adopts a control-theoretic perspective on ZO constrained optimization and leverages feedback linearization, a nonlinear control technique, to enforce feasibility. Finite-time bounds on constraint violation and asymptotic global convergence guarantees are established for the ZOFL algorithm. A midpoint discretization variant is further developed to improve feasibility without sacrificing optimality. Empirical results demonstrate that ZOFL consistently outperforms standard ZO baselines, achieving competitive objective values while maintaining feasibility.
+  },
+  url={https://arxiv.org/pdf/2509.24056}
   }
 
   @unpublished{caialmton26,
