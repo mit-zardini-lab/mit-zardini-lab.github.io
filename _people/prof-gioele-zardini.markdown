@@ -26,9 +26,13 @@ MIT Maritime Consortium (Steering Committee, leading Optimization Vertical)
 
 World Infrastructure Forum (Knowledge Manager)
 
+Selected member of the MIT Mobility Initiative (MMI) Mobility Council
+
 MIT Mobility Initiative (Affiliate Faculty)
 
 Norman B. Leventhal Center for Advanced Urbanism (Affiliate Faculty)
+
+Lead PI, AFOSR Center of Excellence on Compositional Optimization, Dynamical Systems, and Control
 
 Doctor of Science ETH Zurich, December 2023
 
@@ -45,6 +49,8 @@ Before joining MIT as a faculty, he was a Postdoctoral Scholar at Stanford Unive
 Driven by societal challenges, the goal of his research is to develop efficient computational tools and algorithmic approaches to formulate and solve complex, interconnected system design and autonomous decision making problems.
 
 His interests include the co-design complex systems, all the way from future mobility systems to autonomous systems, compositionality in engineering, planning and control, and game theory.
+
+He is the lead PI for the AFOSR Center of Excellence on Compositional Optimization, Dynamical Systems, and Control.
 
 He is the recipient of the ETH Silver Medal for his Doctoral Thesis, the 2025 DARPA Young Faculty Award, the 2026 Maseeh Excellence in Teaching Award in CEE at MIT, an award (keynote talk) at the 2021 Applied Category Theory Conference, the Best Paper Award (1st Place) at the 2021 24th IEEE International Conference on Intelligent Transportation Systems (ITSC), and Amazon, DoE, AFOSR, and MISTI-UK awards.
 		
