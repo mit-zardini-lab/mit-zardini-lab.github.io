@@ -1371,6 +1371,14 @@ The proposed framework provides a foundation for improving interdependent networ
   url={https://arxiv.org/pdf/2606.04850}
   }
 
+  @unpublished{wvodive26,
+  author={Van Osselaer, Willem and Li, Jiarui and Alharbi, Meshal and Zardini, Gioele},
+  title={Dual-Informed Vertical Expansion for Multi-Objective Node Selection in Anytime Conflict-Based Search},
+  year={2026},
+  abstract= {Conflict-Based Search (CBS) is a leading exact algorithm for Multi-Agent Path Finding (MAPF), but its high-level node-selection rule is usually treated as a fixed implementation detail. Standard best-first selection is strong for minimizing expanded nodes and closing the optimality certificate, yet it can maintain a large frontier, interrupt parent-child expansion sequences, and provide no feasible incumbent until termination. This paper studies node selection as a first-class design choice for exact CBS. We introduce Dual-Informed Vertical Expansion (DIVE), a policy that is best-bound between dives and depth-oriented within a dive. DIVE starts each dive from the current best-bound frontier, follows promising children to exploit parent-child locality, and uses incumbent pruning to limit unproductive excursions. We formalize CBS node selection through a branch-and-bound view, prove that the traversal policy can be changed without affecting exactness, and analyze the resulting trade-offs among expanded nodes, dive breaks, queue size, and primal-dual bound progress. The analysis predicts three complementary extremes. Best-first search is node efficient, iterative deepening is memory efficient, and DIVE is dive efficient while retaining regular best-bound reanchoring. Experiments on standard MAPF benchmarks support this trade-off map. DIVE consistently reduces dive breaks, provides early incumbents with certified gaps, uses substantially less queue memory than best-first search, and benefits from warm starts and simple responsive variants in dense or memory-limited regimes.},
+  url={https://arxiv.org/abs/2607.00156}
+  }
+
 
 
 

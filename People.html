@@ -159,6 +159,8 @@ order: 3
                 <p class="person-position">MST</p>
               {% elsif person.position == "mtsdmeecs" %}
                 <p class="person-position">MEng Student (SDM + EECS)</p>
+              {% elsif person.position == "msrpgt" %}
+                <p class="person-position">MSRP Intern from Georgia Tech</p>
               {% elsif person.position == "mteecs" %}
                 <p class="person-position">MEng Student (EECS)</p>
               {% elsif person.position == "phdeecs" %}
@@ -201,7 +203,7 @@ order: 3
 
       <div class="container">
         {% assign loopindex = 0 %}
-        {% for person in sortedPeople %}{% if person.position == "visiting" %}
+        {% for person in sortedPeople %}{% if person.position == "visiting" or person.position == "msrpgt"%}
           {% assign loopindex = loopindex | plus: 1 %}
           {% assign rowfinder = loopindex | modulo: 4 %}
           {% if rowfinder == 1 %}<div class="row person-row">{% endif %}
