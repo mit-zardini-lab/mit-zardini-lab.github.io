@@ -3,7 +3,7 @@ layout: person
 title:  "Ananth Venkatesh"
 last:   "Venkatesh"
 date:   2025-02-10 00:00:00 -0700
-position: urop
+position: superurop
 excerpt: ""
 img: AnanthVenkatesh.jpeg
 email: ananthv@mit.edu

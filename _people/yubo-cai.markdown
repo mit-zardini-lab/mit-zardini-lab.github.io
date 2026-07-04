@@ -16,6 +16,7 @@ Yubo Cai is pursuing a Ph.D. in Systems Engineering and Civil and Environmental 
 He is particularly interested in exploring how these methodologies can be applied to intelligent transportation systems, reinforcement learning, and decision science.
 
 ### Awards:
+- MathWorks Fellowship (2026)
 - MIT CEE Departmental Fellowship (2025)
 - China Oxford Scholarship Fund Awards (2024)
 - ETAPS Student Scholarship (2024)
