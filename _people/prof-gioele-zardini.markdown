@@ -22,6 +22,8 @@ Laboratory for Information and Decision Systems (PI)
 
 Institute for Data, Systems and Society (Affiliate Faculty)
 
+Lead PI, AFOSR Center of Excellence on Compositional Optimization, Dynamical Systems, and Control
+
 MIT Maritime Consortium (Steering Committee, leading Optimization Vertical)
 
 World Infrastructure Forum (Knowledge Manager)
@@ -32,7 +34,13 @@ MIT Mobility Initiative (Affiliate Faculty)
 
 Norman B. Leventhal Center for Advanced Urbanism (Affiliate Faculty)
 
-Lead PI, AFOSR Center of Excellence on Compositional Optimization, Dynamical Systems, and Control
+Organizer, Robotics Seminars
+
+Organizer, LIDS Seminars
+
+Organizer, Pierce Seminars
+
+Organizer, C.C. Mei Distinguished Seminar Series<
 
 Doctor of Science ETH Zurich, December 2023
 
