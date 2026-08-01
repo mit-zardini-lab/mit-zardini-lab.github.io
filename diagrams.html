@@ -1,0 +1,115 @@
+---
+title: Diagrams
+permalink: /diagrams/
+group: "pages"
+---
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+<body id="page-top" class="index">
+  {% include navbar.html %}
+  <header>
+    <div class="white-stripe" style="margin-bottom: 20px;">
+      <div class="container">
+        <div class="row" style="padding-bottom: 10.4px;">
+          <div class="col-sm-12">
+            <h1 class="black-text"><b>Deep Learning Diagrams</b></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <body>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            {% include_relative diagrams/diagrams_intro.md %}
+              </div>
+            </div>
+          </div>
+      </body>
+  </header>
+
+  <header>
+    <div class="white-stripe" style="margin-bottom: 20px;">
+      <div class="container">
+        <div class="row" style="padding-bottom: 10.4px;">
+          <div class="col-sm-12">
+            <h1 class="black-text"><b>Works</b></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p>
+              This research opens many branches for further work at the intersection of category theory and the practical aspects of deep learning design, including optimizing resource usage.
+              So far, we have published <i>FlashAttention on a Napkin</i> in addition to Vincent Abbott's <a url="https://openreview.net/forum?id=RyZB4qXEgt">previous</a> <a url="https://www.vtabbott.io/content/files/2023/11/Robust-Diagrams-for-Deep-Learning-Architectures.pdf">works</a>.
+            </p>
+
+            {% bibliography -q @*[title=FlashAttention on a Napkin: A Diagrammatic Approach to Deep Learning IO-Awareness] %}
+            
+            <p>
+              Future work will encompass:
+              <ul>
+                <li><b>Formalizing the category theory</b> further, developing a symbolic framework which captures diagrams and the graphical "moves" for deriving optimizations.</li>
+                <li>Developing an automated framework which uses a <b>categorical data structure</b> for converting between standard PyTorch implementations, to the symbolic framework, and then to optimized code and accurate performance models.</li>
+                <li>Creating a <b>graphical dashboard</b> which incorporates these tools, allowing deep learning engineers to work directly with diagrams and be automatically notified of various resource usage considerations.</li>
+                <li>Integrating our work on resource analysis of deep learning algorithms to <b>categorical co-design</b>, allowing us to optimize the full deep-learning stack, including hardware.</li>
+              </ul>
+            </p>
+            
+            The aim, then, is to use category theory to create an indispensible tool for innovating efficient deep learning models.
+
+              </div>
+            </div>
+          </div>
+      </body>
+  </header>
+
+  <header>
+    <div class="white-stripe" style="margin-bottom: 20px;">
+      <div class="container">
+        <div class="row" style="padding-bottom: 10.4px;">
+          <div class="col-sm-12">
+            <h1 class="black-text"><b>Sample Diagrams of Complete Architectures</b></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <body>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <center>
+              <figure>
+                <img src="AttentionIsAllYouNeed.png" alt="Diagram of the original transformer architecture from Attention Is All You Need" style="width:75%">
+                <figcaption>Diagram of the original transformer architecture from <a href="https://arxiv.org/abs/1706.03762"><i>Attention Is All You Need</i></a> (Jun 2017).</figcaption>
+              </figure>
+              </center>
+              
+              <center>
+              <figure>
+                <img src="Mixtral8x7B.png" style="width:75%">
+                <figcaption><i>Mixtral-8x7B</i> (Dec 2023) is an open-source model which beat the original release of ChatGPT (Nov 2022). The attention block captures five years of innovation, while the feed-forward layer is completely changed from a fully-connected layer to a <i>Mixture-of-Experts</i> which has a vast amount of data, only some of which is incorporated with each pass.</figcaption>
+              </figure>
+              </center>
+              
+              <center>
+              <figure>
+                <img src="DeepSeekV3.png" style="width:85%">
+                <figcaption>Diagram of <i>DeepSeek-V3</i> (Dec 2024), an open-source model which caught up to the latest models from OpenAI, Google, and others. Note the innovations in the attention block, and the wide mixture-of-experts feed-forward layer used.</figcaption>
+              </figure>
+              </center>
+              </div>
+            </div>
+          </div>
+      </body>
+  </header>
+  {% include javascript.html %}
+  {% include footer.html %}
+</body>
+</html>
