@@ -32,3 +32,6 @@ end
 
 # Needed with Ruby3. See https://github.com/jekyll/jekyll/issues/8523
 gem "webrick"
+gem "ffi", ">= 1.17.0"
+gem "nokogiri", ">= 1.16"
+gem "logger", "~> 1.5.3"
