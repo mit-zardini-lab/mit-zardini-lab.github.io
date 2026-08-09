@@ -8,7 +8,7 @@ excerpt: ""
 img: YuboCai.jpeg
 email: yubocai@mit.edu
 linkedin: yubo-cai-431966189
-gscholar: https://scholar.google.com/citations?user=g2-LuZkAAAAJ&hl=en
+gscholar: g2-LuZkAAAAJ
 website: https://yubocai-poly.github.io/
 ---
 

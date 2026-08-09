@@ -1,0 +1,6 @@
+<p>Despite being mathematical systems, deep learning models are not systematically approached. Proper analysis requires various abstractions. Mathematically, we are interested in how functions feed into each other, how they are parallelized, and how simple linear operations can be rearranged. Practically, we are interested in the resource costs given some mathematical goal, allowing us to find the optimal execution strategy on parallelized GPU hardware. Typical approaches struggle to consider these different lenses.</p>
+
+<p>Category theory's tools for studying abstractions allows us to relate these approaches. Furthermore, category theory allows us to develop a rigorous diagrammatic language which reflects these abstractions. Our methods have successfully expressed a variety of models in all their detail, exactly describing the constituent functions and associated parallelized and linearity properties. Additionally, In <a href="https://openreview.net/forum?id=pF2ukh7HxA"><i>FlashAttention on a Napkin</i></a>, we used diagrams to quickly derive optimized execution strategies and performance models. In contrast, typical methods take years of laborious research to derive these methods.</p>
+
+
+
