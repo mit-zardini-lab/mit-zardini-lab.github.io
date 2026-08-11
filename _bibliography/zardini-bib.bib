@@ -1231,6 +1231,16 @@ We observe that while such transformations preserve equilibrium and optimal outc
   url = {https://www.sciencedirect.com/science/article/pii/S0022509626002814},
   }
 
+  @article{weaves26,
+  author={Abbott, Vincent and Zardini, Gioele},
+  title={Weaves, Wires, and Morphisms: Formalizing and Implementing the Algebra of Deep Learning},
+  year={2026},
+  journal={Transactions on Machine Learning Research},
+  abstract= {Despite deep learning models running well-defined mathematical functions, we lack a formal mathematical framework for describing model architectures. Ad-hoc notation, diagrams, and pseudocode poorly handle nonlinear broadcasting and the relationship between individual components and composed models. This paper introduces a categorical framework for deep learning models that formalizes broadcasting through the novel axis-stride and arraybroadcasted categories. This allows the mathematical function underlying architectures to be precisely expressed and manipulated in a compositional manner. These mathematical definitions are translated into human manageable diagrams and machine manageable data structures. We provide a mirrored implementation in Python (pyncd) and TypeScript (tsncd) to show the universal aspect of our framework, along with features including algebraic construction, graph conversion, PyTorch compilation and diagram rendering. This lays the foundation for a systematic, formal approach to deep learning model design and analysis.},
+  url={https://arxiv.org/pdf/2604.07242}
+  }
+
+
   @unpublished{zhang26eqsel,
   author={Zhang, Runyu and Zardini, Gioele and Ozdaglar, Asuman and Shamma, Jeff and Li, Na},
   title={Equilibrium Selection for Multi-agent Reinforcement Learning: A Unified Framework},
@@ -1369,14 +1379,6 @@ The proposed framework provides a foundation for improving interdependent networ
   year={2026},
   abstract= {Human driver participation is a critical source of uncertainty in Mobility-on-Demand (MoD) rebalancing. Drivers follow platform recommendations probabilistically, and their willingness to comply evolves with experienced outcomes. This creates a closed-loop feedback in which stronger recommendations increase participation, participation increases congestion, congestion lowers allocation success, and realized allocations update adherence beliefs. We propose a microscopic stochastic model that couples (i) belief-driven participation, (ii) Poisson demand, (iii) uniform matching, and (iv) Beta–Bernoulli belief updates. Under a large-population closure, we derive a deterministic mean-field recursion for the population adherence state under platform actuation. For i.i.d. Poisson demand and constant recommendation intensity, we prove global well-posedness and invariance of the recursion, establish equilibrium existence, provide uniqueness conditions, and show global convergence in the regime where platform recommendations are no weaker than baseline participation. We then define steady-state adherence and throughput, characterize the induced performance frontier, and show that adherence and throughput cannot, in general, be simultaneously maximized under uniform time-invariant actuation. This yields a throughput-maximization problem with an adherence floor. Exploiting the monotone frontier structure, we show the optimal uniform time-invariant policy is the maximal feasible recommendation intensity and provide an efficient bisection-based algorithm.},
   url={https://arxiv.org/pdf/2604.00950}
-  }
-
-  @unpublished{weaves26,
-  author={Abbott, Vincent and Zardini, Gioele},
-  title={Weaves, Wires, and Morphisms: Formalizing and Implementing the Algebra of Deep Learning},
-  year={2026},
-  abstract= {Despite deep learning models running well-defined mathematical functions, we lack a formal mathematical framework for describing model architectures. Ad-hoc notation, diagrams, and pseudocode poorly handle nonlinear broadcasting and the relationship between individual components and composed models. This paper introduces a categorical framework for deep learning models that formalizes broadcasting through the novel axis-stride and arraybroadcasted categories. This allows the mathematical function underlying architectures to be precisely expressed and manipulated in a compositional manner. These mathematical definitions are translated into human manageable diagrams and machine manageable data structures. We provide a mirrored implementation in Python (pyncd) and TypeScript (tsncd) to show the universal aspect of our framework, along with features including algebraic construction, graph conversion, PyTorch compilation and diagram rendering. This lays the foundation for a systematic, formal approach to deep learning model design and analysis.},
-  url={https://arxiv.org/pdf/2604.07242}
   }
 
   @unpublished{max26,
