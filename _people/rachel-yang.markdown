@@ -4,7 +4,7 @@ title:  "Rachel Yang"
 last:   "Yang"
 date:   2025-02-10 00:00:00 -0700
 position: alumni
-current: "MIT"
+current: "Undergraduate at MIT"
 wherefrom: "UROP"
 excerpt: ""
 img: rachel_yang.png
