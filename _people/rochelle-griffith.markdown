@@ -4,7 +4,7 @@ title:  "Rochelle Griffith"
 last:   "Griffith"
 date:   2026-02-13 00:00:00 -0700
 position: alumni
-current: "MIT"
+current: "Undergraduate at MIT"
 wherefrom: "UROP"
 excerpt: ""
 img: RochelleGriffith.png

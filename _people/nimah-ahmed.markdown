@@ -4,7 +4,7 @@ title:  "Nimah Ahmed"
 last:   "Ahmed"
 date:   2024-03-27 00:00:00 -0700
 position: alumni
-current: "MIT"
+current: "Undergraduate at MIT"
 excerpt: ""
 img: NimahAhmed.jpg
 email: nimaha@mit.edu

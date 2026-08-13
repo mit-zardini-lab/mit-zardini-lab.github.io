@@ -5,7 +5,7 @@ last:   "Parker"
 date:   2025-02-10 00:00:00 -0700
 position: alumni
 excerpt: ""
-current: "MIT"
+current: "Undergraduate at MIT"
 wherefrom: "UROP"
 img: NatashaParker.jpeg
 email: naparker@mit.edu
