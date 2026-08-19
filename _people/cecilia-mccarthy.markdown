@@ -4,7 +4,7 @@ title:  "Cecilia McCarthy"
 last:   "McCarthy"
 date:   2025-01-13 00:00:00 -0700
 position: alumni
-current: "MIT"
+current: "Undergraduate at MIT"
 wherefrom: "Mini-UROP"
 excerpt: ""
 img: ceciliamccarthy.jpeg
