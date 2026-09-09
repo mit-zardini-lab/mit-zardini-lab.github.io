@@ -223,3 +223,5 @@
       description: "We're on MIT News! Check out this recent <b><a class='black-link' href='https://news.mit.edu/2026/mathematical-framework-connects-biological-principles-manufacturable-adaptive-material-0817'>article covering our work</a></b>!"
     - date: "08/23/2026"
       description: "Gioele gave a talk at the IFAC 2026 World Congress in Busan, South Korea."
+    - date: "09/08/2026"
+      description: "Our work on co-design of race cars has been accepted in the IEEE Transactions on Intelligent Vehicles!"
