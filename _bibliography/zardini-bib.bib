@@ -1433,7 +1433,13 @@ The proposed framework provides a foundation for improving interdependent networ
   url={https://arxiv.org/pdf/2608.29507}
   }
 
-
+  @unpublished{yuboquad26,
+  author={Cai, Yubo and Zardini, Gioele},
+  title={Optimizing Lyapunov Certificates via Stability-Preserving Quadratization for Polynomial Systems},
+  year={2026},
+  abstract = {Region-of-attraction certificates for polynomial systems become expensive as the state dimension and polynomial degree grow, because direct sum-of-squares formulations require a monomial basis whose size grows combinatorially. Quadratization sidesteps this cost by representing a polynomial vector field exactly on an invariant manifold of a quadratic system, so that a quadratic Lyapunov function can certify the region of attraction directly. Even once the lifting map is fixed, this exactness constrains the lifted dynamics only on the manifold, leaving freedom in how they extend off it. Stabilizer gains shape this off-manifold extension and change the transverse dynamics, while representation gauges leave the vector field unchanged but change its matrix representation. Both choices affect the resulting spectral-norm certificate, yet prior work has treated them separately, fixing the gain with a feasibility heuristic and optimizing the gauge only afterward, for that fixed pair. We formulate optimal dissipative quadratization (ODQ), which designs the gain and the gauge together for a fixed monomial lift, reference extension, and stabilizer factorization, with the Lyapunov weight fixed to the identity. ODQ selects stabilizer gains within a prescribed compact Hurwitz box and, for each candidate gain, optimizes the representation gauge by an exact semidefinite program that attains the global minimum of the spectral-norm bound at that gain. Residual-aware bounds turn this spectral-norm bound into a certified closed Lyapunov sublevel set, accounting for the floating-point residual of the underlying Lyapunov solve. Under our stated assumptions, every accumulation point of the idealized outer search is box-Clarke stationary. A finite run instead returns the best candidate it can independently verify, and we do not claim global optimality for the gain search. On a planar quintic system, optimizing the gain increases the certified area by a factor of 2.238 over a matched zero-gain gauge. Across a benchmark of 16 heterogeneous polynomial systems with stabilizer freedom, ODQ improves on both fixed-gain lifted baselines. All 36 ODQ runs on the relay benchmark complete, and ODQ is favored in all 27 repeat-level comparisons across the nine fully paired relay cases against a sum-of-squares baseline with a fixed quadratic Lyapunov function, in both the fixed-direction proxy and construction time. Broader comparisons with direct sum-of-squares methods remain mixed.},
+  url={https://arxiv.org/pdf/2609.18871}
+  }
 
 
 
