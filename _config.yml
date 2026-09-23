@@ -70,3 +70,4 @@ scholar:
   bibliography_template: bib
   reference_tagname: span class="entry"
   bibliography_group_tag: 'h3'
+  bibtex_skip_fields: [abstract, month_numeric, grants]

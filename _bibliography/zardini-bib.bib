@@ -958,11 +958,13 @@ Monte Carlo simulations on synthetic urban networks show that WGC consistently o
   @unpublished{stolzle25,
   title={Soft yet Effective Robots via Holistic Co-Design},
   author={Stölzle, Maximilian and Pagliarani, Niccolò and Stella, Francesco and Hughes, Josie and Laschi, Cecilia and Rus, Daniela and Cianchetti, Matteo and Della Santina, Cosimo and Zardini, Gioele},
-  year={2025},
+  year={2026},
   abstract= {Soft robots promise inherent safety via their material compliance for seamless interactions with humans or delicate environments. Yet, their development is challenging because it requires integrating materials, geometry, actuation, and autonomy into complex mechatronic systems. Despite progress, the field struggles to balance task-specific performance with broader factors like durability and manufacturability—a difficulty that we find is compounded by traditional sequential design processes with their lack of feedback loops. 
   In this perspective, we review emerging co-design approaches that simultaneously optimize the body and brain, enabling the discovery of unconventional designs highly tailored to the given tasks. We then identify three key shortcomings that limit the broader adoption of such co-design methods within the soft robotics domain.
   First, many rely on simulation-based evaluations focusing on a single metric, while real-world designs must satisfy diverse criteria. Second, current methods emphasize computational modeling without ensuring feasible realization, risking sim-to-real performance gaps. Third, high computational demands limit the exploration of the complete design space. Finally, we propose a holistic co-design framework that addresses these challenges by incorporating a broader range of design values, integrating real-world prototyping to refine evaluations, and boosting efficiency through surrogate metrics and model-based control strategies. This holistic framework, by simultaneously optimizing functionality, durability, and manufacturability, has the potential to enhance reliability and foster broader acceptance of soft robotics, transforming human-robot interactions.},
-  url={https://arxiv.org/abs/2505.03761}
+  url={https://arxiv.org/abs/2505.03761},
+  journal={Nature Machine Intelligence (In Press)},
+  publisher={Nature Publishing Group UK London}
   }
 
   @article{wong25,
@@ -1164,7 +1166,8 @@ We observe that while such transformations preserve equilibrium and optimal outc
   booktitle={2026 IEEE 65th Conference on Decision and Control (CDC), (In Press)}, 
   address={Honolulu, Hawaii, USA},
   abstract= {Monotone co-design enables compositional engineering design by modeling components through feasibility relations between required resources and provided functionalities. However, its standard boolean formulation cannot natively represent quantitative criteria such as cost, confidence, or implementation choice. In practice, these quantities are often introduced through ad hoc scalarization or by augmenting the resource space, which obscures system structure and increases computational burden. We address this limitation by developing a quantale-enriched theory of co-design. We model resources and functionalities as quantale-enriched categories and design problems as quantale-enriched profunctors, thereby lifting codesign from boolean feasibility to general quantitative evaluation. We show that the fundamental operations of series, parallel, and feedback composition remain valid over arbitrary commutative quantales. We further introduce heterogeneous composition through change-of-base maps between quantales, enabling different subsystems to be evaluated in different local semantics and then composed in a common framework. The resulting theory unifies feasibility-, cost-, confidence-, and implementation-aware co-design within one compositional formalism. Numerical examples on a target-tracking system and a UAV delivery problem demonstrate the framework and highlight how native quantitative enrichment can avoid the architectural and computational drawbacks of boolean-only formulations.},
-  url={https://arxiv.org/pdf/2603.29921}
+  url={https://arxiv.org/pdf/2603.29921},
+  grants={schema, yfa}
   }
 
   @inproceedings{runyu026,
@@ -1194,7 +1197,8 @@ We observe that while such transformations preserve equilibrium and optimal outc
   booktitle={2026 IEEE 65th Conference on Decision and Control (CDC), (In Press)}, 
   address={Honolulu, Hawaii, USA},
   abstract= {Monotone co-design provides a mathematical framework for managing the tightly coupled trade-offs between subsystem functionalities and resource requirements that arise in complex engineered systems. In many practical settings the underlying component models are already linear, yet existing solvers still resort to generic discretization, sacrificing both solving accuracy and complexity by ignoring the topological structure of the problem. This paper isolates the corresponding exact regime by introducing Linear Design Problems (LDPs), a class of co-design problems whose feasible functionality–resource sets are polyhedra over Euclidean posets. We show that queries on LDPs reduce exactly to Multi-Objective Linear Programs (MOLPs), thereby bridging monotone co-design semantics and polyhedral multiobjective optimization. Furthermore, we prove that the LDP class is closed under series, parallel, intersection, and feedback interconnections, so that any composition of linear components yields a system-level LDP. Exploiting this closure, we derive a monolithic lifted formulation that retains block-angular sparsity and resolves a system-level co-design query through a single MOLP. We validate the approach on a rigid gripper co-design benchmark whose every component is an LDP. The monolithic algorithm recovers the exact Pareto front with zero approximation error and orders-of-magnitude faster runtime, substantially outperforming the state-of-the-art co-design solver MCDPL in both accuracy and speed.},
-  url={https://zardini.mit.edu/assets/Cai-LDP-CDC26.pdf}
+  url={https://zardini.mit.edu/assets/Cai-LDP-CDC26.pdf},
+  grants={schema, yfa}
   }
 
   @inproceedings{meshalcdc26,
@@ -1204,7 +1208,8 @@ We observe that while such transformations preserve equilibrium and optimal outc
   booktitle={2026 IEEE 65th Conference on Decision and Control (CDC), (In Press)}, 
   address={Honolulu, Hawaii, USA},
   abstract= {When designing systems with multiple conflicting objectives, efficiently discovering the full set of non-dominated solutions remains a fundamental challenge. In this paper, we introduce an online learning framework for multi-objective decision-making within the monotone co-design setting. An agent sequentially queries an expensive design problem to identify the set of non-dominated trade-offs while minimizing evaluations. The key mechanism is a generic family of optimistic evaluators, history-dependent bounds that enable safe early elimination of unpromising implementations. We prove that the resulting rejection-sampling algorithm is sound and that the admissible region contracts monotonically as data accumulates, and instantiate the evaluators under monotonicity, Lipschitz continuity, and linear parametric structure. Experiments on intermodal mobility systems and synthetic benchmarks demonstrate substantial gains over uniform sampling, Bayesian optimization, and evolutionary baselines.},
-  url={https://zardini.mit.edu/assets/Alharbi-Sampling-CDC26.pdf}
+  url={https://zardini.mit.edu/assets/Alharbi-Sampling-CDC26.pdf},
+  grants={schema, yfa}
   }
 
   @article{lee26,
@@ -1229,7 +1234,8 @@ We observe that while such transformations preserve equilibrium and optimal outc
   year={2026},
   journal={Transactions on Machine Learning Research},
   abstract= {Despite deep learning models running well-defined mathematical functions, we lack a formal mathematical framework for describing model architectures. Ad-hoc notation, diagrams, and pseudocode poorly handle nonlinear broadcasting and the relationship between individual components and composed models. This paper introduces a categorical framework for deep learning models that formalizes broadcasting through the novel axis-stride and arraybroadcasted categories. This allows the mathematical function underlying architectures to be precisely expressed and manipulated in a compositional manner. These mathematical definitions are translated into human manageable diagrams and machine manageable data structures. We provide a mirrored implementation in Python (pyncd) and TypeScript (tsncd) to show the universal aspect of our framework, along with features including algebraic construction, graph conversion, PyTorch compilation and diagram rendering. This lays the foundation for a systematic, formal approach to deep learning model design and analysis.},
-  url={https://arxiv.org/pdf/2604.07242}
+  url={https://arxiv.org/pdf/2604.07242},
+  grants={schema, yfa}
   }
 
   @article{neumann25-tiv,
@@ -1240,7 +1246,8 @@ We observe that while such transformations preserve equilibrium and optimal outc
   number = {},
   journal={IEEE Transactions on Intelligent Vehicles (In Press)},
   abstract= {The development of high performance Formula 1 vehicles is a challenging undertaking. Due to the high complexity of the system, the possibilities to increase efficiency and thus enhance performance in many different subsystems are integral part of a successful vehicle. This research presents a novel multi-objective optimization approach based on applied category theory, which tackles the interdisciplinarity arising from multiple physical subsystems as well as strategic decisions. We first analyze lap-specific aspects and show optimal implementations for the choice of crucial components of a hybrid electric powertrain in racing application. Key objectives include minimizing lap time and short-term component wear, by selecting the optimal components and choosing maximum power deployment. Our op- timization results demonstrate significant differences in optimal configuration depending on track characteristics. Then, we raise the level of abstraction and extend the framework to a race scenario, where we include strategic aspects of the competition by means of data-based models and optimization results. The goals are minimizing race time and component wear, while considering energy allocation strategies, pit stops and uncertainties that might occur. By means of a case study we show the influence of a successful qualifying session on the race strategy and therefore component wear. This study provides a foundational framework for future advancements in racing strategy, advocating continued innovation and adoption within the racing industry.},
-  url = {https://www.research-collection.ethz.ch/handle/20.500.11850/708582},
+  url = {https://ieeexplore.ieee.org/document/11693480},
+  grants={schema, yfa}
 }
 
 
@@ -1265,7 +1272,8 @@ We observe that while such transformations preserve equilibrium and optimal outc
   year={2026},
   abstract= {Buildings generate heterogeneous data across their lifecycle, yet integrating these data remains a critical unsolved challenge. Despite three decades of standardization efforts, over 40 metadata schemas now span the building lifecycle, with fragmentation accelerating rather than resolving. Current approaches rely on point-to-point mappings that scale quadratically with the number of schemas, or universal ontologies that become unwieldy monoliths. The fundamental gap is the absence of mathematical foundations for structure-preserving transformations across heterogeneous building data. Here we show that category theory provides these foundations, enabling systematic data integration with $O(n)$ specification complexity for $n$ ontologies. We formalize building ontologies as first-order theories and demonstrate two proof-of-concept implementations in Categorical Query Language (CQL): 1) generating BRICK models from IFC design data at commissioning, and 2) three-way integration of IFC, BRICK, and RealEstateCore where only two explicit mappings yield the third automatically through categorical composition. Our correct-by-construction approach treats property sets as first-class schema entities and provides automated bidirectional migrations, and enables cross-ontology queries. These results establish feasibility of categorical methods for building data integration and suggest a path toward an \emph{app ecosystem} for buildings, where mathematical foundations enable reliable component integration analogous to smartphone platforms.
   },
-  url={https://arxiv.org/pdf/2601.16663}
+  url={https://arxiv.org/pdf/2601.16663},
+  grants={schema, yfa}
   }
 
 
@@ -1308,7 +1316,8 @@ booktitle={RSS 2024 Workshop on Autonomous Vehicles Across Scales}
   title={FICO: Finite-Horizon Closed-Loop Factorization for Unified Multi-Agent Path Finding},
   year={2025},
   abstract= {Multi-Agent Path Finding (MAPF) is a fundamental problem in robotics and AI, yet most existing formulations treat planning and execution separately and address variants of the problem in an ad hoc manner. This paper presents a system-level framework for MAPF that integrates planning and execution, generalizes across variants, and explicitly models uncertainties. At its core is the MAPF system, a formal model that casts MAPF as a control design problem encompassing classical and uncertainty-aware formulations. To solve it, we introduce Finite-Horizon Closed-Loop Factorization (FICO), a factorizationbased algorithm inspired by receding-horizon control that exploits compositional structure for efficient closed-loop operation. FICOenables real-time responses—commencing execution within milliseconds—while scaling to thousands of agents and adapting seamlessly to execution-time uncertainties. Extensive case studies demonstrate that it reduces computation time by up to two orders of magnitude compared with open-loop baselines, while delivering significantly higher throughput under stochastic delays and agent arrivals. These results establish a principled foundation for analyzing and advancing MAPF through system-level modeling, factorization, and closed-loop design.},
-  url={https://arxiv.org/abs/2511.13961}
+  url={https://arxiv.org/abs/2511.13961},
+  grants={amazon}
   }
 
   @unpublished{xinlingnetwork26,
@@ -1316,7 +1325,8 @@ booktitle={RSS 2024 Workshop on Autonomous Vehicles Across Scales}
   title={Where Should Robotaxis Operate? Strategic Network Design for Autonomous Mobility-on-Demand},
   year={2026},
   abstract= {The emergence of Autonomous Mobility-on-Demand (AMoD) services creates new opportunities to improve the ef- ficiency and reliability of on-demand mobility systems. Unlike human-driven Mobility-on-Demand (MoD), AMoD enables fully centralized fleet control, but it also requires appropriate infras- tructure, so that vehicles can operate safely only on a suitably instrumented subnetwork of the roads. Most existing AMoD research focuses on fleet control (matching, rebalancing, ride- pooling) on a fixed road network and does not address the joint design of the service network and fleet capacity. In this paper, we formalize this strategic design problem as the Autonomous Mobility-on-Demand Network Design Problem (AMoD-NDP), in which an operator selects an operation subnetwork and routes all passengers, subject to infrastructure and fleet constraints and route-level quality-of-service requirements. We propose a path- based mixed-integer formulation of the AMoD-NDP and develop a column-generation-based algorithm that scales to city-sized networks. The master problem optimizes over a restricted set of paths, while the pricing problem reduces to an elementary shortest path with resource constraints, solved exactly by a tailored label-correcting algorithm. The method provides an explicit certificate of the optimality gap and extends naturally to a robust counterpart under box uncertainty in travel times and demand. Using real-world data from Manhattan, New York City, we show that the framework produces stable and interpretable operation subnetworks, quantifies trade-offs between infrastruc- ture investment and fleet time, and accommodates additional path-level constraints, such as limits on left turns as a proxy for operational risk. These results illustrate how the proposed approach can support strategic planning and policy analysis for future AMoD deployments.},
-  url={https://arxiv.org/pdf/2602.19341}
+  url={https://arxiv.org/pdf/2602.19341},
+  grants={sidara}
   }
 
   @unpublished{he2025network,
@@ -1347,7 +1357,8 @@ The proposed framework provides a foundation for improving interdependent networ
   year={2026},
   abstract= {Safe derivative-free optimization under unknown constraints is a fundamental challenge in modern learning and control. Existing zeroth-order (ZO) methods typically still assume access to a first-order oracle of the constraint functions or restrict attention to convex settings, leaving nonconvex optimization with black-box constraints largely unexplored. We propose the zeroth-order feedback-linearization (ZOFL) algorithm for ZO constrained optimization that enforces feasibility without access to the first-order oracle of the constraint functions and applies to both equality and inequality constraints. The proposed approach relies only on noisy, sample-based gradient estimates obtained via two-point estimators, yet provably guarantees constraint satisfaction under mild regularity conditions. It adopts a control-theoretic perspective on ZO constrained optimization and leverages feedback linearization, a nonlinear control technique, to enforce feasibility. Finite-time bounds on constraint violation and asymptotic global convergence guarantees are established for the ZOFL algorithm. A midpoint discretization variant is further developed to improve feasibility without sacrificing optimality. Empirical results demonstrate that ZOFL consistently outperforms standard ZO baselines, achieving competitive objective values while maintaining feasibility.
   },
-  url={https://arxiv.org/pdf/2509.24056}
+  url={https://arxiv.org/pdf/2509.24056},
+  grants={schema, yfa}
   }
 
   @unpublished{caialmton26,
@@ -1356,7 +1367,8 @@ The proposed framework provides a foundation for improving interdependent networ
   year={2026},
   abstract= {We propose the Adaptive Levenberg-Marquardt Third-Order Newton Method (ALMTON) for unconstrained nonconvex optimization, providing the first globally convergent realization of the unregularized third-order Newton method. Unlike the standard Adaptive Regularization framework with third-order models (AR3), which enforces global behavior through a quartic term, ALMTON employs an adaptive Levenberg-Marquardt (quadratic) regularization. This choice preserves a cubic model at every iteration, so that every subproblem is a tractable semidefinite program (SDP). In particular, the ALMTON-Simple variant requires exactly one SDP solve per iteration, making the per-iteration cost uniform and predictable.
   Algorithmically, ALMTON follows a mixed-mode strategy: it attempts an unregularized third-order step whenever the cubic Taylor model admits a strict local minimizer with adequate curvature, and activates (or increases) quadratic regularization only when needed to ensure that the model is well posed and the step is globally reliable. We establish global convergence and prove an O(ϵ−2) worst-case evaluation complexity for computing an ϵ-approximate first-order stationary point. Numerical experiments show that ALMTON enlarges the basin of attraction relative to classical baselines (gradient descent and damped Newton), and can progress on landscapes where second-order methods typically stagnate. When compared with a state-of-the-art third-order implementation (AR3-interp), ALMTON converges more consistently and often in fewer iterations. We also characterize the practical scalability limits of the approach, highlighting the computational bottlenecks introduced by current SDP solvers as dimension grows.},
-  url={https://arxiv.org/pdf/2603.09682}
+  url={https://arxiv.org/pdf/2603.09682},
+  grants={schema, yfa}
   }
 
   @unpublished{yujun26,
@@ -1364,7 +1376,8 @@ The proposed framework provides a foundation for improving interdependent networ
   title={Distributional Uncertainty and Adaptive Decision-Making in System Co-design},
   year={2026},
   abstract= {Complex engineered systems require coordinated design choices across heterogeneous components under multiple conflicting objectives and uncertain specifications. Monotone codesign provides a compositional framework for such problems by modeling each subsystem as a design problem: a feasible relation between provided functionalities and required resources in partially ordered sets. Existing uncertain co-design models rely on interval bounds, which support worst-case reasoning but cannot represent probabilistic risk or multi-stage adaptive decisions. We develop a distributional extension of co-design that models uncertain design outcomes as distributions over design problems and supports adaptive decision processes through Markov-kernel re-parameterizations. Using quasi-measurable and quasi-universal spaces, we show that the standard codesign interconnection operations remain compositional under this richer notion of uncertainty. We further introduce queries and observations that extract probabilistic design trade-offs, including feasibility probabilities, confidence bounds, and distributions of minimal required resources. A task-driven unmanned aerial vehicle case study illustrates how the framework captures risk-sensitive and information-dependent design choices that interval-based models cannot express.},
-  url={https://arxiv.org/pdf/2603.14047}
+  url={https://arxiv.org/pdf/2603.14047},
+  grants={schema, yfa}
   }
 
   @unpublished{yubo26,
@@ -1372,7 +1385,8 @@ The proposed framework provides a foundation for improving interdependent networ
   title={Scalable Co-Design via Linear Design Problems: Compositional Theory and Algorithms},
   year={2026},
   abstract= {Designing complex engineered systems requires managing tightly coupled trade-offs between subsystem capabilities and resource requirements. Monotone co-design provides a compositional language for such problems, but its generality does not by itself reveal which problem classes admit exact and scalable computation. This paper isolates such a class by introducing linear design problems (LDPs): design problems whose feasible functionality–resource relations are polyhedra over Euclidean posets. We show that queries on LDPs reduce exactly to Multi-Objective Linear Programs (MOLPs), thereby connecting monotone co-design semantics with polyhedral multiobjective optimization. We further prove that LDPs are closed under the fundamental co-design interconnections, implying that any interconnection of linear components induces a systemlevel LDP. To compute the resulting feasible sets, we develop two complementary constructions: a monolithic lifted formulation that preserves block-angular sparsity, and a compositional formulation that incrementally eliminates internal variables through polyhedral projection. Beyond the exact linear setting, we show that convex co-design resource queries admit arbitrarily accurate polyhedral outer approximations, with recessioncone error identically zero for standard nonnegative resource cones. Numerical studies on synthetic series-chain benchmarks, a gripper, and a rover co-design validate the theory.},
-  url={https://arxiv.org/pdf/2603.29083v1}
+  url={https://arxiv.org/pdf/2603.29083v1},
+  grants={schema, yfa}
   }
 
 
@@ -1389,7 +1403,8 @@ The proposed framework provides a foundation for improving interdependent networ
   title={Task-Driven Co-Design of Heterogeneous Multi-Robot Systems},
   year={2026},
   abstract= {Designing multi-agent robotic systems requires reasoning across tightly coupled decisions spanning heterogeneous domains, including robot design, fleet composition, and planning. Much effort has been devoted to isolated improvements in these domains, whereas system-level co-design considering trade-offs and task requirements remains underexplored. In this work, we present a formal and compositional framework for the task-driven co-design of heterogeneous multi-robot systems. Building on a monotone co-design theory, we introduce general abstractions of robots, fleets, planners, executors, and evaluators as interconnected design problems with well-defined interfaces that are agnostic to both implementations and tasks. This structure enables efficient joint optimization of robot design, fleet composition, and planning under task-specific performance constraints. A series of case studies demonstrates the capabilities of the framework. Various component models can be seamlessly incorporated, including new robot types, task profiles, and probabilistic sensing objectives, while non-obvious design alternatives are systematically uncovered with optimality guarantees. The results highlight the flexibility, scalability, and interpretability of the proposed approach, and illustrate how formal co-design enables principled reasoning about complex heterogeneous multi-robot systems.},
-  url={https://arxiv.org/pdf/2604.21894}
+  url={https://arxiv.org/pdf/2604.21894},
+  grants={schema, yfa}
   }
 
   @unpublished{meshal26,
@@ -1397,7 +1412,8 @@ The proposed framework provides a foundation for improving interdependent networ
   title={Compositional Online Learning for Multi-Objective System Co-Design},
   year={2026},
   abstract= {Many engineered systems must balance competing objectives, such as performance and safety, cost and reliability, or efficiency and sustainability, and are naturally modeled as compositions of interacting subsystems. We study online multi-objective decision-making in monotone co-design, where functionalities and resources are partially ordered, and the goal is to identify the target-feasible antichain of non-dominated trade-offs using few expensive evaluations. We introduce optimistic evaluators: history-dependent bounds on functionality and resource mappings that enable safe elimination of implementations before full evaluation. Based on these evaluators, we develop an elimination-based rejection-sampling algorithm, prove its soundness, and show that the admissible region shrinks monotonically as information accumulates. We instantiate the framework under monotonicity, Lipschitz continuity, and linear-parametric structure. For compositional co-design problems modeled by multigraphs, we show how local optimistic certificates propagate through the tractable remainder of the graph to yield system-level optimistic feasibility and resource bounds. Experiments on multi-robot fleet design, intermodal mobility systems, and synthetic monotone and Lipschitz benchmarks show substantial sample-efficiency gains over uniform sampling, Bayesian optimization, and multi-objective evolutionary algorithms.},
-  url={https://arxiv.org/pdf/2604.22624}
+  url={https://arxiv.org/pdf/2604.22624},
+  grants={schema, yfa}
   }
 
   @unpublished{xinlingGT26,
@@ -1413,7 +1429,8 @@ The proposed framework provides a foundation for improving interdependent networ
   title={Uncertainty-Aware End-to-End Co-Design of Neural Network Processors: From Training and Mapping to Fabrication},
   year={2026},
   abstract= {Designing a neural network processor is an end-to-end co-design problem: network architecture and training budget determine the inference workload; hardware mapping decisions determine chip area, latency, and energy; and these characteristics govern fabrication yield and manufacturing cost. In practice, these decisions are made in separate stages, and existing co-design methodologies are tightly coupled to specific algorithms, making it difficult to improve one component without reworking the entire pipeline. This paper presents a unified framework, grounded in monotone co-design theory, that composes four interoperable design blocks spanning network training, chip mapping, wafer-level fabrication, and compute resource allocation. Each block exposes only a functionality-resource interface to the rest of the system, so any block can be refined without structural changes elsewhere. A central contribution is the treatment of uncertainty: rather than collapsing stochastic outcomes into point estimates, the framework introduces Confidence, the inverse of success probability, as an explicit and optimizable resource alongside cost, time, and power. Three case studies validate the approach. The first recovers Pareto-optimal implementations across heterogeneous application scenarios. The second confirms that Confidence functions as a continuously tunable design knob rather than a post-hoc diagnostic. The third demonstrates that improving a single block's implementation set automatically propagates to the global Pareto front, without modifying the co-design diagram.},
-  url={https://arxiv.org/pdf/2606.04850}
+  url={https://arxiv.org/pdf/2606.04850},
+  grants={schema, yfa}
   }
 
   @unpublished{wvodive26,
@@ -1421,7 +1438,8 @@ The proposed framework provides a foundation for improving interdependent networ
   title={Dual-Informed Vertical Expansion for Multi-Objective Node Selection in Anytime Conflict-Based Search},
   year={2026},
   abstract= {Conflict-Based Search (CBS) is a leading exact algorithm for Multi-Agent Path Finding (MAPF), but its high-level node-selection rule is usually treated as a fixed implementation detail. Standard best-first selection is strong for minimizing expanded nodes and closing the optimality certificate, yet it can maintain a large frontier, interrupt parent-child expansion sequences, and provide no feasible incumbent until termination. This paper studies node selection as a first-class design choice for exact CBS. We introduce Dual-Informed Vertical Expansion (DIVE), a policy that is best-bound between dives and depth-oriented within a dive. DIVE starts each dive from the current best-bound frontier, follows promising children to exploit parent-child locality, and uses incumbent pruning to limit unproductive excursions. We formalize CBS node selection through a branch-and-bound view, prove that the traversal policy can be changed without affecting exactness, and analyze the resulting trade-offs among expanded nodes, dive breaks, queue size, and primal-dual bound progress. The analysis predicts three complementary extremes. Best-first search is node efficient, iterative deepening is memory efficient, and DIVE is dive efficient while retaining regular best-bound reanchoring. Experiments on standard MAPF benchmarks support this trade-off map. DIVE consistently reduces dive breaks, provides early incumbents with certified gaps, uses substantially less queue memory than best-first search, and benefits from warm starts and simple responsive variants in dense or memory-limited regimes.},
-  url={https://arxiv.org/abs/2607.00156}
+  url={https://arxiv.org/abs/2607.00156},
+  grants={amazon}
   }
 
   @unpublished{zhangdenoising26,
@@ -1438,7 +1456,8 @@ The proposed framework provides a foundation for improving interdependent networ
   title={Optimizing Lyapunov Certificates via Stability-Preserving Quadratization for Polynomial Systems},
   year={2026},
   abstract = {Region-of-attraction certificates for polynomial systems become expensive as the state dimension and polynomial degree grow, because direct sum-of-squares formulations require a monomial basis whose size grows combinatorially. Quadratization sidesteps this cost by representing a polynomial vector field exactly on an invariant manifold of a quadratic system, so that a quadratic Lyapunov function can certify the region of attraction directly. Even once the lifting map is fixed, this exactness constrains the lifted dynamics only on the manifold, leaving freedom in how they extend off it. Stabilizer gains shape this off-manifold extension and change the transverse dynamics, while representation gauges leave the vector field unchanged but change its matrix representation. Both choices affect the resulting spectral-norm certificate, yet prior work has treated them separately, fixing the gain with a feasibility heuristic and optimizing the gauge only afterward, for that fixed pair. We formulate optimal dissipative quadratization (ODQ), which designs the gain and the gauge together for a fixed monomial lift, reference extension, and stabilizer factorization, with the Lyapunov weight fixed to the identity. ODQ selects stabilizer gains within a prescribed compact Hurwitz box and, for each candidate gain, optimizes the representation gauge by an exact semidefinite program that attains the global minimum of the spectral-norm bound at that gain. Residual-aware bounds turn this spectral-norm bound into a certified closed Lyapunov sublevel set, accounting for the floating-point residual of the underlying Lyapunov solve. Under our stated assumptions, every accumulation point of the idealized outer search is box-Clarke stationary. A finite run instead returns the best candidate it can independently verify, and we do not claim global optimality for the gain search. On a planar quintic system, optimizing the gain increases the certified area by a factor of 2.238 over a matched zero-gain gauge. Across a benchmark of 16 heterogeneous polynomial systems with stabilizer freedom, ODQ improves on both fixed-gain lifted baselines. All 36 ODQ runs on the relay benchmark complete, and ODQ is favored in all 27 repeat-level comparisons across the nine fully paired relay cases against a sum-of-squares baseline with a fixed quadratic Lyapunov function, in both the fixed-direction proxy and construction time. Broader comparisons with direct sum-of-squares methods remain mixed.},
-  url={https://arxiv.org/pdf/2609.18871}
+  url={https://arxiv.org/pdf/2609.18871},
+  grants={schema, mathworks, yfa}
   }
 
 
