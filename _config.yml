@@ -70,6 +70,7 @@ scholar:
   bibliography_template: bib
   reference_tagname: span class="entry"
   bibliography_group_tag: 'h3'
+  bibtex_skip_fields: [abstract, month_numeric, grants]
 
 # Local preview only (`jekyll serve`): browsers revalidate every file, so an edit
 # is never hidden behind a cached copy. GitHub Pages ignores this setting.
