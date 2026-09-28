@@ -1,0 +1,182 @@
+{% comment %}
+  Interactive diagram viewer (behaviour: js/diagram-viewer.js, styles: css/diagrams.css).
+    diagram   an entry of _data/diagrams.yml
+    variant   the id of the variant to open, for an export that carries several;
+              the export's initial variant when it is left out
+    mode      "page" for the full-page viewer, "inline" inside another page
+    expanded  true to open a page-mode viewer with the navigation hidden
+  An inline viewer shows a preview until it is opened, so scrolling past it never
+  pans the diagram, and switches models in place.
+{% endcomment %}
+{% assign diagram = include.diagram %}
+{% assign catalogue = site.data.diagrams %}
+{% assign variant_id = include.variant | default: diagram.initial_variant %}
+{% assign variant = diagram.variants | where: "id", variant_id | first %}
+{% assign variant_group = diagram.variant_groups | where: "id", variant.group | first %}
+{% assign diagram_url = site.baseurl | append: "/diagrams/" | append: diagram.slug | append: "/" %}
+<div class="diagram-viewer{% if include.expanded %} is-expanded{% endif %}" data-mode="{{ include.mode }}" data-slug="{{ diagram.slug }}" data-variant="{{ variant.id }}" data-base="{{ site.baseurl }}/diagrams/" data-origin="{{ site.canonical_url }}" data-default="{{ catalogue.default }}" data-default-theme="{{ catalogue.default_theme }}" style="--dv-canvas: {{ diagram.canvas }}">
+  {% if diagram.forms %}
+  {% comment %} Runs as the parser reaches it, so the stage is first painted in the theme js/diagram-viewer.js will draw: the address's for a full page and the default theme for an inline viewer, then the system's. {% endcomment %}
+  <script>
+    (function (viewer) {
+      var theme = viewer.dataset.mode === 'page' ? new URLSearchParams(location.search).get('theme') : viewer.dataset.defaultTheme;
+      if (theme !== 'dark' && theme !== 'light') {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      viewer.style.setProperty('--dv-canvas', theme === 'dark' ? '#1e1e1e' : '#ffffff');
+    })(document.currentScript.parentElement);
+  </script>
+  {% endif %}
+  {% comment %} A link that names no form opens an export that can switch forms all broadcasted. {% endcomment %}
+  {% assign opening_form = diagram.form %}
+  {% if diagram.forms %}{% assign opening_form = "all-broadcasted" %}{% endif %}
+  <div class="viewer-toolbar">
+    <details class="diagram-selector">
+      <summary aria-label="Choose a diagram. Showing {{ diagram.title | escape }}">
+        <span class="selector-label"><span class="selector-title-full">{{ diagram.title }}</span><span class="selector-title-short">{{ diagram.name }}</span></span>
+        <svg class="selector-indicator" width="10" height="7" viewBox="0 0 10 7" aria-hidden="true" focusable="false"><path d="M0 0H10L5 7Z" fill="currentColor" /></svg>
+      </summary>
+      <div class="diagram-options">
+        {% for group in catalogue.groups %}
+        {% assign members = catalogue.models | where: "group", group.id %}
+        <p class="diagram-options-group" id="diagram-group-{{ group.id }}">{{ group.title }}</p>
+        <ul aria-labelledby="diagram-group-{{ group.id }}">
+          {% for model in members %}
+          <li><a href="{{ site.baseurl }}/diagrams/{{ model.slug }}/{% if include.expanded %}expanded/{% endif %}" data-slug="{{ model.slug }}"{% if model.slug == diagram.slug %} aria-current="true"{% endif %}><span class="option-title">{{ model.title }}</span><span class="option-detail">{{ model.detail }}</span></a></li>
+          {% endfor %}
+        </ul>
+        {% endfor %}
+      </div>
+    </details>
+    {% if include.mode == "page" %}
+    <div id="diagram-navigation" class="diagram-navigation"{% if include.expanded %} hidden{% endif %}>
+      <a class="diagram-guide" href="{{ site.baseurl }}/diagrams/">About the diagrams</a>
+    </div>
+    {% endif %}
+    {% comment %} Shown for exports that carry two or more variants of their model; see _plugins/diagrams.rb. js/diagram-viewer.js writes the options from the catalogue at the end of the viewer. {% endcomment %}
+    {% comment %} A group holding one quantised and one unquantised variant is one choice, named by the group's title; the ℝ/FP toggle picks between the two. {% endcomment %}
+    {% assign paired_groups = diagram.variant_groups | where_exp: "group", "group.paired" %}
+    {% assign variant_choices = diagram.variants.size | minus: paired_groups.size %}
+    <details class="variant-selector"{% if variant_choices < 2 or diagram.pass_symbols %} hidden{% endif %}>
+      {% if variant_group.paired %}
+      <summary aria-label="Choose a variant. Showing {{ variant_group.title | escape }}">
+        <span class="variant-label"><span class="variant-group"></span><span class="variant-title">{{ variant_group.title }}</span></span>
+      {% else %}
+      <summary aria-label="Choose a variant. Showing {{ variant_group.title | escape }}, {{ variant.title | escape }}">
+        <span class="variant-label"><span class="variant-group">{{ variant_group.title }}</span><span class="variant-title">{{ variant.title }}</span></span>
+      {% endif %}
+        <svg class="selector-indicator" width="10" height="7" viewBox="0 0 10 7" aria-hidden="true" focusable="false"><path d="M0 0H10L5 7Z" fill="currentColor" /></svg>
+      </summary>
+      <div class="variant-options"></div>
+    </details>
+    {% comment %}
+      The pass symbols, the ℝ/FP toggle and the form buttons. On a phone each is drawn as a
+      dropdown instead (.control-menu, see css/diagrams.css), whose summary shows the current
+      choice; its options carry the same data- attributes as the buttons, so
+      js/diagram-viewer.js answers and marks both alike.
+    {% endcomment %}
+    {% capture icon_reals %}<span class="symbol-reals" aria-hidden="true">ℝ</span>{% endcapture %}
+    {% capture icon_fp %}<code class="symbol-fp" aria-hidden="true">FP</code>{% endcapture %}
+    {% capture icon_arrows_and_boxes %}<svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h6M5.5 5.8 7.7 8l-2.2 2.2"/><rect x="9.5" y="3.5" width="9" height="9" rx="3" fill="currentColor" fill-opacity=".15"/><path d="M18.5 8h7M23.5 5.8 25.7 8l-2.2 2.2"/></svg>{% endcapture %}
+    {% capture icon_arrows_and_broadcasted %}<svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="1.5" width="11" height="13" rx="3" fill="currentColor" fill-opacity=".15" stroke="none"/><path d="M1.5 8H5c2.5 0 2.5-3.5 5-3.5h8c2.5 0 2.5 3.5 5 3.5h3.5M5 8c2.5 0 2.5 3.5 5 3.5h8c2.5 0 2.5-3.5 5-3.5"/></svg>{% endcapture %}
+    {% capture icon_all_broadcasted %}<svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3h25M1.5 8h9.5M17 8h9.5"/><path d="M11 8l6-3.5v7z" fill="currentColor" fill-opacity=".15"/><path d="M1.5 13h25" stroke-dasharray="1 3.5"/></svg>{% endcapture %}
+    {% capture icon_decode %}<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M2.75 2.75 15.25 15.25H2.75Z" fill="currentColor"/><rect x="2.75" y="2.75" width="12.5" height="12.5"/></svg>{% endcapture %}
+    {% capture icon_cached %}<svg width="16" height="18" viewBox="0 0 16 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="8" cy="4.25" rx="5.75" ry="2.25" fill="currentColor" fill-opacity=".15"/><path d="M2.25 4.25v9.5c0 1.24 2.57 2.25 5.75 2.25s5.75-1.01 5.75-2.25v-9.5"/></svg>{% endcapture %}
+    {% comment %} Shown in place of the variant selector where every pass has a symbol: decode, a square filled below its diagonal, and cached, a cylinder (pass_symbols in _plugins/diagrams.rb). js/diagram-viewer.js writes each pass's title and detail from the export. {% endcomment %}
+    <div class="diagram-passes" role="group" aria-label="Pass"{% unless diagram.pass_symbols %} hidden{% endunless %}>
+      <button type="button" data-pass="decode" aria-label="Decode" title="Decode" aria-pressed="{% if variant.group == 'decode' %}true{% else %}false{% endif %}">{{ icon_decode }}</button>
+      <button type="button" data-pass="cached" aria-label="Cached" title="Cached" aria-pressed="{% if variant.group == 'cached' %}true{% else %}false{% endif %}">{{ icon_cached }}</button>
+      <details class="control-menu" data-label="Pass">
+        <summary aria-label="Pass. Showing {{ variant_group.title | escape }}"><span class="control-menu-current">{% if variant.group == 'cached' %}{{ icon_cached }}{% else %}{{ icon_decode }}{% endif %}</span></summary>
+        <div class="control-menu-options">
+          <button type="button" data-pass="decode" aria-pressed="{% if variant.group == 'decode' %}true{% else %}false{% endif %}"><span class="control-menu-icon">{{ icon_decode }}</span><span class="control-menu-text"><span class="option-title">Decode</span><span class="option-detail" hidden></span></span></button>
+          <button type="button" data-pass="cached" aria-pressed="{% if variant.group == 'cached' %}true{% else %}false{% endif %}"><span class="control-menu-icon">{{ icon_cached }}</span><span class="control-menu-text"><span class="option-title">Cached</span><span class="option-detail" hidden></span></span></button>
+        </div>
+      </details>
+    </div>
+    {% comment %} Shown where the variant on display has a quantised and an unquantised form; see pair_quantisations in _plugins/diagrams.rb. {% endcomment %}
+    <div class="diagram-quantisation" role="group" aria-label="Number format"{% unless variant.counterpart %} hidden{% endunless %}>
+      <button type="button" data-quantisation="unquantised" aria-label="Unquantised, in the real numbers" title="Unquantised: the model in the real numbers" aria-pressed="{% if variant.quantisation == 'unquantised' %}true{% else %}false{% endif %}">{{ icon_reals }}</button>
+      <button type="button" data-quantisation="quantised" aria-label="Quantised, in the number formats of the released code" title="Quantised: every value in the number format of the released code" aria-pressed="{% if variant.quantisation == 'quantised' %}true{% else %}false{% endif %}">{{ icon_fp }}</button>
+      <details class="control-menu" data-label="Number format">
+        <summary aria-label="Number format. Showing {% if variant.quantisation == 'unquantised' %}Unquantised{% else %}Quantised{% endif %}"><span class="control-menu-current">{% if variant.quantisation == 'unquantised' %}{{ icon_reals }}{% else %}{{ icon_fp }}{% endif %}</span></summary>
+        <div class="control-menu-options">
+          <button type="button" data-quantisation="unquantised" aria-pressed="{% if variant.quantisation == 'unquantised' %}true{% else %}false{% endif %}"><span class="control-menu-icon">{{ icon_reals }}</span><span class="control-menu-text"><span class="option-title">Unquantised</span><span class="option-detail">In the real numbers</span></span></button>
+          <button type="button" data-quantisation="quantised" aria-pressed="{% if variant.quantisation == 'quantised' %}true{% else %}false{% endif %}"><span class="control-menu-icon">{{ icon_fp }}</span><span class="control-menu-text"><span class="option-title">Quantised</span><span class="option-detail">In the number formats of the released code</span></span></button>
+        </div>
+      </details>
+    </div>
+    {% comment %} Shown for exports that can be redrawn in each form; see _plugins/diagrams.rb. {% endcomment %}
+    <div class="diagram-forms" role="group" aria-label="Diagram form"{% unless diagram.forms %} hidden{% endunless %}>
+      <span class="diagram-forms-label" aria-hidden="true">Form</span>
+      <button type="button" data-form="arrows-and-boxes" aria-label="Arrows and boxes" title="Arrows and boxes" aria-pressed="{% if opening_form == 'arrows-and-boxes' %}true{% else %}false{% endif %}">{{ icon_arrows_and_boxes }}</button>
+      <button type="button" data-form="arrows-and-broadcasted" aria-label="Arrows and broadcasted" title="Arrows and broadcasted" aria-pressed="{% if opening_form == 'arrows-and-broadcasted' %}true{% else %}false{% endif %}">{{ icon_arrows_and_broadcasted }}</button>
+      <button type="button" data-form="all-broadcasted" aria-label="All broadcasted" title="All broadcasted" aria-pressed="{% if opening_form == 'all-broadcasted' %}true{% else %}false{% endif %}">{{ icon_all_broadcasted }}</button>
+      <details class="control-menu" data-label="Diagram form">
+        <summary aria-label="Diagram form. Showing {% if opening_form == 'arrows-and-boxes' %}Arrows and boxes{% elsif opening_form == 'arrows-and-broadcasted' %}Arrows and broadcasted{% else %}All broadcasted{% endif %}"><span class="control-menu-current">{% if opening_form == 'arrows-and-boxes' %}{{ icon_arrows_and_boxes }}{% elsif opening_form == 'arrows-and-broadcasted' %}{{ icon_arrows_and_broadcasted }}{% else %}{{ icon_all_broadcasted }}{% endif %}</span></summary>
+        <div class="control-menu-options">
+          <button type="button" data-form="arrows-and-boxes" aria-pressed="{% if opening_form == 'arrows-and-boxes' %}true{% else %}false{% endif %}"><span class="control-menu-icon">{{ icon_arrows_and_boxes }}</span><span class="control-menu-text"><span class="option-title">Arrows and boxes</span></span></button>
+          <button type="button" data-form="arrows-and-broadcasted" aria-pressed="{% if opening_form == 'arrows-and-broadcasted' %}true{% else %}false{% endif %}"><span class="control-menu-icon">{{ icon_arrows_and_broadcasted }}</span><span class="control-menu-text"><span class="option-title">Arrows and broadcasted</span></span></button>
+          <button type="button" data-form="all-broadcasted" aria-pressed="{% if opening_form == 'all-broadcasted' %}true{% else %}false{% endif %}"><span class="control-menu-icon">{{ icon_all_broadcasted }}</span><span class="control-menu-text"><span class="option-title">All broadcasted</span></span></button>
+        </div>
+      </details>
+    </div>
+    {% comment %} The theme the same exports are drawn in. A link that names no theme follows the reader's system theme. {% endcomment %}
+    <button class="diagram-theme" type="button" aria-label="Dark theme" aria-pressed="{% if diagram.dark %}true{% else %}false{% endif %}" title="Switch to the {% if diagram.dark %}light{% else %}dark{% endif %} theme"{% unless diagram.forms %} hidden{% endunless %}>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor" stroke="none"/></svg>
+    </button>
+    <div id="diagram-zoom" class="diagram-zoom" role="group" aria-label="Diagram zoom" hidden>
+      <button type="button" data-zoom="out" aria-label="Zoom out of diagram" disabled><span aria-hidden="true">−</span></button>
+      <input type="range" min="10" max="400" step="1" value="100" aria-label="Diagram zoom percentage" aria-valuetext="100%" disabled>
+      <button type="button" data-zoom="reset" aria-label="Reset diagram zoom to 100%" title="Reset diagram zoom" disabled>100%</button>
+      <button type="button" data-zoom="in" aria-label="Zoom into diagram" disabled><span aria-hidden="true">+</span></button>
+    </div>
+    <div class="viewer-controls" hidden>
+      {% comment %} The Jupyter notebook that writes the diagram, on GitHub; js/diagram-viewer.js follows the model an inline viewer switches to. {% endcomment %}
+      <a class="diagram-notebook" href="{{ diagram.notebook_url }}" target="_blank" rel="noopener" title="Open the Jupyter notebook that writes this diagram, on GitHub"{% unless diagram.notebook_url %} hidden{% endunless %}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="1.5" width="10" height="13" rx="1"/><path d="M1.5 4.5h4M1.5 8h4M1.5 11.5h4M8 5h3.5M8 8h3.5"/></svg>
+        <span>Notebook</span>
+      </a>
+      {% comment %} js/diagram-viewer.js sets the link to the view on screen: its variant, form, theme and expanded state. {% endcomment %}
+      <button class="diagram-share" type="button" aria-label="Share diagram" title="Share diagram" data-share-url="{{ site.canonical_url }}{{ diagram_url }}" data-share-title="{{ diagram.title | escape }}">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 10V1m-3 3 3-3 3 3M4 6H2v8h12V6h-2" /></svg>
+      </button>
+      {% if include.mode == "page" %}
+      <button class="diagram-expand" type="button" aria-label="{% if include.expanded %}Show navigation{% else %}Expand diagram{% endif %}" title="{% if include.expanded %}Show navigation{% else %}Expand diagram{% endif %}" aria-expanded="{% if include.expanded %}false{% else %}true{% endif %}" aria-controls="mainNav diagram-navigation diagram-zoom">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path class="expand-icon" d="M6 2H2v4M2 2l4 4m4 8h4v-4m0 4-4-4"/><path class="restore-icon" d="M2 6h4V2M2 2l4 4m8 4h-4v4m4 0-4-4"/></svg>
+        <span>{% if include.expanded %}Show navigation{% else %}Expand diagram{% endif %}</span>
+      </button>
+      {% else %}
+      {% comment %} Opens the interactive viewer, /diagrams/see-diagrams/; js/diagram-viewer.js points it at the view the reader picked. {% endcomment %}
+      <a class="diagram-expand" href="{{ site.baseurl }}/diagrams/see-diagrams/" title="Open the interactive viewer">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path class="expand-icon" d="M6 2H2v4M2 2l4 4m4 8h4v-4m0 4-4-4"/></svg>
+        <span>Expand</span>
+      </a>
+      {% endif %}
+      <div class="diagram-share-feedback" role="status" hidden><span></span><input type="url" aria-label="Diagram link" readonly hidden></div>
+    </div>
+  </div>
+
+  <div class="viewer-stage">
+    {% if include.mode == "inline" %}
+    {% comment %} The preview is the export's opening view at 100% zoom, shown unscaled. {% endcomment %}
+    <div class="viewer-poster">
+      <img src="{{ diagram_url }}thumbnail.jpg" alt="Preview of the neural circuit diagram of {{ diagram.title | escape }}" width="1440" height="900" loading="lazy">
+      <div class="viewer-prompt">
+        <div class="viewer-prompt-card">
+          <p class="viewer-prompt-title">{{ diagram.title }}</p>
+          <p class="viewer-prompt-detail">{{ diagram.detail }}</p>
+          <a class="load-diagram" href="{{ diagram_url }}">Explore the interactive diagram</a>
+          <p class="viewer-prompt-hint"><span class="hint-pointer">Drag to pan, Ctrl + scroll to zoom, and hover over a block to inspect it.</span><span class="hint-touch">Drag to pan, pinch to zoom, and tap a block to inspect it.</span></p>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% comment %} js/diagram-viewer.js adds the diagram's iframe, so it can open in the view the address or the reader chose, or writes here why the address names a view the diagram does not have. {% endcomment %}
+  </div>
+  {% if include.mode == "inline" %}
+  <p class="diagram-caption"><span class="diagram-caption-text">{{ diagram.description }}</span></p>
+  {% endif %}
+  <noscript><p class="viewer-noscript">The interactive viewer needs JavaScript. You can still <a href="{{ diagram_url }}embed/">open the diagram on its own</a>.</p></noscript>
+  <script type="application/json" class="diagram-catalogue">{{ catalogue.models | jsonify }}</script>
+</div>

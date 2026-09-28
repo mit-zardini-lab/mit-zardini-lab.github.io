@@ -1,0 +1,182 @@
+# Interactive neural circuit diagrams, drawn by pyncd and rendered by tsncd.
+#
+# Each model's export is kept unchanged at diagrams/<slug>/figure.html, with a
+# preview image at diagrams/<slug>/thumbnail.jpg in the theme the export opens
+# in and diagrams/<slug>/thumbnail-dark.jpg or thumbnail-light.jpg in the other.
+# _plugins/diagrams.rb builds, for every entry below:
+#   /diagrams/<slug>/             full-page viewer
+#   /diagrams/<slug>/expanded/    the same viewer with the site navigation hidden
+#   /diagrams/<slug>/embed/       the export plus the viewer's pan/zoom bridge,
+#                                 which the viewer shows in an iframe
+#   /diagrams/<slug>/figure.html  a redirect to the viewer
+#   /diagrams/<slug>/embed.html   a redirect to embed/
+#
+# An export that carries two or more variants of its model (a `tsncd-variants`
+# element, such as Decode and Cached, each Quantised and Unquantised) also gets
+# one viewer per variant, with its expanded twin:
+#   /diagrams/<slug>/<variant>/
+#   /diagrams/<slug>/<variant>/expanded/
+# The variant ids, their groups, titles and details, and the variant
+# /diagrams/<slug>/ opens are read from the export, so nothing about variants
+# is written here. A variant the export does not carry has no page and its
+# address returns the 404 page. The viewer's toolbar lists the variants beside
+# the form buttons. An export whose element lists one variant is treated as an
+# export with one figure, because it offers nothing to choose.
+#
+# Where a group holds a variant `<pass>-quantised` and a variant
+# `<pass>-unquantised`, as Decode and Cached do, the two are one choice of the
+# variant selector, and the toolbar's toggle between ℝ (unquantised, in the
+# reals) and FP (quantised, at the number formats of the released code) picks
+# between them. The build pairs them by their ids; see record_variants.
+#
+# The address alone decides the view a viewer opens: the variant in the path,
+# and ?form=<form>&theme=<dark|light> in the query. A link that names no form
+# opens all broadcasted, and a link that names no theme follows the reader's
+# system theme until the reader switches something. Every switch of variant,
+# model, form or theme writes both into the address, so a copied address
+# reproduces the view, as in
+# /diagrams/glm-53/cached-unquantised/?form=arrows-and-boxes&theme=light.
+# A link that sets any other parameter opens no diagram and says why, except
+# for the tracking parameters utm_*, fbclid, gclid, mc_cid and mc_eid, which
+# the viewer drops from the address.
+#
+# `canvas` is the background colour the export paints, shown behind it while it
+# loads. `default` is the diagram /diagrams/see-diagrams/ redirects to and the one the
+# Diagrams page shows first. `default_theme` is the theme both open it in, in place
+# of the reader's system theme: the Diagrams page's viewer starts in it, and the
+# redirect adds ?theme=<default_theme> unless its address names a theme.
+#
+# The build detects whether an export can switch between the three forms (arrows
+# and boxes, arrows and broadcasted, all broadcasted) and either theme, so
+# re-exported diagrams gain the viewer's form buttons and theme toggle without
+# changes here. It also reads the form and the theme the export starts in. The
+# viewer draws an export that cannot switch only in those, and thumbnail.jpg is
+# captured in that theme.
+#
+# The groups follow the folders the pages are written into in the public pyncd
+# repository (github.com/mit-zardini-lab/pyncd),
+# notebooks/website/output/<group>/<Name>/index.html, which is copied byte for
+# byte, as pushed to main, to diagrams/<slug>/figure.html.
+#
+# `notebook` is the Jupyter notebook that writes a model's page, relative to
+# `notebooks` below, the notebooks/website folder of pyncd on GitHub. The
+# viewer's toolbar links to it; a model without one has no link.
+
+default: attention
+default_theme: light
+
+notebooks: https://github.com/mit-zardini-lab/pyncd/blob/main/notebooks/website/
+
+groups:
+  - id: tutorial
+    title: Tutorial
+  - id: classic
+    title: Classic models
+  - id: modern
+    title: Modern models
+
+models:
+  - slug: attention
+    group: tutorial
+    canvas: '#ffffff'
+    notebook: tutorial/Attention.ipynb
+    title: Attention
+    name: Attention
+    detail: Scaled dot-product attention and its training step
+    description: >-
+      Scaled dot-product attention, written as a morphism. Its training step is the forward
+      pass, which saves the values the backward pass reads, followed by the backward pass, which
+      returns the gradients of the queries, the keys and the values.
+
+  - slug: attention-with-weights-and-a-residual-connection
+    group: tutorial
+    canvas: '#ffffff'
+    notebook: tutorial/AttentionWithWeightsAndResidual.ipynb
+    title: Attention with Weights and a Residual Connection
+    name: Attention with a Residual
+    detail: Causal self-attention with its projections, and its training step
+    description: >-
+      Causal self-attention with its query, key, value and output projections and a residual
+      connection around it. The backward pass of its training step returns the gradient of the
+      state and the gradient of each of the four weights.
+
+  - slug: multi-head-attention
+    group: tutorial
+    canvas: '#ffffff'
+    notebook: tutorial/MultiHeadAttention.ipynb
+    title: Multi-Head Attention
+    name: Multi-Head Attention
+    detail: Causal, each head with a query, a key and a value of its own
+    description: >-
+      Causal multi-head attention. Each head computes scaled dot-product attention with a
+      query, a key and a value of its own.
+
+  - slug: grouped-query-attention
+    group: tutorial
+    canvas: '#ffffff'
+    notebook: tutorial/GroupedQueryAttention.ipynb
+    title: Grouped-Query Attention
+    name: Grouped-Query Attention
+    detail: Query heads sharing key and value heads
+    description: >-
+      Causal grouped-query attention. The query heads are divided into groups, and the heads of
+      one group share one key head and one value head, as they do in Mixtral-8x7B.
+
+  - slug: attention-is-all-you-need
+    group: classic
+    canvas: '#ffffff'
+    notebook: classic/AttentionIsAllYouNeed.ipynb
+    title: Attention Is All You Need
+    name: Attention Is All You Need
+    detail: The original transformer · Jun 2017
+    description: >-
+      The original transformer architecture from Attention Is All You Need (Jun 2017), the
+      encoder–decoder base model of the paper, held in FP32 as tensor2tensor runs it. The cached
+      pass generates new target tokens from the decoder alone.
+
+  - slug: mixtral-8x7b
+    group: classic
+    canvas: '#ffffff'
+    notebook: classic/Mixtral8x7B.ipynb
+    title: Mixtral-8x7B
+    name: Mixtral-8x7B
+    detail: Sparse mixture of experts · Dec 2023
+    description: >-
+      Mixtral-8x7B (Dec 2023), an open-source model which beat the original release of ChatGPT
+      (Nov 2022). The attention block captures five years of innovation, while the feed-forward
+      layer is replaced by a mixture of experts, only some of which process each token.
+
+  - slug: deepseek-v3
+    group: classic
+    canvas: '#ffffff'
+    notebook: classic/DeepSeekV3.ipynb
+    title: DeepSeek-V3
+    name: DeepSeek-V3
+    detail: Latent attention, mixture of experts · Dec 2024
+    description: >-
+      DeepSeek-V3 (Dec 2024), an open-source model which caught up to the latest models from
+      OpenAI, Google, and others. Note the innovations in the attention block, and the wide
+      mixture-of-experts feed-forward layer used.
+
+  - slug: glm-53
+    group: modern
+    canvas: '#1e1e1e'
+    notebook: modern/GLM53.ipynb
+    title: GLM-5.3
+    name: GLM-5.3
+    detail: Mixture of experts, sparse attention · Aug 2026
+    description: >-
+      GLM-5.3 (Aug 2026), following the Hugging Face reference implementation. Its changes
+      come from post-training, so this is also the architecture of GLM-5.2.
+
+  - slug: deepseek-v41-flash
+    group: modern
+    canvas: '#1e1e1e'
+    notebook: modern/DeepSeekV41Flash.ipynb
+    title: DeepSeek-V4.1-Flash
+    name: DeepSeek-V4.1-Flash
+    detail: Text-only · Sep 2026
+    description: >-
+      DeepSeek-V4.1-Flash (Sep 2026), restricted to a prompt of text and following the released
+      inference code. Quantised, every wire is labelled with the number format of its array; in
+      the reals, the model keeps the rounding of its three caches.
