@@ -125,12 +125,17 @@
   const paint = () => {
     paintFrame = 0;
     observeBoxes();
+    const moved = scale !== paintedScale || x !== paintedX || y !== paintedY;
     // One style mutation commits scale and translation together, before paint.
     canvas.style.willChange = 'transform';
     canvas.style.transform = `matrix(${scale},0,0,${scale},${x},${y})`;
     paintedScale = scale;
     paintedX = x;
     paintedY = y;
+    // The renderer stands the tooltip of a formula's index on the body, under
+    // its clause, and hides it when the page scrolls. The camera moves the
+    // clause without scrolling, so it reports the move as a scroll.
+    if (moved) document.dispatchEvent(new Event('scroll'));
     // Let the browser rasterise text at the final scale once movement stops.
     clearTimeout(rasterEnd);
     rasterEnd = setTimeout(() => { canvas.style.willChange = 'auto'; }, 180);

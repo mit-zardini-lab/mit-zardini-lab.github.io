@@ -19,7 +19,7 @@
 # An export may carry several variants of its model, such as the model decoding
 # with and without a cache, each quantised and unquantised. It then holds a
 # `tsncd-variants` element, whose format pyncd states in
-# obsidian/08-backends/Diagram Wire Format.md, under "A page that carries
+# obsidian/05-backends/Diagram Wire Format.md, under "A page that carries
 # several variants". For an export whose element lists two or more variants the
 # generator also writes, for every variant:
 #   /diagrams/<slug>/<variant>/            full-page viewer opened on that variant
@@ -85,6 +85,14 @@ module Diagrams
   # remains the unmodified original.
   class EmbedFile < Jekyll::StaticFile
     NOINDEX = '<meta name="robots" content="noindex">'
+    # The export draws its own light and dark themes, so Dark Reader is asked to
+    # leave it alone. On a dark system Dark Reader also paints every frame dark
+    # the moment it starts loading, until it learns whether it is on for the
+    # site. A page remembers the answer in sessionStorage, but this sandboxed
+    # frame cannot, so the diagram would flash dark on every load, even with
+    # Dark Reader switched off. The script removes that style before the body
+    # is parsed, so it is never painted.
+    DARK_READER = '<meta name="darkreader-lock"><script>document.querySelectorAll(".darkreader--fallback").forEach(function (style) { style.remove(); });</script>'
 
     def initialize(site, slug, figure, bridge)
       super(site, site.source, "diagrams/#{slug}/embed", "index.html")
@@ -100,6 +108,8 @@ module Diagrams
     def write(dest)
       target = destination(dest)
       html = File.binread(@figure)
+      opening = html.index("<head>")
+      html.insert(opening + "<head>".length, DARK_READER) if opening
       head = html.index("</head>")
       html.insert(head, NOINDEX) if head
       html.insert(html.rindex("</body>") || html.length, "<script>#{File.binread(@bridge)}</script>")
@@ -295,10 +305,14 @@ module Diagrams
       end
       diagram["quantisation"] = variants.any? { |variant| variant["counterpart"] }
       # The toolbar draws the passes as symbols, in place of the variant
-      # selector, where every pass is a paired group it has a symbol for.
+      # selector, where every pass is a group it has a symbol for and is one
+      # choice: a pair, or a single variant, as MiMo-V2.6-Pro's passes in the
+      # reals are until a quantised form joins them.
       groups = diagram["variant_groups"]
-      diagram["pass_symbols"] = groups.length >= 2 &&
-                                groups.all? { |group| group["paired"] && PASS_SYMBOLS.include?(group["id"]) }
+      diagram["pass_symbols"] = groups.length >= 2 && groups.all? do |group|
+        members = variants.count { |variant| variant["group"] == group["id"] }
+        PASS_SYMBOLS.include?(group["id"]) && (group["paired"] || members == 1)
+      end
     end
 
     def add_viewer_pages(site, diagram)

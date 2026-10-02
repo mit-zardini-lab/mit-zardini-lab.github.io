@@ -158,6 +158,19 @@ models:
       OpenAI, Google, and others. Note the innovations in the attention block, and the wide
       mixture-of-experts feed-forward layer used.
 
+  - slug: kimi-k3
+    group: modern
+    canvas: '#1e1e1e'
+    notebook: modern/KimiK3.ipynb
+    title: Kimi K3
+    name: Kimi K3
+    detail: Delta attention, attention residuals · Jul 2026
+    description: >-
+      Kimi K3 (Jul 2026), following the inference code Moonshot AI ships with the checkpoint, and
+      drawn in the reals. 69 of its 93 layers attend with Kimi Delta Attention, which carries a
+      state of fixed size from each token to the next, and attention residuals replace the
+      residual stream.
+
   - slug: glm-53
     group: modern
     canvas: '#1e1e1e'
@@ -180,3 +193,16 @@ models:
       DeepSeek-V4.1-Flash (Sep 2026), restricted to a prompt of text and following the released
       inference code. Quantised, every wire is labelled with the number format of its array; in
       the reals, the model keeps the rounding of its three caches.
+
+  - slug: mimo-v26-pro
+    group: modern
+    canvas: '#1e1e1e'
+    notebook: modern/MiMoV26Pro.ipynb
+    title: MiMo-V2.6-Pro
+    name: MiMo-V2.6-Pro
+    detail: Sliding-window attention, mixture of experts · Sep 2026
+    description: >-
+      MiMo-V2.6-Pro (Sep 2026), restricted to text, following the reference implementation
+      shipped in its checkpoint, and drawn in the reals. Sixty of its 70 layers attend through a
+      sliding window of 128 tokens and ten attend to every earlier token, so the cached pass keeps
+      only the last 127 tokens in the sliding-window layers.
