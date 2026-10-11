@@ -25,7 +25,10 @@
     <!-- <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     
     <!-- My CSS -->
-    <link rel="stylesheet" href="{{site.baseurl}}/css/my.css"> 
+    <link rel="stylesheet" href="{{site.baseurl}}/css/my.css">
+    {% for stylesheet in page.stylesheets %}
+    <link rel="stylesheet" href="{{site.baseurl}}{{ stylesheet }}?v={{ site.time | date: "%s" }}">
+    {% endfor %}
 
     <!-- Analytics -->
     {% if jekyll.environment == 'production' %}

@@ -4,7 +4,7 @@ title:  "Cassandra Tafuri Del Vecchio"
 last:   "Tafuri Del Vecchio"
 date:   2025-02-10 00:00:00 -0700
 position: alumni
-current: "MIT"
+current: "Undergraduate at MIT"
 wherefrom: "UROP"
 excerpt: ""
 img: cassandra_tafuri_del_vecchio.png

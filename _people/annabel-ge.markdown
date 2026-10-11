@@ -4,7 +4,7 @@ title:  "Annabel Ge"
 last:   "Ge"
 date:   2025-02-10 00:00:00 -0700
 position: alumni
-current: "MIT"
+current: "Undergraduate at MIT"
 excerpt: ""
 img: AnnabelGe.jpeg
 email: asge@mit.edu

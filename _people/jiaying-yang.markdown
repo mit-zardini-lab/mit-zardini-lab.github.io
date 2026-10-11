@@ -10,7 +10,7 @@ email: jiaying_yang@berkeley.edu
 website: https://tsrc.berkeley.edu/jiaying-yang
 wherefrom: "Visiting student from Tongji University and UC Berkeley"
 linkedin: jiaying-yang-87b6a928b
-current: "UC Berkeley"
+current: "Ph.D. at UC Berkeley"
 ---
 
 Jiaying is a master student in Transportation at UC Berkeley from Fall 2024. 

@@ -7,7 +7,7 @@ date:   2025-10-05 00:00:00 -0700
 position: alumni
 excerpt: ""
 wherefrom: "SuperUROP"
-current: "MIT"
+current: "Undergraduate at MIT"
 img: vdominguez.jpg
 email: vector@mit.edu
 linkedin: victor-gabriel-dominguez-459887345

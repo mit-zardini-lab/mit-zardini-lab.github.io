@@ -30,6 +30,8 @@ World Infrastructure Forum (Knowledge Manager)
 
 Selected member of the MIT Mobility Initiative (MMI) Mobility Council
 
+Lead, MEng on Data Science for Engineering Systems
+
 MIT Mobility Initiative (Affiliate Faculty)
 
 Norman B. Leventhal Center for Advanced Urbanism (Affiliate Faculty)

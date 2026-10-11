@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body id="page-top" class="diagram-page{% if page.expanded %} is-navigation-hidden{% endif %}">
+  {% include navbar.html %}
+  <main class="diagram-main">
+    {% include diagram-viewer.html diagram=page.diagram variant=page.variant mode="page" expanded=page.expanded %}
+  </main>
+  {% comment %} Only what the navbar needs; javascript.html also loads the publications search. {% endcomment %}
+  <script src="{{ site.baseurl }}/js/jquery.min.js"></script>
+  <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
+  <script src="{{ site.baseurl }}/js/diagram-viewer.js?v={{ site.time | date: "%s" }}"></script>
+</body>
+</html>

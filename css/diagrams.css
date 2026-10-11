@@ -1,0 +1,218 @@
+/* Interactive diagram viewer: _includes/diagram-viewer.html, js/diagram-viewer.js. */
+
+.diagram-viewer {
+  --dv-ink: #222222;
+  --dv-muted: #666666;
+  --dv-line: #d6d6d6;
+  --dv-panel: #f5f5f5;
+  --dv-accent: #750014;
+  --dv-link: #2864B7;
+  --dv-canvas: #1e1e1e;
+  --dv-canvas-ink: #dedede;
+  color: var(--dv-ink);
+  text-align: left;
+}
+/* Bootstrap's [hidden] rule has no !important, so it loses to the display rules below. */
+.diagram-viewer [hidden] { display: none !important; }
+.diagram-viewer :focus-visible { outline: 2px solid var(--dv-link); outline-offset: 2px; }
+
+/* Full-page viewer: the compact site navigation, then the viewer filling the rest. */
+body.diagram-page { height: 100vh; height: 100dvh; margin: 0; padding: 0 !important; display: flex; flex-direction: column; overflow: hidden; }
+.diagram-page #mainNav { flex: none; }
+.diagram-page .navbar-items { margin-top: 16px; }
+.diagram-page.is-navigation-hidden #mainNav { display: none; }
+.diagram-page .diagram-main { flex: 1; min-height: 0; display: flex; }
+.diagram-page .diagram-viewer { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+.diagram-page .viewer-stage { flex: 1; min-height: 0; }
+
+/* Inline viewer inside another page. */
+.diagram-viewer[data-mode="inline"] { border: 1px solid var(--dv-line); margin: 12px 0 30px; }
+.diagram-viewer[data-mode="inline"] .viewer-stage { height: 72vh; min-height: 380px; max-height: 780px; }
+
+/* Toolbar */
+.viewer-toolbar { position: relative; z-index: 3; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 16px; background: #fff; border-bottom: 1px solid var(--dv-line); font-size: 15px; line-height: 1.3; }
+.diagram-selector { position: relative; flex: 0 1 auto; min-width: 0; margin-right: auto; }
+.diagram-selector summary { display: flex; align-items: center; gap: 14px; min-height: 40px; padding: 6px 12px; border: 1px solid var(--dv-line); background: var(--dv-panel); cursor: pointer; list-style: none; font-size: 17px; font-weight: 600; }
+.diagram-selector summary::-webkit-details-marker { display: none; }
+.diagram-selector summary:hover, .diagram-selector[open] summary { border-color: var(--dv-accent); }
+.selector-label { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.selector-title-short { display: none; }
+.selector-indicator { flex: none; transition: transform .15s ease; }
+.diagram-selector[open] .selector-indicator { transform: rotate(180deg); }
+
+.diagram-options { position: absolute; z-index: 10; top: calc(100% + 6px); left: 0; width: max(100%, 380px); max-width: calc(100vw - 32px); max-height: min(70vh, 560px); overflow-y: auto; padding: 6px 0 8px; background: #fff; border: 1px solid var(--dv-line); box-shadow: 0 10px 28px rgba(0, 0, 0, .18); }
+.diagram-options-group { margin: 0; padding: 10px 16px 4px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--dv-muted); }
+.diagram-options ul, .variant-options ul { margin: 0; padding: 0; list-style: none; }
+.diagram-options a, .diagram-options a:link, .diagram-options a:visited,
+.variant-options a, .variant-options a:link, .variant-options a:visited { display: block; padding: 7px 16px 7px 13px; border-left: 3px solid transparent; color: var(--dv-ink); text-decoration: none; }
+.diagram-options a:hover, .diagram-options a:focus, .variant-options a:hover, .variant-options a:focus { background: var(--dv-panel); color: var(--dv-ink); text-decoration: none; }
+.diagram-options a[aria-current="true"], .variant-options a[aria-current="true"] { border-left-color: var(--dv-accent); }
+.diagram-options a[aria-current="true"] .option-title, .variant-options a[aria-current="true"] .option-title { color: var(--dv-accent); }
+.option-title { display: block; font-size: 16px; font-weight: 600; }
+.option-detail { display: block; font-size: 13.5px; color: var(--dv-muted); }
+
+/* The variant selector: the model selector's look at the size of the form buttons beside it. */
+.variant-selector { position: relative; flex: 0 1 auto; min-width: 0; }
+.variant-selector summary { display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 4px 10px; border: 1px solid var(--dv-line); background: var(--dv-panel); cursor: pointer; list-style: none; font-size: 14px; font-weight: 600; }
+.variant-selector summary::-webkit-details-marker { display: none; }
+.variant-selector summary:hover, .variant-selector[open] summary { border-color: var(--dv-accent); }
+.variant-selector[open] .selector-indicator { transform: rotate(180deg); }
+.variant-label { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.variant-group { margin-right: 6px; color: var(--dv-muted); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; }
+.variant-group:empty { display: none; }
+.variant-options { position: absolute; z-index: 10; top: calc(100% + 6px); left: 0; width: 340px; max-width: calc(100vw - 32px); max-height: min(70vh, 560px); overflow-y: auto; padding: 6px 0 8px; background: #fff; border: 1px solid var(--dv-line); box-shadow: 0 10px 28px rgba(0, 0, 0, .18); }
+.variant-options .option-title { font-size: 15px; }
+.variant-options .option-detail { font-size: 13px; }
+
+.diagram-navigation { display: flex; align-items: center; gap: 8px; }
+.diagram-guide, .diagram-guide:link, .diagram-guide:visited { display: inline-flex; align-items: center; min-height: 40px; padding: 0 12px; border: 1px solid var(--dv-line); color: var(--dv-ink); font-size: 14px; white-space: nowrap; text-decoration: none; }
+.diagram-guide:hover, .diagram-guide:focus { border-color: var(--dv-accent); color: var(--dv-accent); text-decoration: none; }
+
+.diagram-forms, .diagram-quantisation, .diagram-passes { display: flex; align-items: center; }
+.diagram-forms-label { margin-right: 8px; color: var(--dv-muted); font-size: 14px; }
+.diagram-forms > button, .diagram-quantisation > button, .diagram-passes > button { display: inline-flex; align-items: center; justify-content: center; width: 46px; min-height: 40px; padding: 0; border: 1px solid var(--dv-line); background: #fff; color: var(--dv-muted); }
+.diagram-forms > button + button, .diagram-quantisation > button + button, .diagram-passes > button + button { margin-left: -1px; }
+.diagram-forms > button:hover, .diagram-quantisation > button:hover, .diagram-passes > button:hover { position: relative; color: var(--dv-accent); border-color: var(--dv-accent); }
+.diagram-forms > button[aria-pressed="true"], .diagram-quantisation > button[aria-pressed="true"], .diagram-passes > button[aria-pressed="true"] { position: relative; background: #f6ecee; color: var(--dv-accent); border-color: var(--dv-accent); }
+.diagram-forms svg { display: block; }
+
+/* The ℝ/FP toggle: ℝ in a maths face for the model in the reals, FP set as code for its number formats. */
+.diagram-quantisation > button, .diagram-passes > button { width: 40px; }
+.diagram-passes svg { display: block; }
+.symbol-reals { font-family: "Cambria Math", "STIX Two Math", "STIX Two Text", "Latin Modern Math", "Times New Roman", serif; font-size: 21px; line-height: 1; }
+.diagram-quantisation code.symbol-fp { padding: 0; border-radius: 0; background: none; color: inherit; font-family: SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 14px; font-weight: 600; line-height: 1; white-space: nowrap; }
+
+/* On a phone, the pass symbols, the ℝ/FP toggle and the form buttons are each a dropdown with no
+   triangle: the summary shows the current choice, and the options list every choice with its name,
+   marked like the variant options. */
+.control-menu { position: relative; display: none; }
+.control-menu summary { display: flex; align-items: center; justify-content: center; min-width: 40px; min-height: 40px; padding: 4px 8px; border: 1px solid var(--dv-line); background: var(--dv-panel); color: var(--dv-accent); cursor: pointer; list-style: none; }
+.control-menu summary::-webkit-details-marker { display: none; }
+.control-menu summary:hover, .control-menu[open] summary { border-color: var(--dv-accent); }
+.control-menu-current { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; }
+.control-menu-current svg, .control-menu-icon svg { display: block; }
+.control-menu-options { position: absolute; z-index: 10; top: calc(100% + 6px); left: 0; width: max-content; min-width: 220px; max-width: calc(100vw - 32px); padding: 6px 0 8px; background: #fff; border: 1px solid var(--dv-line); box-shadow: 0 10px 28px rgba(0, 0, 0, .18); }
+.control-menu-options button { display: flex; align-items: center; gap: 12px; width: 100%; padding: 8px 16px 8px 13px; border: 0; border-left: 3px solid transparent; background: none; color: var(--dv-ink); text-align: left; }
+.control-menu-options button:hover, .control-menu-options button:focus { background: var(--dv-panel); }
+.control-menu-options button[aria-pressed="true"] { border-left-color: var(--dv-accent); }
+.control-menu-options button[aria-pressed="true"] .option-title, .control-menu-options button[aria-pressed="true"] .control-menu-icon { color: var(--dv-accent); }
+.control-menu-icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 32px; color: var(--dv-muted); }
+.control-menu-text { min-width: 0; }
+.control-menu-options .option-title { font-size: 15px; }
+.control-menu-options .option-detail { font-size: 13px; }
+.diagram-theme { display: inline-flex; align-items: center; justify-content: center; width: 40px; min-height: 40px; padding: 0; border: 1px solid var(--dv-line); background: #fff; color: var(--dv-muted); }
+.diagram-theme:hover { color: var(--dv-accent); border-color: var(--dv-accent); }
+.diagram-theme[aria-pressed="true"] { color: var(--dv-ink); }
+
+.diagram-zoom { display: flex; align-items: center; gap: 2px; }
+.diagram-zoom button { min-width: 30px; min-height: 40px; padding: 0 6px; border: 0; background: transparent; color: var(--dv-ink); font-size: 17px; line-height: 1; }
+.diagram-zoom [data-zoom="reset"] { min-width: 50px; font-size: 14px; font-variant-numeric: tabular-nums; }
+.diagram-zoom button:hover:not(:disabled) { color: var(--dv-accent); }
+.diagram-zoom button:disabled, .diagram-zoom input:disabled { cursor: wait; opacity: .4; }
+.diagram-zoom input { width: 150px; height: 40px; margin: 0 4px; background: transparent; cursor: ew-resize; accent-color: var(--dv-accent); }
+
+.viewer-controls { position: relative; display: flex; align-items: center; gap: 6px; }
+.viewer-controls button, .viewer-controls a.diagram-expand, .viewer-controls a.diagram-notebook { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 12px; border: 1px solid var(--dv-line); background: #fff; color: var(--dv-ink); font-size: 14px; white-space: nowrap; text-decoration: none; }
+.viewer-controls a.diagram-expand:link, .viewer-controls a.diagram-expand:visited,
+.viewer-controls a.diagram-notebook:link, .viewer-controls a.diagram-notebook:visited { color: var(--dv-ink); text-decoration: none; }
+.viewer-controls button:hover, .viewer-controls a.diagram-expand:hover, .viewer-controls a.diagram-expand:focus,
+.viewer-controls a.diagram-notebook:hover, .viewer-controls a.diagram-notebook:focus { border-color: var(--dv-accent); color: var(--dv-accent); text-decoration: none; }
+.viewer-controls .diagram-share { width: 40px; padding: 0; }
+.viewer-controls svg { flex: none; }
+.diagram-expand .restore-icon { display: none; }
+.is-expanded .diagram-expand .expand-icon { display: none; }
+.is-expanded .diagram-expand .restore-icon { display: block; }
+.diagram-share-feedback { position: absolute; top: calc(100% + 8px); right: 0; z-index: 5; width: max-content; max-width: calc(100vw - 24px); padding: 10px 12px; border: 1px solid var(--dv-line); background: #fff; box-shadow: 0 6px 20px rgba(0, 0, 0, .15); font-size: 14px; }
+.diagram-share-feedback input { display: block; width: min(300px, calc(100vw - 52px)); margin-top: 6px; padding: 6px; border: 1px solid var(--dv-line); font: inherit; }
+
+/* Stage */
+.viewer-stage { position: relative; overflow: hidden; isolation: isolate; background: var(--dv-canvas); color: var(--dv-canvas-ink); }
+.viewer-stage iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; background: var(--dv-canvas); }
+
+.viewer-poster { position: absolute; inset: 0; }
+.viewer-poster img { position: absolute; left: 0; top: 0; width: 1440px; height: 900px; max-width: none; }
+.viewer-prompt { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(20, 20, 20, .3); }
+.viewer-prompt-card { width: 100%; max-width: 470px; padding: 24px 28px 20px; background: #fff; color: var(--dv-ink); box-shadow: 0 14px 36px rgba(0, 0, 0, .3); text-align: center; }
+.viewer-prompt-title { margin: 0; font-size: 27px; font-weight: 600; line-height: 1.2; }
+.viewer-prompt-detail { margin: 4px 0 20px; color: var(--dv-muted); font-size: 16px; }
+.viewer-prompt a.load-diagram, .viewer-prompt a.load-diagram:link, .viewer-prompt a.load-diagram:visited { display: inline-block; padding: 11px 24px; background: var(--dv-accent); color: #fff; font-size: 17px; font-weight: 600; text-decoration: none; }
+.viewer-prompt a.load-diagram:hover, .viewer-prompt a.load-diagram:focus { background: #5c0010; color: #fff; text-decoration: none; }
+.viewer-prompt-hint { margin: 14px 0 0; color: var(--dv-muted); font-size: 14px; line-height: 1.45; }
+.hint-touch { display: none; }
+@media (hover: none) {
+  .hint-pointer { display: none; }
+  .hint-touch { display: inline; }
+}
+
+/* Covers the export while it switches between ℝ and FP, drawn like the export's own loading screen. */
+.viewer-loading { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; gap: 14px; align-items: center; justify-content: center; background: var(--dv-canvas); color: var(--dv-canvas-ink); font-family: sans-serif; pointer-events: none; }
+.viewer-loading-ring { width: 36px; height: 36px; border: 3px solid currentColor; border-right-color: transparent; border-radius: 50%; opacity: .7; animation: viewer-loading-turn .9s linear infinite; }
+.viewer-loading-text { margin: 0; padding: 0 16px; font-size: 15px; text-align: center; opacity: .8; }
+@keyframes viewer-loading-turn { to { transform: rotate(360deg); } }
+
+/* An address or a message naming a view the diagram does not have: js/diagram-viewer.js writes the reasons in place of the diagram. */
+.viewer-refusal { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.viewer-refusal-card { max-width: 560px; padding: 20px 24px 12px; border: 1px solid var(--dv-line); background: #fff; color: var(--dv-ink); font-size: 15px; line-height: 1.5; }
+.viewer-refusal-card p { margin: 0 0 8px; }
+.viewer-refusal-card .viewer-refusal-title { font-size: 17px; font-weight: 600; }
+.is-refused .diagram-forms, .is-refused .diagram-theme, .is-refused .variant-selector, .is-refused .diagram-quantisation, .is-refused .diagram-passes, .is-refused .diagram-zoom, .is-refused .diagram-share { display: none !important; }
+
+.diagram-caption { margin: 0; padding: 12px 16px 14px; border-top: 1px solid var(--dv-line); background: #fff; color: #444; font-size: 16px; line-height: 1.5; }
+.viewer-noscript { margin: 0; padding: 12px 16px; font-size: 15px; }
+
+/* Expanded: one thin bar with the compact selector, share and restore. */
+.diagram-viewer.is-expanded .viewer-toolbar { flex-wrap: nowrap; gap: 8px; padding: 2px 6px; }
+.is-expanded .diagram-selector summary { min-height: 30px; padding: 2px 6px; border: 0; background: transparent; font-size: 14px; gap: 8px; }
+.is-expanded .diagram-selector summary:hover { background: var(--dv-panel); }
+.is-expanded .selector-title-full { display: none; }
+.is-expanded .selector-title-short { display: inline; }
+.is-expanded .viewer-controls { gap: 2px; }
+.is-expanded .viewer-controls button, .is-expanded .viewer-controls a.diagram-notebook { min-height: 30px; width: 30px; padding: 0; border: 0; }
+.is-expanded .viewer-controls button:hover, .is-expanded .viewer-controls a.diagram-notebook:hover { background: var(--dv-panel); }
+.is-expanded .diagram-expand span, .is-expanded .diagram-notebook span { display: none; }
+.is-expanded .diagram-forms-label { display: none; }
+.is-expanded .diagram-forms > button { width: 38px; min-height: 30px; border-color: transparent; background: transparent; }
+.is-expanded .diagram-quantisation > button, .is-expanded .diagram-passes > button { width: 32px; min-height: 30px; border-color: transparent; background: transparent; }
+.is-expanded .diagram-forms > button[aria-pressed="true"], .is-expanded .diagram-quantisation > button[aria-pressed="true"], .is-expanded .diagram-passes > button[aria-pressed="true"] { background: #f6ecee; border-color: transparent; }
+.is-expanded .control-menu summary { min-height: 30px; padding: 2px 6px; border: 0; background: transparent; }
+.is-expanded .control-menu summary:hover { background: var(--dv-panel); }
+.is-expanded .diagram-theme { width: 32px; min-height: 30px; border-color: transparent; background: transparent; }
+.is-expanded .variant-selector summary { min-height: 30px; padding: 2px 6px; border: 0; background: transparent; font-size: 13px; gap: 6px; }
+.is-expanded .variant-selector summary:hover { background: var(--dv-panel); }
+
+@media (max-width: 1199px) {
+  .diagram-forms-label { display: none; }
+}
+@media (max-width: 1099px) {
+  .diagram-zoom input { display: none; }
+}
+@media (max-width: 767px) {
+  .diagram-forms > button, .diagram-quantisation > button, .diagram-passes > button { display: none; }
+  .control-menu { display: block; }
+  /* Room in the expanded bar for the model's and the pass's names beside the dropdowns. */
+  .diagram-viewer.is-expanded .viewer-toolbar { gap: 2px; }
+  .is-expanded .control-menu summary { min-width: 32px; padding: 2px 4px; }
+  .is-expanded .diagram-selector summary, .is-expanded .variant-selector summary { gap: 4px; padding: 2px 4px; }
+  .viewer-toolbar { padding: 8px 10px; gap: 8px; }
+  .diagram-selector { flex-basis: 100%; margin-right: 0; }
+  .diagram-viewer[data-mode="inline"] .diagram-selector { flex: 1 1 0; }
+  .diagram-viewer.is-expanded .diagram-selector { flex-basis: auto; margin-right: auto; }
+  .diagram-selector summary { font-size: 16px; }
+  .diagram-navigation { margin-right: auto; }
+  .diagram-viewer[data-mode="inline"] .diagram-zoom { margin-right: auto; }
+  .diagram-expand span, .diagram-notebook span { display: none; }
+  .viewer-controls .diagram-expand, .viewer-controls .diagram-notebook { width: 40px; padding: 0; }
+  .diagram-viewer[data-mode="inline"] .viewer-stage { height: 65vh; min-height: 340px; }
+  .viewer-prompt-card { padding: 18px 18px 16px; }
+  .viewer-prompt-title { font-size: 22px; }
+  .viewer-prompt-detail { margin-bottom: 16px; font-size: 15px; }
+  .diagram-caption { font-size: 15px; }
+}
+@media (max-width: 480px) {
+  .selector-title-full { display: none; }
+  .selector-title-short { display: inline; }
+  .diagram-guide { padding: 0 10px; font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .selector-indicator { transition: none; }
+}

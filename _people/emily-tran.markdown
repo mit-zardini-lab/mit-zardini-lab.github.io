@@ -4,7 +4,7 @@ title:  "Emily Tran"
 last:   "Tran"
 date:   2024-12-13 00:00:00 -0700
 position: alumni
-current: "MIT"
+current: "Undergraduate at MIT"
 wherefrom: "Mini-UROP"
 excerpt: ""
 img: etran.jpeg

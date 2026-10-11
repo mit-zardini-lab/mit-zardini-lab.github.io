@@ -195,6 +195,10 @@ a.white-link, a.white-link:active, a.white-link:focus {
   text-decoration: underline;
 }
 
+a.blue-link, a.blue-link:active, a.blue-link:focus {
+  color: #2864B7;
+}
+
 li > span >a:link, a:active, a:focus, .entry-title {
   color: #750014;
 }

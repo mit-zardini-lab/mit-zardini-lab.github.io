@@ -4,7 +4,8 @@ title:  "Alexander Jaquez Peralta"
 last:   "Jaquez Peralta"
 date:   2026-02-27 00:00:00 -0700
 position: alumni
-current: "MIT"
+wherefrom: UROP
+current: "Undergraduate at MIT"
 excerpt: ""
 img: AlexanderJP.jpg
 email: ajaquez@mit.edu

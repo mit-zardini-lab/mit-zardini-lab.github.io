@@ -4,7 +4,7 @@ title:  "Kiwan Wong"
 last:   "Wong"
 date:   2024-07-25 00:00:00 -0700
 position: alumni
-current: MIT
+current: "Ph.D. at MIT"
 excerpt: ""
 img: KiwanWong.jpg
 email: kiwan588@mit.edu
