@@ -228,7 +228,7 @@
     </layout>
   </citation>
   <!-- Bibliography -->
-  <bibliography entry-spacing="0" second-field-align="flush">
+  <bibliography entry-spacing="0">
     <layout suffix=".">
     <!-- <layout suffix=""> -->
       <!-- Citation Number - removed by Federico--> 
