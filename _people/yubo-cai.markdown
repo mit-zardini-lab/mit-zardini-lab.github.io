@@ -3,7 +3,7 @@ layout: person
 title:  "Yubo Cai"
 last:   "Cai"
 date:   2025-06-26 00:00:00 -0700
-position: phdcsecee
+position: phdceecse
 excerpt: "Compositional co-design, optimization, and multi-agent systems."
 img: YuboCai.jpeg
 email: yubocai@mit.edu
