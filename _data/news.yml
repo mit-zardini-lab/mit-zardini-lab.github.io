@@ -239,5 +239,15 @@
       description: "Gioele gave an IDSS seminar at MIT"
     - date: "10/14/2026"
       description: "Check out our new zardini.mit.edu/diagrams website on interactive diagrams for deep learning architectures!"
+    - date: "10/22/2026"
+      description: "Our book on Principles of Robot Autonomy (PoRA) is officially out!"
+    - date: "10/23/2026"
+      description: "Gioele gave a talk at the University of Zurich's Department of Mathematics."
+    - date: "10/27/2026"
+      description: "Gioele gave keynote at the CSFM Symposium at ETH Zurich!"
+    - date: "10/28/2026"
+      description: "The World Infrastructure Forum was a great success! Looking forward to the next one."
+    - date: "11/04/2026"
+      description: "Check out the 3Qs about our new PoRA book <b><a class='black-link' href='https://cee.mit.edu/3-questions-gioele-zardini-on-why-robots-need-both-classical-engineering-and-ai/'>here</a></b>!"
 
 
