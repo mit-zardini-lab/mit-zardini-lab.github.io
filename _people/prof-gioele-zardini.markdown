@@ -26,6 +26,8 @@ Lead PI, AFOSR Center of Excellence on Compositional Optimization, Dynamical Sys
 
 MIT Maritime Consortium (Steering Committee, leading Optimization Vertical)
 
+Amazon Scholar at Amazon Robotics
+
 World Infrastructure Forum (Knowledge Manager)
 
 Selected member of the MIT Mobility Initiative (MMI) Mobility Council
@@ -61,6 +63,8 @@ Driven by societal challenges, the goal of his research is to develop efficient 
 His interests include the co-design complex systems, all the way from future mobility systems to autonomous systems, compositionality in engineering, planning and control, and game theory.
 
 He is the lead PI for the AFOSR Center of Excellence on Compositional Optimization, Dynamical Systems, and Control.
+
+He is also an Amazon Scholar, where he leads efforts on the design and coordination of heterogeneous robot fleets at the largest scale in the world, with over 1 million mobile robots across hundreds of Amazon facilities.
 
 He is the recipient of the ETH Silver Medal for his Doctoral Thesis, the 2025 DARPA Young Faculty Award, the 2026 Maseeh Excellence in Teaching Award in CEE at MIT, an award (keynote talk) at the 2021 Applied Category Theory Conference, the Best Paper Award (1st Place) at the 2021 24th IEEE International Conference on Intelligent Transportation Systems (ITSC), and Amazon, DoE, AFOSR, and MISTI-UK awards.
 		
