@@ -1510,5 +1510,14 @@ The proposed framework provides a foundation for improving interdependent networ
   grants={}
   }
 
+  @unpublished{jiaruikinodynamic26,
+  author={Li, Jiarui and Zhang, Runyu and Zardini, Gioele},
+  title={Real-Time Kinodynamic Multi-Agent Motion Planning},
+  year={2026},
+  abstract = {Coordinating large robot fleets, from warehouses to quadrotor swarms, requires collision-free trajectories that satisfy dynamic constraints and stay within speed and acceleration bounds. Existing kinodynamic multi-agent planners enforce these bounds during the search or through trajectory optimization after it, which limits fleet size and speed. We present Tickwise Actions to Kinodynamic Trajectories (TAKT), a framework that accounts for the dynamics before the search and reduces planning to a lattice search for double-integrator robots. TAKT analytically bounds the clearance lost when a discrete plan is smoothed and reserves this margin on the lattice. A closed-form convolution provably converts any valid plan into dynamically feasible trajectories with continuous-time collision avoidance. For robots spanning many lattice vertices, we introduce a diamond formulation that permits one-tick sideways yielding and adapt the Multi-Agent Path Finding (MAPF) solvers PIBT and LaCAM to it. With 50 robots, our planners run over 2,000 times faster than the strongest baseline in 2D halls and over 100 times in 3D, with comparable or lower makespan and cost. They plan about a thousand robots in seconds in 2D, and tens of seconds in 3D, and replan up to a thousand robots in real time.},
+  url={https://arxiv.org/pdf/2611.29548},
+  grants={amazon}
+  }
+
 
 
